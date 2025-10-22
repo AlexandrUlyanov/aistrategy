@@ -82,7 +82,7 @@ const Hero = ({ language }) => {
       </div>
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="absolute -bottom-16 -right-4 bg-gradient-to-br from-teal-600 to-teal-800 border border-teal-400/30 p-4 rounded-xl shadow-2xl">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
