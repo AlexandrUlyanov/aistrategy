@@ -46,78 +46,141 @@ export const services = [
 export const portfolio = [
   {
     id: 1,
-    title: "Entraycompara",
-    description: "SaaS platform for price comparison with AI-powered recommendations",
-    descriptionEs: "Plataforma SaaS de comparación de precios con recomendaciones impulsadas por IA",
-    category: "SaaS Platform",
-    categoryEs: "Plataforma SaaS",
-    image: "https://images.unsplash.com/photo-1502945015378-0e284ca1a5be?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzV8MHwxfHNlYXJjaHwxfHx3ZWJzaXRlJTIwZGVzaWduJTIwcG9ydGZvbGlvfGVufDB8fHx8MTc2MTExNTc3NHww&ixlib=rb-4.1.0&q=85",
+    title: "Villa Lanperna",
+    description: "Luxury villa rental brand in San Sebastián with premium digital presence",
+    descriptionEs: "Marca de alquiler de villas de lujo en San Sebastián con presencia digital premium",
+    category: "Luxury Hospitality",
+    categoryEs: "Hospitalidad de Lujo",
+    image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80",
+    challenge: "Transform a luxury villa into a recognizable brand with international reach",
+    challengeEs: "Transformar una villa de lujo en una marca reconocible con alcance internacional",
+    solution: "Created complete digital ecosystem: brand identity, website, booking integration, and social media strategy",
+    solutionEs: "Creamos ecosistema digital completo: identidad de marca, sitio web, integración de reservas y estrategia en redes sociales",
     metrics: {
-      leads: "+180%",
-      traffic: "+250%",
-      conversions: "+120%"
+      bookings: "+380%",
+      rating: "4.89/5",
+      reviews: "171+"
     },
-    tags: ["Web Development", "SEO", "Marketing Automation"]
+    tags: ["Branding", "Web Design", "Digital Strategy"],
+    client: "Villa Lanperna",
+    location: "San Sebastián, Spain",
+    year: "2020-2025",
+    website: "villalanperna.com"
   },
   {
     id: 2,
-    title: "Hotel Luxury Brand",
-    description: "Complete branding and digital strategy for boutique hotel chain",
-    descriptionEs: "Branding completo y estrategia digital para cadena de hoteles boutique",
-    category: "Branding & Web",
-    categoryEs: "Branding & Web",
-    image: "https://images.unsplash.com/photo-1583932692875-a42450d50acf?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzV8MHwxfHNlYXJjaHwyfHx3ZWJzaXRlJTIwZGVzaWduJTIwcG9ydGZvbGlvfGVufDB8fHx8MTc2MTExNTc3NHww&ixlib=rb-4.1.0&q=85",
+    title: "MRMAG",
+    description: "Digital transformation for leading media publishing house",
+    descriptionEs: "Transformación digital para casa editorial líder en medios",
+    category: "Media & Publishing",
+    categoryEs: "Medios y Publicación",
+    image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&q=80",
+    challenge: "Modernize digital presence and increase online engagement",
+    challengeEs: "Modernizar presencia digital y aumentar compromiso online",
+    solution: "Redesigned platform with content management system, SEO optimization, and advertising integration",
+    solutionEs: "Rediseñamos plataforma con sistema de gestión de contenidos, optimización SEO e integración publicitaria",
     metrics: {
-      bookings: "+95%",
-      engagement: "+140%",
-      revenue: "+210%"
+      traffic: "+250%",
+      engagement: "+180%",
+      revenue: "+95%"
     },
-    tags: ["Branding", "Website", "Content Marketing"]
+    tags: ["Web Development", "Content Strategy", "SEO"],
+    client: "MRMAG",
+    location: "Russia",
+    year: "2018-2024",
+    website: "mrmag.ru"
   },
   {
     id: 3,
-    title: "Mandela Vintage Shop",
-    description: "E-commerce platform with integrated social media marketing",
-    descriptionEs: "Plataforma de e-commerce con marketing integrado en redes sociales",
+    title: "T-Tepla",
+    description: "Industrial heating solutions company digital infrastructure",
+    descriptionEs: "Infraestructura digital para empresa de soluciones de calefacción industrial",
+    category: "B2B Industrial",
+    categoryEs: "B2B Industrial",
+    image: "https://images.unsplash.com/photo-1581092160607-ee67d66e9aa3?w=800&q=80",
+    challenge: "Create professional B2B platform for complex industrial products",
+    challengeEs: "Crear plataforma B2B profesional para productos industriales complejos",
+    solution: "Developed comprehensive website with product catalog, technical documentation, and lead generation system",
+    solutionEs: "Desarrollamos sitio web integral con catálogo de productos, documentación técnica y sistema de generación de leads",
+    metrics: {
+      leads: "+160%",
+      conversion: "+85%",
+      sales: "+120%"
+    },
+    tags: ["B2B Platform", "Lead Generation", "Technical Documentation"],
+    client: "T-Tepla",
+    location: "Russia",
+    year: "2019-2024",
+    website: "t-tepla.ru"
+  },
+  {
+    id: 4,
+    title: "Vodovorot",
+    description: "Water treatment equipment e-commerce and brand positioning",
+    descriptionEs: "E-commerce de equipos de tratamiento de agua y posicionamiento de marca",
     category: "E-commerce",
     categoryEs: "E-commerce",
-    image: "https://images.unsplash.com/photo-1658863025658-4a259cc68fc9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzV8MHwxfHNlYXJjaHw0fHx3ZWJzaXRlJTIwZGVzaWduJTIwcG9ydGZvbGlvfGVufDB8fHx8MTc2MTExNTc3NHww&ixlib=rb-4.1.0&q=85",
+    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80",
+    challenge: "Build online sales channel for specialized equipment with complex decision-making process",
+    challengeEs: "Construir canal de ventas online para equipos especializados con proceso de decisión complejo",
+    solution: "E-commerce platform with product comparison tools, expert consultation system, and educational content",
+    solutionEs: "Plataforma e-commerce con herramientas de comparación de productos, sistema de consulta experta y contenido educativo",
     metrics: {
       sales: "+300%",
       customers: "+220%",
       roi: "450%"
     },
-    tags: ["E-commerce", "Social Media", "Paid Ads"]
-  },
-  {
-    id: 4,
-    title: "Energy Export Solutions",
-    description: "B2B platform for renewable energy international trade",
-    descriptionEs: "Plataforma B2B para comercio internacional de energía renovable",
-    category: "B2B Platform",
-    categoryEs: "Plataforma B2B",
-    image: "https://images.pexels.com/photos/7129654/pexels-photo-7129654.jpeg",
-    metrics: {
-      deals: "+160%",
-      partners: "+85%",
-      expansion: "12 countries"
-    },
-    tags: ["Web Platform", "International Marketing", "Lead Generation"]
+    tags: ["E-commerce", "UX Design", "Content Marketing"],
+    client: "Vodovorot",
+    location: "Russia",
+    year: "2017-2024",
+    website: "vodovorot.info"
   },
   {
     id: 5,
-    title: "FacturaFlash",
-    description: "Automated invoicing SaaS with AI-powered expense tracking",
-    descriptionEs: "SaaS de facturación automatizada con seguimiento de gastos impulsado por IA",
-    category: "SaaS",
-    categoryEs: "SaaS",
-    image: "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg",
+    title: "Cardio Penza",
+    description: "Medical clinic digital presence and patient acquisition",
+    descriptionEs: "Presencia digital de clínica médica y adquisición de pacientes",
+    category: "Healthcare",
+    categoryEs: "Salud",
+    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80",
+    challenge: "Increase patient trust and appointment bookings for cardiology clinic",
+    challengeEs: "Aumentar confianza del paciente y reservas de citas para clínica de cardiología",
+    solution: "Professional medical website with online booking, doctor profiles, patient education, and local SEO",
+    solutionEs: "Sitio web médico profesional con reservas online, perfiles de doctores, educación al paciente y SEO local",
     metrics: {
-      users: "+400%",
-      retention: "94%",
-      nps: "89"
+      appointments: "+195%",
+      trust: "+240%",
+      retention: "94%"
     },
-    tags: ["Product Design", "Marketing", "Automation"]
+    tags: ["Healthcare Marketing", "Web Design", "Local SEO"],
+    client: "Cardio Penza",
+    location: "Russia",
+    year: "2016-2024",
+    website: "cardio-penza.ru"
+  },
+  {
+    id: 6,
+    title: "Surmeb",
+    description: "Medical equipment supplier B2B platform and brand development",
+    descriptionEs: "Plataforma B2B de proveedor de equipos médicos y desarrollo de marca",
+    category: "B2B Medical",
+    categoryEs: "B2B Médico",
+    image: "https://images.unsplash.com/photo-1583912086296-be5d5cb8e69c?w=800&q=80",
+    challenge: "Position medical equipment supplier as trusted partner for healthcare institutions",
+    challengeEs: "Posicionar proveedor de equipos médicos como socio confiable para instituciones de salud",
+    solution: "B2B platform with product catalog, procurement system, technical support, and educational resources",
+    solutionEs: "Plataforma B2B con catálogo de productos, sistema de adquisiciones, soporte técnico y recursos educativos",
+    metrics: {
+      partners: "+150%",
+      orders: "+280%",
+      satisfaction: "96%"
+    },
+    tags: ["B2B Platform", "Medical", "Digital Strategy"],
+    client: "Surmeb",
+    location: "Russia",
+    year: "2015-2024",
+    website: "surmeb.ru"
   }
 ];
 
