@@ -1,4 +1,4 @@
-// Mock data for GlobalScale Agency
+// Mock data for AUREUM DIGITAL
 
 export const services = [
   {
