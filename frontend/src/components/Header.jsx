@@ -54,7 +54,7 @@ const Header = ({ language, setLanguage }) => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#" className="flex items-center space-x-3 group">
+          <Link to="/" className="flex items-center space-x-3 group">
             <div className="flex items-center">
               <span className="text-2xl font-light tracking-wider text-graphite">
                 AUREUM
@@ -63,7 +63,7 @@ const Header = ({ language, setLanguage }) => {
                 DIGITAL
               </span>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
@@ -71,7 +71,8 @@ const Header = ({ language, setLanguage }) => {
               <a
                 key={index}
                 href={item.href}
-                className="text-sm tracking-wide text-gray-700 hover:text-golden transition-colors duration-200 font-light uppercase"
+                onClick={(e) => handleNavClick(e, item.href)}
+                className="text-sm tracking-wide text-gray-700 hover:text-golden transition-colors duration-200 font-light uppercase cursor-pointer"
               >
                 {language === 'es' ? item.labelEs : item.label}
               </a>
@@ -88,12 +89,6 @@ const Header = ({ language, setLanguage }) => {
             >
               <Globe className="w-4 h-4 mr-2" />
               {language === 'en' ? 'ES' : 'EN'}
-            </Button>
-            <Button
-              className="bg-graphite hover:bg-golden text-white px-6 transition-all duration-300"
-              onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
-            >
-              {language === 'es' ? 'Contacto' : 'Contact'}
             </Button>
           </div>
 
@@ -121,8 +116,8 @@ const Header = ({ language, setLanguage }) => {
                 <a
                   key={index}
                   href={item.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-graphite hover:text-golden transition-colors py-2 uppercase text-sm tracking-wide"
+                  onClick={(e) => handleNavClick(e, item.href)}
+                  className="text-graphite hover:text-golden transition-colors py-2 uppercase text-sm tracking-wide cursor-pointer"
                 >
                   {language === 'es' ? item.labelEs : item.label}
                 </a>
@@ -136,15 +131,6 @@ const Header = ({ language, setLanguage }) => {
                 >
                   <Globe className="w-4 h-4 mr-2" />
                   {language === 'en' ? 'ES' : 'EN'}
-                </Button>
-                <Button
-                  className="bg-graphite hover:bg-golden text-white flex-1"
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-                  }}
-                >
-                  {language === 'es' ? 'Contacto' : 'Contact'}
                 </Button>
               </div>
             </nav>
