@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from './ui/button';
 import { Menu, X, Globe } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -6,6 +7,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 const Header = ({ language, setLanguage }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,8 +22,25 @@ const Header = ({ language, setLanguage }) => {
     { label: 'Services', labelEs: 'Servicios', href: '#services' },
     { label: 'Projects', labelEs: 'Proyectos', href: '#projects' },
     { label: 'Process', labelEs: 'Proceso', href: '#process' },
-    { label: 'About', labelEs: 'Nosotros', href: '#about' }
+    { label: 'Blog', labelEs: 'Blog', href: '#blog' },
+    { label: 'Contact', labelEs: 'Contacto', href: '#contact' }
   ];
+
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    
+    // If we're on blog article page, navigate to home first
+    if (location.pathname.startsWith('/blog/')) {
+      navigate('/' + href);
+    } else {
+      // Smooth scroll to section
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <motion.header
