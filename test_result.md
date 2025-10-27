@@ -288,8 +288,7 @@ metadata:
   run_ui: true
 
 test_plan:
-  current_focus:
-    - "Mobile Performance Optimization"
+  current_focus: []
   stuck_tasks: []
   test_all: false
   test_priority: "critical_first"
