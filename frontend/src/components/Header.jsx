@@ -17,10 +17,9 @@ const Header = ({ language, setLanguage }) => {
 
   const menuItems = [
     { label: 'Services', labelEs: 'Servicios', href: '#services' },
-    { label: 'Portfolio', labelEs: 'Portafolio', href: '#portfolio' },
+    { label: 'Projects', labelEs: 'Proyectos', href: '#projects' },
     { label: 'Process', labelEs: 'Proceso', href: '#process' },
-    { label: 'Testimonials', labelEs: 'Testimonios', href: '#testimonials' },
-    { label: 'Blog', labelEs: 'Blog', href: '#blog' }
+    { label: 'About', labelEs: 'Nosotros', href: '#about' }
   ];
 
   return (
@@ -29,58 +28,58 @@ const Header = ({ language, setLanguage }) => {
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-black/80 backdrop-blur-lg border-b border-white/10' : 'bg-transparent'
+        isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#" className="flex items-center space-x-2 group">
-            <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-teal-500 rounded-lg flex items-center justify-center font-bold text-lg transform group-hover:scale-110 transition-transform duration-300">
-              GS
+          <a href="#" className="flex items-center space-x-3 group">
+            <div className="flex items-center">
+              <span className="text-2xl font-light tracking-wider text-graphite">
+                AUREUM
+              </span>
+              <span className="ml-2 text-2xl font-light tracking-wider text-golden">
+                DIGITAL
+              </span>
             </div>
-            <span className="text-xl font-bold gradient-text hidden sm:block">GlobalScale</span>
           </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
             {menuItems.map((item, index) => (
-              <motion.a
+              <a
                 key={index}
                 href={item.href}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 + 0.3 }}
-                className="text-gray-300 hover:text-white transition-colors duration-200 relative group"
+                className="text-sm tracking-wide text-gray-700 hover:text-golden transition-colors duration-200 font-light uppercase"
               >
                 {language === 'es' ? item.labelEs : item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-500 to-teal-500 group-hover:w-full transition-all duration-300"></span>
-              </motion.a>
+              </a>
             ))}
           </nav>
 
-          {/* CTA and Language Switcher */}
+          {/* CTA and Language */}
           <div className="hidden lg:flex items-center space-x-4">
             <Button
               variant="ghost"
               size="sm"
               onClick={() => setLanguage(language === 'en' ? 'es' : 'en')}
-              className="text-gray-300 hover:text-white"
+              className="text-gray-700 hover:text-golden"
             >
               <Globe className="w-4 h-4 mr-2" />
               {language === 'en' ? 'ES' : 'EN'}
             </Button>
             <Button
-              className="bg-gradient-to-r from-purple-600 to-teal-600 hover:from-purple-700 hover:to-teal-700 text-white px-6"
+              className="bg-graphite hover:bg-golden text-white px-6 transition-all duration-300"
               onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
             >
-              {language === 'es' ? 'Contáctanos' : 'Contact Us'}
+              {language === 'es' ? 'Contacto' : 'Contact'}
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden text-white p-2"
+            className="lg:hidden text-graphite p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -95,7 +94,7 @@ const Header = ({ language, setLanguage }) => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-black/95 backdrop-blur-lg border-t border-white/10"
+            className="lg:hidden bg-white border-t border-gray-200"
           >
             <nav className="container mx-auto px-4 py-6 flex flex-col space-y-4">
               {menuItems.map((item, index) => (
@@ -103,29 +102,29 @@ const Header = ({ language, setLanguage }) => {
                   key={index}
                   href={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-gray-300 hover:text-white transition-colors duration-200 py-2"
+                  className="text-graphite hover:text-golden transition-colors py-2 uppercase text-sm tracking-wide"
                 >
                   {language === 'es' ? item.labelEs : item.label}
                 </a>
               ))}
-              <div className="flex items-center space-x-4 pt-4 border-t border-white/10">
+              <div className="flex items-center space-x-4 pt-4 border-t border-gray-200">
                 <Button
                   variant="ghost"
                   size="sm"
                   onClick={() => setLanguage(language === 'en' ? 'es' : 'en')}
-                  className="text-gray-300 hover:text-white"
+                  className="text-graphite"
                 >
                   <Globe className="w-4 h-4 mr-2" />
                   {language === 'en' ? 'ES' : 'EN'}
                 </Button>
                 <Button
-                  className="bg-gradient-to-r from-purple-600 to-teal-600 hover:from-purple-700 hover:to-teal-700 text-white flex-1"
+                  className="bg-graphite hover:bg-golden text-white flex-1"
                   onClick={() => {
                     setIsMobileMenuOpen(false);
                     document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
                   }}
                 >
-                  {language === 'es' ? 'Contáctanos' : 'Contact Us'}
+                  {language === 'es' ? 'Contacto' : 'Contact'}
                 </Button>
               </div>
             </nav>
