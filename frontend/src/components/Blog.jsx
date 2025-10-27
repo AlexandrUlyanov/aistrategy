@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { blogPosts } from '../mockData';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
@@ -7,8 +8,8 @@ import { Badge } from './ui/badge';
 const Blog = ({ language }) => {
   const [selectedCategory, setSelectedCategory] = useState('all');
 
-  const categories = ['all', 'Brand Strategy', 'Digital Strategy', 'International Business'];
-  const categoriesEs = ['Todos', 'Estrategia de Marca', 'Estrategia Digital', 'Negocios Internacionales'];
+  const categories = ['all', 'Brand Strategy', 'Digital Strategy', 'International Business', 'Digital Marketing', 'Web Design'];
+  const categoriesEs = ['Todos', 'Estrategia de Marca', 'Estrategia Digital', 'Negocios Internacionales', 'Marketing Digital', 'Diseño Web'];
 
   const filteredPosts =
     selectedCategory === 'all'
@@ -64,45 +65,49 @@ const Blog = ({ language }) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="premium-card overflow-hidden hover-lift cursor-pointer group"
             >
-              <div className="relative h-56 overflow-hidden">
-                <img
-                  src={post.image}
-                  alt={post.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-graphite/60 to-transparent"></div>
-                <Badge className="absolute top-4 left-4 bg-white/95 text-graphite border-0">
-                  {language === 'es' ? post.categoryEs : post.category}
-                </Badge>
-              </div>
-
-              <div className="p-6">
-                <div className="flex items-center gap-4 text-sm text-gray-500 mb-3 font-light">
-                  <div className="flex items-center gap-1">
-                    <Calendar className="w-4 h-4" />
-                    <span>{new Date(post.date).toLocaleDateString(language === 'es' ? 'es-ES' : 'en-US')}</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Clock className="w-4 h-4" />
-                    <span>{post.readTime}</span>
-                  </div>
+              <Link 
+                to={`/blog/${post.slug}`}
+                className="block premium-card overflow-hidden hover-lift cursor-pointer group"
+              >
+                <div className="relative h-56 overflow-hidden">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-graphite/60 to-transparent"></div>
+                  <Badge className="absolute top-4 left-4 bg-white/95 text-graphite border-0">
+                    {language === 'es' ? post.categoryEs : post.category}
+                  </Badge>
                 </div>
 
-                <h3 className="text-xl font-light text-graphite mb-3 group-hover:text-golden transition-colors line-clamp-2">
-                  {language === 'es' ? post.titleEs : post.title}
-                </h3>
+                <div className="p-6">
+                  <div className="flex items-center gap-4 text-sm text-gray-500 mb-3 font-light">
+                    <div className="flex items-center gap-1">
+                      <Calendar className="w-4 h-4" />
+                      <span>{new Date(post.date).toLocaleDateString(language === 'es' ? 'es-ES' : 'en-US')}</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Clock className="w-4 h-4" />
+                      <span>{language === 'es' ? post.readTimeEs : post.readTime}</span>
+                    </div>
+                  </div>
 
-                <p className="text-gray-600 mb-4 line-clamp-3 font-light text-sm">
-                  {language === 'es' ? post.excerptEs : post.excerpt}
-                </p>
+                  <h3 className="text-xl font-light text-graphite mb-3 group-hover:text-golden transition-colors line-clamp-2">
+                    {language === 'es' ? post.titleEs : post.title}
+                  </h3>
 
-                <div className="flex items-center justify-between pt-4 border-t border-gray-200">
-                  <span className="text-sm text-gray-500 font-light">{post.author}</span>
-                  <ArrowRight className="w-4 h-4 text-golden group-hover:translate-x-1 transition-transform" />
+                  <p className="text-gray-600 mb-4 line-clamp-3 font-light text-sm">
+                    {language === 'es' ? post.excerptEs : post.excerpt}
+                  </p>
+
+                  <div className="flex items-center justify-between pt-4 border-t border-gray-200">
+                    <span className="text-sm text-gray-500 font-light">{post.author}</span>
+                    <ArrowRight className="w-4 h-4 text-golden group-hover:translate-x-1 transition-transform" />
+                  </div>
                 </div>
-              </div>
+              </Link>
             </motion.article>
           ))}
         </div>
