@@ -254,7 +254,7 @@ export const testimonials = [
   {
     id: 1,
     name: "Alexander Ulyanov",
-    position: "Owner",
+    position: "CEO",
     company: "Villa Lanperna",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80",
     quote: "AUREUM DIGITAL transformed our luxury villas into a recognized brand. Their strategic approach and attention to detail resulted in exceptional booking growth and international recognition.",
