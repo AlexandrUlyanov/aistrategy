@@ -89,8 +89,12 @@ const BlogArticle = ({ language = 'en' }) => {
 
   return (
     <div className="min-h-screen bg-white dark:bg-graphite pt-24 pb-20">
-      {/* Back Button */}
+      {/* Breadcrumbs and Back Button */}
       <div className="container mx-auto px-6 mb-8">
+        <div className="flex items-center justify-between mb-4">
+          <Breadcrumbs items={breadcrumbItems} language={language} />
+        </div>
+        
         <Link 
           to="/#blog"
           className="inline-flex items-center gap-2 text-graphite/60 dark:text-white/60 hover:text-gold dark:hover:text-gold transition-colors group"
