@@ -1845,10 +1845,7 @@ Track content's role in customer journey:
 
 ### 4. Calculate Content ROI
 
-Basic ROI formula:
-```
-ROI = (Revenue - Investment) / Investment × 100%
-```
+Basic ROI formula: ROI = (Revenue - Investment) / Investment × 100%
 
 **Investment Includes:**
 - Content creation costs (writing, design, production)
