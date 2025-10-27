@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Calendar, Clock, ArrowLeft, Tag } from 'lucide-react';
+import { Calendar, Clock, ArrowLeft, Tag, ArrowRight } from 'lucide-react';
 import { blogPosts } from '../mockData';
+import Breadcrumbs from './Breadcrumbs';
 
 const BlogArticle = ({ language = 'en' }) => {
   const { slug } = useParams();
@@ -16,14 +17,37 @@ const BlogArticle = ({ language = 'en' }) => {
     return <Navigate to="/#blog" replace />;
   }
 
-  const relatedArticles = blogPosts
-    .filter(post => post.slug !== slug && (post.category === article.category || post.categoryEs === article.categoryEs))
-    .slice(0, 3);
+  // Get other articles for navigation (excluding current)
+  const otherArticles = blogPosts.filter(post => post.slug !== slug);
+  
+  // Get related articles (same category)
+  const relatedArticles = otherArticles
+    .filter(post => post.category === article.category || post.categoryEs === article.categoryEs)
+    .slice(0, 2);
+  
+  // Get more articles to fill up to 6 total
+  const moreArticles = otherArticles
+    .filter(post => !relatedArticles.includes(post))
+    .slice(0, 6 - relatedArticles.length);
+  
+  const allDisplayArticles = [...relatedArticles, ...moreArticles].slice(0, 6);
 
   const title = language === 'es' ? article.titleEs : article.title;
   const content = language === 'es' ? article.contentEs : article.content;
   const category = language === 'es' ? article.categoryEs : article.category;
   const readTime = language === 'es' ? article.readTimeEs : article.readTime;
+  const excerpt = language === 'es' ? article.excerptEs : article.excerpt;
+
+  // Breadcrumbs items
+  const breadcrumbItems = [
+    { 
+      label: language === 'es' ? 'Blog' : 'Blog', 
+      href: '/#blog' 
+    },
+    { 
+      label: title.length > 50 ? title.substring(0, 50) + '...' : title
+    }
+  ];
 
   // Parse markdown-like content to HTML
   const parseContent = (text) => {
