@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
-import { Mail, Phone, MapPin, Send, Check } from 'lucide-react';
+import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { toast } from 'sonner';
 
 const Contact = ({ language }) => {
@@ -19,7 +19,6 @@ const Contact = ({ language }) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
     setTimeout(() => {
       toast.success(
         language === 'es'
@@ -36,114 +35,99 @@ const Contact = ({ language }) => {
   };
 
   return (
-    <section id="contact" className="py-24 relative overflow-hidden bg-gradient-to-b from-black via-purple-950/10 to-black">
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
+    <section id="contact" className="section-padding bg-white">
+      <div className="container mx-auto px-4 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-2 bg-purple-500/10 border border-purple-500/30 rounded-full text-purple-300 text-sm font-medium mb-4">
+          <span className="text-sm text-golden uppercase tracking-widest mb-4 block">
             {language === 'es' ? 'Contacto' : 'Contact'}
           </span>
-          <h2 className="text-4xl lg:text-6xl font-bold mb-6">
-            <span className="gradient-purple">
-              {language === 'es' ? 'Empecemos' : "Let's Start"}
-            </span>
-            <br />
-            <span className="text-white">
-              {language === 'es' ? 'Tu Proyecto' : 'Your Project'}
-            </span>
+          <h2 className="text-4xl lg:text-5xl font-light text-graphite mb-6">
+            {language === 'es' ? 'Hablemos' : "Let's Talk"}
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <div className="golden-divider"></div>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto mt-6 font-light">
             {language === 'es'
-              ? 'Contáctanos hoy y descubre cómo podemos ayudarte a alcanzar tus objetivos de negocio.'
-              : 'Contact us today and discover how we can help you achieve your business goals.'}
+              ? 'Comencemos a construir la arquitectura de su marca'
+              : "Let's start building your brand architecture"}
           </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Info */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
             className="space-y-8"
           >
-            <div className="bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-white mb-6">
-                {language === 'es' ? 'Información de Contacto' : 'Contact Information'}
+            <div className="premium-card p-8">
+              <h3 className="text-2xl font-light text-graphite mb-6">
+                {language === 'es' ? 'Información' : 'Information'}
               </h3>
 
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-purple-500/10 border border-purple-500/30 rounded-xl flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-purple-400" />
+                  <div className="w-12 h-12 bg-golden/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-6 h-6 text-golden" />
                   </div>
                   <div>
-                    <div className="text-sm text-gray-500 mb-1">
-                      {language === 'es' ? 'Email' : 'Email'}
-                    </div>
-                    <div className="text-white font-medium">contact@globalscale.agency</div>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-teal-500/10 border border-teal-500/30 rounded-xl flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-teal-400" />
-                  </div>
-                  <div>
-                    <div className="text-sm text-gray-500 mb-1">
-                      {language === 'es' ? 'Teléfono' : 'Phone'}
-                    </div>
-                    <div className="text-white font-medium">+34 900 123 456</div>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-pink-500/10 border border-pink-500/30 rounded-xl flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-pink-400" />
-                  </div>
-                  <div>
-                    <div className="text-sm text-gray-500 mb-1">
+                    <div className="text-sm text-gray-500 mb-1 font-light">
                       {language === 'es' ? 'Ubicación' : 'Location'}
                     </div>
-                    <div className="text-white font-medium">
-                      {language === 'es'
-                        ? 'Madrid, España & Global'
-                        : 'Madrid, Spain & Global'}
+                    <div className="text-graphite font-light">
+                      San Sebastián, España
+                      <br />
+                      {language === 'es' ? 'Presencia Global' : 'Global Presence'}
                     </div>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-golden/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-6 h-6 text-golden" />
+                  </div>
+                  <div>
+                    <div className="text-sm text-gray-500 mb-1 font-light">Email</div>
+                    <a href="mailto:contact@aureumdigital.com" className="text-graphite hover:text-golden transition-colors font-light">
+                      contact@aureumdigital.com
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-golden/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-6 h-6 text-golden" />
+                  </div>
+                  <div>
+                    <div className="text-sm text-gray-500 mb-1 font-light">
+                      {language === 'es' ? 'Teléfono' : 'Phone'}
+                    </div>
+                    <div className="text-graphite font-light">+34 XXX XXX XXX</div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Benefits */}
-            <div className="bg-gradient-to-br from-purple-600/10 to-teal-600/10 border border-purple-500/30 rounded-2xl p-8">
-              <h3 className="text-xl font-bold text-white mb-4">
+            <div className="premium-card p-8 bg-golden/5">
+              <h4 className="text-lg font-light text-graphite mb-4">
                 {language === 'es' ? '¿Por qué elegirnos?' : 'Why Choose Us?'}
-              </h3>
+              </h4>
               <ul className="space-y-3">
                 {[
-                  language === 'es' ? 'Respuesta en 24 horas' : '24-hour response',
-                  language === 'es' ? 'Consultoría gratuita' : 'Free consultation',
-                  language === 'es' ? 'Estrategia personalizada' : 'Custom strategy',
-                  language === 'es' ? 'Resultados garantizados' : 'Guaranteed results'
+                  language === 'es' ? '15+ años de experiencia' : '15+ years of experience',
+                  language === 'es' ? 'Enfoque estratégico' : 'Strategic approach',
+                  language === 'es' ? 'Presencia internacional' : 'International presence',
+                  language === 'es' ? 'Resultados medibles' : 'Measurable results'
                 ].map((item, index) => (
-                  <motion.li
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    className="flex items-center gap-3 text-gray-300"
-                  >
-                    <Check className="w-5 h-5 text-teal-400 flex-shrink-0" />
+                  <li key={index} className="flex items-center gap-3 text-gray-700 font-light">
+                    <div className="w-1.5 h-1.5 bg-golden rounded-full"></div>
                     <span>{item}</span>
-                  </motion.li>
+                  </li>
                 ))}
               </ul>
             </div>
@@ -151,16 +135,15 @@ const Contact = ({ language }) => {
 
           {/* Contact Form */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
           >
-            <form onSubmit={handleSubmit} className="bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm border border-white/10 rounded-2xl p-8">
+            <form onSubmit={handleSubmit} className="premium-card p-8">
               <div className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                    {language === 'es' ? 'Nombre Completo' : 'Full Name'}
+                  <label htmlFor="name" className="block text-sm font-light text-graphite mb-2">
+                    {language === 'es' ? 'Nombre' : 'Name'}
                   </label>
                   <Input
                     id="name"
@@ -169,14 +152,14 @@ const Contact = ({ language }) => {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="bg-white/5 border-white/10 text-white placeholder:text-gray-500 focus:border-purple-500"
-                    placeholder={language === 'es' ? 'Tu nombre' : 'Your name'}
+                    className="border-gray-300 focus:border-golden"
+                    placeholder={language === 'es' ? 'Su nombre' : 'Your name'}
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                    {language === 'es' ? 'Correo Electrónico' : 'Email Address'}
+                  <label htmlFor="email" className="block text-sm font-light text-graphite mb-2">
+                    Email
                   </label>
                   <Input
                     id="email"
@@ -185,13 +168,13 @@ const Contact = ({ language }) => {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="bg-white/5 border-white/10 text-white placeholder:text-gray-500 focus:border-purple-500"
-                    placeholder={language === 'es' ? 'tu@email.com' : 'you@email.com'}
+                    className="border-gray-300 focus:border-golden"
+                    placeholder={language === 'es' ? 'su@email.com' : 'your@email.com'}
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="company" className="block text-sm font-light text-graphite mb-2">
                     {language === 'es' ? 'Empresa (Opcional)' : 'Company (Optional)'}
                   </label>
                   <Input
@@ -200,13 +183,13 @@ const Contact = ({ language }) => {
                     type="text"
                     value={formData.company}
                     onChange={handleChange}
-                    className="bg-white/5 border-white/10 text-white placeholder:text-gray-500 focus:border-purple-500"
-                    placeholder={language === 'es' ? 'Tu empresa' : 'Your company'}
+                    className="border-gray-300 focus:border-golden"
+                    placeholder={language === 'es' ? 'Su empresa' : 'Your company'}
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="message" className="block text-sm font-light text-graphite mb-2">
                     {language === 'es' ? 'Mensaje' : 'Message'}
                   </label>
                   <Textarea
@@ -216,10 +199,10 @@ const Contact = ({ language }) => {
                     rows={5}
                     value={formData.message}
                     onChange={handleChange}
-                    className="bg-white/5 border-white/10 text-white placeholder:text-gray-500 focus:border-purple-500 resize-none"
+                    className="border-gray-300 focus:border-golden resize-none"
                     placeholder={
                       language === 'es'
-                        ? 'Cuéntanos sobre tu proyecto...'
+                        ? 'Cuéntenos sobre su proyecto...'
                         : 'Tell us about your project...'
                     }
                   />
@@ -228,12 +211,10 @@ const Contact = ({ language }) => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-purple-600 to-teal-600 hover:from-purple-700 hover:to-teal-700 text-white py-6 text-lg font-semibold group"
+                  className="w-full bg-graphite hover:bg-golden text-white py-6 text-base font-light transition-all group"
                 >
                   {isSubmitting ? (
-                    <>
-                      {language === 'es' ? 'Enviando...' : 'Sending...'}
-                    </>
+                    language === 'es' ? 'Enviando...' : 'Sending...'
                   ) : (
                     <>
                       {language === 'es' ? 'Enviar Mensaje' : 'Send Message'}
