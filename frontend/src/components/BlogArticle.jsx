@@ -161,39 +161,89 @@ const BlogArticle = ({ language = 'en' }) => {
           />
         </motion.div>
 
-        {/* Related Articles */}
-        {relatedArticles.length > 0 && (
+        {/* More Articles Navigation */}
+        {allDisplayArticles.length > 0 && (
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-20 pt-12 border-t border-graphite/10 dark:border-white/10"
+            className="mt-20 pt-12 border-t-2 border-gold/20"
           >
-            <h2 className="text-3xl font-bold text-graphite dark:text-white mb-8">
-              {language === 'es' ? 'Artículos Relacionados' : 'Related Articles'}
-            </h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              {relatedArticles.map((post) => (
-                <Link
-                  key={post.id}
-                  to={`/blog/${post.slug}`}
-                  className="group"
-                >
-                  <div className="rounded-xl overflow-hidden mb-4 shadow-lg">
-                    <img 
-                      src={post.image} 
-                      alt={language === 'es' ? post.titleEs : post.title}
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                  <span className="text-xs text-gold uppercase tracking-wider font-medium">
-                    {language === 'es' ? post.categoryEs : post.category}
-                  </span>
-                  <h3 className="text-lg font-bold text-graphite dark:text-white mt-2 group-hover:text-gold transition-colors">
-                    {language === 'es' ? post.titleEs : post.title}
-                  </h3>
-                </Link>
-              ))}
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-graphite dark:text-white mb-4">
+                {language === 'es' ? 'Más Artículos' : 'More Articles'}
+              </h2>
+              <p className="text-graphite/60 dark:text-white/60 max-w-2xl mx-auto">
+                {language === 'es' 
+                  ? 'Continúa explorando nuestro conocimiento y perspectivas sobre marketing digital y estrategia de marca'
+                  : 'Continue exploring our insights on digital marketing and brand strategy'
+                }
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {allDisplayArticles.map((post) => {
+                const isRelated = relatedArticles.includes(post);
+                return (
+                  <Link
+                    key={post.id}
+                    to={`/blog/${post.slug}`}
+                    className="group relative bg-white dark:bg-graphite/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+                  >
+                    {isRelated && (
+                      <div className="absolute top-4 right-4 z-10 bg-gold text-white text-xs px-3 py-1 rounded-full font-medium">
+                        {language === 'es' ? 'Relacionado' : 'Related'}
+                      </div>
+                    )}
+                    
+                    <div className="relative h-48 overflow-hidden">
+                      <img 
+                        src={post.image} 
+                        alt={language === 'es' ? post.titleEs : post.title}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-graphite/80 via-graphite/40 to-transparent"></div>
+                      
+                      <div className="absolute bottom-4 left-4 right-4">
+                        <span className="inline-block text-xs text-gold bg-gold/10 backdrop-blur-sm px-3 py-1 rounded-full font-medium uppercase tracking-wider">
+                          {language === 'es' ? post.categoryEs : post.category}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="p-6">
+                      <h3 className="text-lg font-bold text-graphite dark:text-white mb-3 group-hover:text-gold transition-colors line-clamp-2 min-h-[3.5rem]">
+                        {language === 'es' ? post.titleEs : post.title}
+                      </h3>
+
+                      <p className="text-graphite/70 dark:text-white/70 mb-4 line-clamp-2 text-sm leading-relaxed">
+                        {language === 'es' ? post.excerptEs : post.excerpt}
+                      </p>
+
+                      <div className="flex items-center justify-between pt-4 border-t border-graphite/10 dark:border-white/10">
+                        <div className="flex items-center gap-4 text-xs text-graphite/60 dark:text-white/60">
+                          <div className="flex items-center gap-1">
+                            <Clock className="w-3 h-3" />
+                            <span>{language === 'es' ? post.readTimeEs : post.readTime}</span>
+                          </div>
+                        </div>
+                        <ArrowRight className="w-4 h-4 text-gold group-hover:translate-x-2 transition-transform" />
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+            
+            {/* View All Articles Button */}
+            <div className="text-center mt-12">
+              <Link 
+                to="/#blog"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-graphite dark:bg-gold text-white rounded-full hover:bg-gold dark:hover:bg-gold/90 transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-1 font-medium"
+              >
+                {language === 'es' ? 'Ver Todos los Artículos' : 'View All Articles'}
+                <ArrowRight className="w-5 h-5" />
+              </Link>
             </div>
           </motion.div>
         )}
