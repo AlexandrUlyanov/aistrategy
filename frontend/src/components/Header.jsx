@@ -121,15 +121,13 @@ const Header = ({ language, setLanguage }) => {
                 </a>
               ))}
               <div className="flex items-center space-x-4 pt-4 border-t border-gray-200">
-                <Button
-                  variant="ghost"
-                  size="sm"
+                <button
                   onClick={() => setLanguage(language === 'en' ? 'es' : 'en')}
-                  className="text-graphite hover:text-white hover:bg-gold transition-all duration-300"
+                  className="flex items-center gap-2 px-4 py-2 rounded-md text-graphite hover:text-white hover:bg-gold transition-all duration-300 font-medium"
                 >
-                  <Globe className="w-4 h-4 mr-2" />
+                  <Globe className="w-4 h-4" />
                   {language === 'en' ? 'ES' : 'EN'}
-                </Button>
+                </button>
               </div>
             </nav>
           </motion.div>
