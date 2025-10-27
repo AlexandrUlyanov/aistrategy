@@ -152,6 +152,30 @@ async def get_status_checks():
     
     return status_checks
 
+@api_router.post("/contact", response_model=ContactForm)
+async def create_contact(input: ContactFormCreate):
+    logger.info(f"New contact form submission from {input.name} <{input.email}>")
+    
+    # Create contact object
+    contact_dict = input.dict()
+    contact_obj = ContactForm(**contact_dict)
+    
+    # Save to database
+    await db.contacts.insert_one(contact_obj.dict())
+    
+    # Send email notification
+    email_sent = await send_contact_email(contact_obj)
+    
+    if not email_sent:
+        logger.warning("Email notification was not sent (SMTP not configured)")
+    
+    return contact_obj
+
+@api_router.get("/contacts", response_model=List[ContactForm])
+async def get_contacts(limit: int = 100):
+    contacts = await db.contacts.find().sort("timestamp", -1).limit(limit).to_list(limit)
+    return [ContactForm(**contact) for contact in contacts]
+
 # Include the router in the main app
 app.include_router(api_router)
 
