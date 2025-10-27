@@ -81,15 +81,13 @@ const Header = ({ language, setLanguage }) => {
 
           {/* CTA and Language */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Button
-              variant="ghost"
-              size="sm"
+            <button
               onClick={() => setLanguage(language === 'en' ? 'es' : 'en')}
-              className="text-graphite hover:text-white hover:bg-gold transition-all duration-300"
+              className="flex items-center gap-2 px-4 py-2 rounded-md text-graphite hover:text-white hover:bg-gold transition-all duration-300 font-medium"
             >
-              <Globe className="w-4 h-4 mr-2" />
+              <Globe className="w-4 h-4" />
               {language === 'en' ? 'ES' : 'EN'}
-            </Button>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
