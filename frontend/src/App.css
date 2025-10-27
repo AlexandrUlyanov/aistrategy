@@ -1,8 +1,15 @@
 /* AUREUM DIGITAL - Premium Agency Styles */
 
+/* Prevent horizontal scroll on mobile */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
 body {
   background-color: #fafafa;
   color: #2c2c2c;
+  position: relative;
 }
 
 /* Smooth scrolling */
