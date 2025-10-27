@@ -103,8 +103,19 @@
 #====================================================================================================
 
 user_problem_statement: |
-  Create separate pages for blog articles with routing, add 4-5 more blog articles to the content (total 7 articles).
-  Design should be clean, minimal with elegant typography, wide margins, and related articles at the bottom.
+  MOBILE PERFORMANCE AND UI ISSUES (HIGH PRIORITY):
+  User reports critical mobile issues on iPhone:
+  1. Horizontal scrolling appearing (overflow-x issue)
+  2. Slow content loading with significant delays
+  3. White screen sometimes appears (likely React hydration or lazy loading issue)
+  4. Content not rendering properly on mobile
+  
+  REQUIREMENTS:
+  - Fix horizontal scroll on mobile (must fit viewport width)
+  - Optimize loading performance (minimize delays)
+  - Ensure smooth mobile experience
+  - Test on mobile viewport (iPhone simulation)
+  - All content must load quickly without white screens
   
 backend:
   - task: "Contact Form API Endpoint"
