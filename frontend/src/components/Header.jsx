@@ -53,12 +53,16 @@ const Header = ({ language, setLanguage }) => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 group">
+          <Link 
+            to="/" 
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="flex items-center space-x-3 group cursor-pointer"
+          >
             <div className="flex items-center">
-              <span className="text-2xl font-light tracking-wider text-graphite">
+              <span className="text-2xl font-light tracking-wider text-graphite group-hover:text-golden transition-colors duration-300">
                 AUREUM
               </span>
-              <span className="ml-2 text-2xl font-light tracking-wider text-golden">
+              <span className="ml-2 text-2xl font-light tracking-wider text-golden group-hover:opacity-80 transition-opacity duration-300">
                 DIGITAL
               </span>
             </div>
