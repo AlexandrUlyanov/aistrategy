@@ -104,7 +104,17 @@ if (config.enableVisualEdits || config.enableHealthCheck) {
         return middlewares;
       };
     }
+    
+    // Enable historyApiFallback for client-side routing
+    devServerConfig.historyApiFallback = true;
 
+    return devServerConfig;
+  };
+} else {
+  // Add dev server config even if visual edits and health check are disabled
+  webpackConfig.devServer = (devServerConfig) => {
+    // Enable historyApiFallback for client-side routing
+    devServerConfig.historyApiFallback = true;
     return devServerConfig;
   };
 }
