@@ -173,11 +173,11 @@ frontend:
         
   - task: "Blog Article Detail Page Component"
     implemented: true
-    working: true
+    working: false
     file: "/app/frontend/src/components/BlogArticle.jsx"
-    stuck_count: 0
+    stuck_count: 1
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: true
         agent: "main"
@@ -188,6 +188,9 @@ frontend:
       - working: true
         agent: "main"
         comment: "Major improvements: Added breadcrumbs at top. Improved 'More Articles' section - now shows 6 articles with beautiful card design, highlights related articles with badge, includes article excerpts and read time. Added 'View All Articles' button at bottom. All articles clickable with hover effects and smooth transitions."
+      - working: false
+        agent: "testing"
+        comment: "❌ CANNOT TEST: BlogArticle component is not rendering due to routing failure. When navigating to blog article URLs, the component does not load and homepage content is displayed instead. Cannot verify breadcrumbs, back button, article content, or More Articles section functionality. The component code exists but is not being rendered by the router."
         
   - task: "Blog Article Styles"
     implemented: true
