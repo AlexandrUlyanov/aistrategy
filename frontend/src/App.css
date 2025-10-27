@@ -234,3 +234,97 @@ html {
 .shadow-premium {
   box-shadow: 0 4px 20px rgba(212, 175, 55, 0.08);
 }
+
+/* Blog Article Styles */
+.article-content {
+  color: #2c2c2c;
+  line-height: 1.8;
+}
+
+.dark .article-content {
+  color: #f5f5f5;
+}
+
+.article-content .article-h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2c2c2c;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #D4AF37;
+}
+
+.dark .article-content .article-h2 {
+  color: #ffffff;
+}
+
+.article-content .article-h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2c2c2c;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.dark .article-content .article-h3 {
+  color: #f5f5f5;
+}
+
+.article-content .article-p {
+  margin-bottom: 1.5rem;
+  font-size: 1.125rem;
+  line-height: 1.9;
+}
+
+.article-content .article-li {
+  margin-bottom: 0.75rem;
+  margin-left: 2rem;
+  font-size: 1.125rem;
+  list-style-type: disc;
+  line-height: 1.8;
+}
+
+.article-content strong {
+  font-weight: 600;
+  color: #D4AF37;
+}
+
+.dark .article-content strong {
+  color: #f4d483;
+}
+
+.article-content a {
+  color: #D4AF37;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.article-content a:hover {
+  color: #c19b2e;
+}
+
+.article-content code {
+  background: #f5f5f5;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-family: 'Sohne Mono', 'Courier New', monospace;
+  font-size: 0.9em;
+}
+
+.dark .article-content code {
+  background: #1a1a1a;
+  color: #f4d483;
+}
+
+.article-content blockquote {
+  border-left: 4px solid #D4AF37;
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: #666;
+}
+
+.dark .article-content blockquote {
+  color: #b0b0b0;
+}
