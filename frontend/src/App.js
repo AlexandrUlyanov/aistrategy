@@ -28,7 +28,7 @@ function HomePage({ language }) {
 }
 
 function AppContent() {
-  const [language, setLanguage] = useState('en');
+  const [language, setLanguage] = useState('es');
   const location = useLocation();
   const isBlogArticle = location.pathname.startsWith('/blog/');
 
