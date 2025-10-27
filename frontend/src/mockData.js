@@ -250,29 +250,32 @@ export const portfolio = [
   }
 ];
 
+// CEO Information
+export const ceoInfo = {
+  name: "Alexander Ulyanov",
+  nameRu: "Александр Ульянов",
+  position: "Founder & CEO",
+  positionEs: "Fundador y CEO",
+  positionRu: "Основатель и Генеральный директор",
+  image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&q=80",
+  message: "For over 15 years, we've been helping brands find their voice and grow with purpose. At AUREUM DIGITAL, we don't just create marketing campaigns—we architect brand experiences that resonate across markets and cultures. Our approach combines strategic depth with creative excellence, ensuring every project delivers measurable impact and lasting value.",
+  messageEs: "Durante más de 15 años, hemos ayudado a las marcas a encontrar su voz y crecer con propósito. En AUREUM DIGITAL, no solo creamos campañas de marketing—arquitecturamos experiencias de marca que resuenan a través de mercados y culturas. Nuestro enfoque combina profundidad estratégica con excelencia creativa, asegurando que cada proyecto entregue impacto medible y valor duradero.",
+  messageRu: "Более 15 лет мы помогаем брендам найти свой голос и расти осознанно. В AUREUM DIGITAL мы не просто создаем маркетинговые кампании—мы создаем архитектуру брендов, которые находят отклик на разных рынках и в разных культурах. Наш подход сочетает стратегическую глубину с творческим совершенством, обеспечивая измеримое влияние и долгосрочную ценность каждого проекта."
+};
+
 export const testimonials = [
   {
     id: 1,
-    name: "Alexander Ulyanov",
-    position: "CEO",
-    company: "Villa Lanperna",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80",
-    quote: "AUREUM DIGITAL transformed our luxury villas into a recognized brand. Their strategic approach and attention to detail resulted in exceptional booking growth and international recognition.",
-    quoteEs: "AUREUM DIGITAL transformó nuestras villas de lujo en una marca reconocida. Su enfoque estratégico y atención al detalle resultó en un crecimiento excepcional de reservas y reconocimiento internacional.",
-    rating: 5
-  },
-  {
-    id: 2,
     name: "Elena Petrova",
     position: "Marketing Director",
     company: "MRMAG",
     image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80",
-    quote: "Working with AUREUM DIGITAL elevated our digital presence to a new level. Their expertise in media strategy and technical implementation was invaluable.",
-    quoteEs: "Trabajar con AUREUM DIGITAL elevó nuestra presencia digital a un nuevo nivel. Su experiencia en estrategia de medios e implementación técnica fue invaluable.",
+    quote: "Working with AUREUM DIGITAL elevated our digital presence to a new level. Their expertise in media strategy and technical implementation was invaluable. The results exceeded all our expectations.",
+    quoteEs: "Trabajar con AUREUM DIGITAL elevó nuestra presencia digital a un nuevo nivel. Su experiencia en estrategia de medios e implementación técnica fue invaluable. Los resultados superaron todas nuestras expectativas.",
     rating: 5
   },
   {
-    id: 3,
+    id: 2,
     name: "Viktor Sokolov",
     position: "CEO",
     company: "T-Tepla",
@@ -282,13 +285,23 @@ export const testimonials = [
     rating: 5
   },
   {
-    id: 4,
+    id: 3,
     name: "Dmitry Volkov",
     position: "Founder",
     company: "Vodovorot",
     image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80",
-    quote: "The e-commerce solution AUREUM DIGITAL built for us exceeded all expectations. Sales tripled, and the platform is incredibly easy to manage.",
-    quoteEs: "La solución e-commerce que AUREUM DIGITAL construyó para nosotros superó todas las expectativas. Las ventas se triplicaron y la plataforma es increíblemente fácil de gestionar.",
+    quote: "The e-commerce solution AUREUM DIGITAL built for us exceeded all expectations. Sales tripled, and the platform is incredibly easy to manage. Highly professional team.",
+    quoteEs: "La solución e-commerce que AUREUM DIGITAL construyó para nosotros superó todas las expectativas. Las ventas se triplicaron y la plataforma es increíblemente fácil de gestionar. Equipo altamente profesional.",
+    rating: 5
+  },
+  {
+    id: 4,
+    name: "Dr. Maria Koroleva",
+    position: "Medical Director",
+    company: "Cardio Penza",
+    image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&q=80",
+    quote: "AUREUM DIGITAL helped us build trust with patients through exceptional digital presence. Our appointment bookings increased significantly, and patient satisfaction is at an all-time high.",
+    quoteEs: "AUREUM DIGITAL nos ayudó a construir confianza con los pacientes a través de una presencia digital excepcional. Nuestras reservas de citas aumentaron significativamente y la satisfacción del paciente está en su punto más alto.",
     rating: 5
   }
 ];
