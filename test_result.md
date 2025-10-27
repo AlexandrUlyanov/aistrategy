@@ -120,13 +120,37 @@ backend:
         comment: "Backend contact endpoint already exists and is working. Email sending configured with Gmail SMTP (awaiting credentials from user)."
 
 frontend:
+  - task: "Breadcrumbs Navigation"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/components/Breadcrumbs.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "Created Breadcrumbs component with Home icon and proper navigation. Shows: Home > Blog > Article Title on blog article pages."
+        
+  - task: "Header Navigation - All Pages"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/components/Header.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "Updated Header to work on all pages including blog articles. Added handleNavClick function that navigates to home page with anchor when on blog article page, or smooth scrolls to section when on homepage. Added Blog and Contact to navigation menu. Logo now uses Link component to navigate home."
+        
   - task: "Blog Article Routing"
     implemented: true
     working: true
     file: "/app/frontend/src/App.js"
     stuck_count: 0
     priority: "high"
-    needs_retesting: false
+    needs_retesting: true
     status_history:
       - working: true
         agent: "main"
@@ -134,6 +158,9 @@ frontend:
       - working: true
         agent: "testing"
         comment: "✅ TESTED: Blog routing works perfectly. Successfully navigated to multiple article URLs (/blog/brand-architecture-building-foundations, /blog/digital-transformation-beyond-technology, /blog/entering-european-markets, /blog/luxury-brand-positioning). URL changes correctly, back button returns to homepage #blog section."
+      - working: true
+        agent: "main"
+        comment: "Updated back button to use anchor link /#blog for proper navigation to blog section."
         
   - task: "Blog Article Detail Page Component"
     implemented: true
