@@ -85,7 +85,7 @@ const Header = ({ language, setLanguage }) => {
               variant="ghost"
               size="sm"
               onClick={() => setLanguage(language === 'en' ? 'es' : 'en')}
-              className="text-gray-700 hover:text-golden"
+              className="text-graphite hover:text-white hover:bg-gold transition-all duration-300"
             >
               <Globe className="w-4 h-4 mr-2" />
               {language === 'en' ? 'ES' : 'EN'}
