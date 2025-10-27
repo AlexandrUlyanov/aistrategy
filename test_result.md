@@ -248,6 +248,18 @@ frontend:
         agent: "testing"
         comment: "✅ TESTED: All 7 blog articles are present and accessible. Verified articles: Brand Architecture, Digital Transformation, European Markets, Luxury Brand Positioning, B2B Lead Generation, Web Design Trends 2025, Content Marketing ROI. Each article loads with unique content, proper titles, and full article text. Content quality is excellent with comprehensive information."
         
+  - task: "Mobile Performance Optimization"
+    implemented: false
+    working: false
+    file: "/app/frontend/src/components/Hero.jsx"
+    stuck_count: 0
+    priority: "critical"
+    needs_retesting: true
+    status_history:
+      - working: false
+        agent: "testing"
+        comment: "❌ CRITICAL MOBILE PERFORMANCE ISSUES: 1) Severe scroll lag (1024ms delay during fast scrolling) 2) Canvas animation only 14.5 FPS (should be 60) 3) Hero canvas with 80 particles + real-time connections overloading mobile GPU 4) Missing willReadFrequently canvas attribute 5) Blog articles timeout on mobile (>30s load time) 6) Failed Unsplash images (ERR_BLOCKED_BY_ORB) 7) Canvas size matches full window causing excessive rendering. User reports content loads slowly during fast scrolling. FIXES NEEDED: Reduce particle count for mobile, add performance optimizations, implement mobile-specific settings, fix image loading issues."
+        
   - task: "Blog List Updates"
     implemented: true
     working: true
