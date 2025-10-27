@@ -1,149 +1,136 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Facebook, Twitter, Linkedin, Instagram, Mail, MapPin, Phone } from 'lucide-react';
+import { Linkedin, Instagram, Mail, MapPin, Phone } from 'lucide-react';
 
 const Footer = ({ language }) => {
   const currentYear = new Date().getFullYear();
 
-  const footerLinks = {
-    services: {
-      title: language === 'es' ? 'Servicios' : 'Services',
-      links: [
-        { label: language === 'es' ? 'Desarrollo Web' : 'Web Development', href: '#services' },
-        { label: language === 'es' ? 'Campañas Marketing' : 'Marketing Campaigns', href: '#services' },
-        { label: language === 'es' ? 'Automatización' : 'Automation', href: '#services' },
-        { label: language === 'es' ? 'Expansión Internacional' : 'International Expansion', href: '#services' }
-      ]
-    },
-    company: {
-      title: language === 'es' ? 'Empresa' : 'Company',
-      links: [
-        { label: language === 'es' ? 'Portafolio' : 'Portfolio', href: '#portfolio' },
-        { label: language === 'es' ? 'Proceso' : 'Process', href: '#process' },
-        { label: language === 'es' ? 'Testimonios' : 'Testimonials', href: '#testimonials' },
-        { label: language === 'es' ? 'Blog' : 'Blog', href: '#blog' }
-      ]
-    },
-    contact: {
-      title: language === 'es' ? 'Contacto' : 'Contact',
-      info: [
-        { icon: Mail, text: 'contact@globalscale.agency' },
-        { icon: Phone, text: '+34 900 123 456' },
-        { icon: MapPin, text: language === 'es' ? 'Madrid, España' : 'Madrid, Spain' }
-      ]
-    }
-  };
-
-  const socialLinks = [
-    { icon: Facebook, href: '#', label: 'Facebook' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Instagram, href: '#', label: 'Instagram' }
-  ];
-
   return (
-    <footer className="relative bg-gradient-to-b from-black to-gray-900 border-t border-white/10">
+    <footer className="bg-graphite text-white">
       <div className="container mx-auto px-4 lg:px-8 py-16">
-        {/* Main Footer Content */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-          {/* Brand Column */}
+          {/* Brand */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
           >
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-teal-500 rounded-lg flex items-center justify-center font-bold text-lg">
-                GS
-              </div>
-              <span className="text-xl font-bold gradient-text">GlobalScale</span>
+            <div className="flex items-center mb-4">
+              <span className="text-2xl font-light tracking-wider text-white">AUREUM</span>
+              <span className="ml-2 text-2xl font-light tracking-wider text-golden">DIGITAL</span>
             </div>
-            <p className="text-gray-400 mb-6">
+            <p className="text-gray-400 mb-6 font-light leading-relaxed">
               {language === 'es'
-                ? 'Impulsamos tu negocio con estrategia, tecnología y marketing inteligente.'
-                : 'We scale businesses through smart marketing, automation, and strategy.'}
+                ? 'Agencia internacional de marketing digital y estrategia de marca'
+                : 'International digital marketing and brand strategy agency'}
             </p>
-            {/* Social Links */}
-            <div className="flex gap-3">
-              {socialLinks.map((social, index) => {
-                const Icon = social.icon;
-                return (
-                  <a
-                    key={index}
-                    href={social.href}
-                    aria-label={social.label}
-                    className="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center hover:bg-purple-500/20 hover:border-purple-500/50 transition-all duration-300 group"
-                  >
-                    <Icon className="w-5 h-5 text-gray-400 group-hover:text-purple-400 transition-colors" />
-                  </a>
-                );
-              })}
+            <div className="flex gap-4">
+              <a
+                href="#"
+                className="w-10 h-10 bg-white/10 hover:bg-golden rounded-lg flex items-center justify-center transition-colors"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a
+                href="#"
+                className="w-10 h-10 bg-white/10 hover:bg-golden rounded-lg flex items-center justify-center transition-colors"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
             </div>
           </motion.div>
 
-          {/* Services Column */}
+          {/* Services */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1, duration: 0.5 }}
+            transition={{ delay: 0.1 }}
           >
-            <h3 className="text-lg font-bold text-white mb-4">{footerLinks.services.title}</h3>
-            <ul className="space-y-3">
-              {footerLinks.services.links.map((link, index) => (
-                <li key={index}>
-                  <a
-                    href={link.href}
-                    className="text-gray-400 hover:text-purple-400 transition-colors duration-200"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+            <h3 className="text-lg font-light mb-4">{language === 'es' ? 'Servicios' : 'Services'}</h3>
+            <ul className="space-y-3 text-gray-400 font-light">
+              <li>
+                <a href="#services" className="hover:text-golden transition-colors">
+                  {language === 'es' ? 'Estrategia de Marca' : 'Brand Strategy'}
+                </a>
+              </li>
+              <li>
+                <a href="#services" className="hover:text-golden transition-colors">
+                  {language === 'es' ? 'Marketing Digital' : 'Digital Marketing'}
+                </a>
+              </li>
+              <li>
+                <a href="#services" className="hover:text-golden transition-colors">
+                  {language === 'es' ? 'Desarrollo Web' : 'Web Development'}
+                </a>
+              </li>
+              <li>
+                <a href="#services" className="hover:text-golden transition-colors">
+                  {language === 'es' ? 'Consultoría' : 'Consulting'}
+                </a>
+              </li>
             </ul>
           </motion.div>
 
-          {/* Company Column */}
+          {/* Company */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.5 }}
+            transition={{ delay: 0.2 }}
           >
-            <h3 className="text-lg font-bold text-white mb-4">{footerLinks.company.title}</h3>
-            <ul className="space-y-3">
-              {footerLinks.company.links.map((link, index) => (
-                <li key={index}>
-                  <a
-                    href={link.href}
-                    className="text-gray-400 hover:text-teal-400 transition-colors duration-200"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+            <h3 className="text-lg font-light mb-4">{language === 'es' ? 'Empresa' : 'Company'}</h3>
+            <ul className="space-y-3 text-gray-400 font-light">
+              <li>
+                <a href="#projects" className="hover:text-golden transition-colors">
+                  {language === 'es' ? 'Proyectos' : 'Projects'}
+                </a>
+              </li>
+              <li>
+                <a href="#process" className="hover:text-golden transition-colors">
+                  {language === 'es' ? 'Proceso' : 'Process'}
+                </a>
+              </li>
+              <li>
+                <a href="#about" className="hover:text-golden transition-colors">
+                  {language === 'es' ? 'Nosotros' : 'About'}
+                </a>
+              </li>
+              <li>
+                <a href="#contact" className="hover:text-golden transition-colors">
+                  {language === 'es' ? 'Contacto' : 'Contact'}
+                </a>
+              </li>
             </ul>
           </motion.div>
 
-          {/* Contact Column */}
+          {/* Contact */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.3, duration: 0.5 }}
+            transition={{ delay: 0.3 }}
           >
-            <h3 className="text-lg font-bold text-white mb-4">{footerLinks.contact.title}</h3>
-            <ul className="space-y-4">
-              {footerLinks.contact.info.map((item, index) => {
-                const Icon = item.icon;
-                return (
-                  <li key={index} className="flex items-start gap-3">
-                    <Icon className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-400 text-sm">{item.text}</span>
-                  </li>
-                );
-              })}
+            <h3 className="text-lg font-light mb-4">{language === 'es' ? 'Contacto' : 'Contact'}</h3>
+            <ul className="space-y-4 text-gray-400 font-light">
+              <li className="flex items-start gap-3">
+                <MapPin className="w-5 h-5 text-golden flex-shrink-0 mt-0.5" />
+                <span>
+                  San Sebastián, {language === 'es' ? 'España' : 'Spain'}
+                  <br />
+                  {language === 'es' ? 'Presencia Global' : 'Global Presence'}
+                </span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Mail className="w-5 h-5 text-golden flex-shrink-0" />
+                <a href="mailto:contact@aureumdigital.com" className="hover:text-golden transition-colors">
+                  contact@aureumdigital.com
+                </a>
+              </li>
+              <li className="flex items-center gap-3">
+                <Phone className="w-5 h-5 text-golden flex-shrink-0" />
+                <span>+34 XXX XXX XXX</span>
+              </li>
             </ul>
           </motion.div>
         </div>
@@ -153,29 +140,26 @@ const Footer = ({ language }) => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.4, duration: 0.5 }}
-          className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4"
+          transition={{ delay: 0.4 }}
+          className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400 font-light"
         >
-          <p className="text-gray-400 text-sm">
-            © {currentYear} GlobalScale Agency.{' '}
+          <p>
+            © {currentYear} AUREUM DIGITAL.{' '}
             {language === 'es' ? 'Todos los derechos reservados.' : 'All rights reserved.'}
           </p>
-          <div className="flex gap-6 text-sm">
-            <a href="#" className="text-gray-400 hover:text-white transition-colors">
-              {language === 'es' ? 'Privacidad' : 'Privacy Policy'}
+          <div className="flex gap-6">
+            <a href="#" className="hover:text-golden transition-colors">
+              {language === 'es' ? 'Privacidad' : 'Privacy'}
             </a>
-            <a href="#" className="text-gray-400 hover:text-white transition-colors">
-              {language === 'es' ? 'Términos' : 'Terms of Service'}
-            </a>
-            <a href="#" className="text-gray-400 hover:text-white transition-colors">
-              {language === 'es' ? 'Cookies' : 'Cookies'}
+            <a href="#" className="hover:text-golden transition-colors">
+              {language === 'es' ? 'Términos' : 'Terms'}
             </a>
           </div>
         </motion.div>
       </div>
 
-      {/* Gradient overlay */}
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-600 via-teal-500 to-pink-500"></div>
+      {/* Golden accent line */}
+      <div className="h-1 bg-gradient-to-r from-transparent via-golden to-transparent"></div>
     </footer>
   );
 };
