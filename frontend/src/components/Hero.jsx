@@ -10,13 +10,26 @@ const Hero = ({ language }) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    // Определение мобильного устройства
+    const isMobile = window.innerWidth < 768;
+    const isLowPerformance = isMobile || navigator.hardwareConcurrency <= 4;
 
-    // Золотые частицы
-    const particles = [];
-    const particleCount = 80;
+    const ctx = canvas.getContext('2d', { 
+      alpha: true,
+      willReadFrequently: false // Оптимизация для редких чтений
+    });
+    
+    // Уменьшенные размеры для мобильных устройств
+    if (isMobile) {
+      canvas.width = window.innerWidth;
+      canvas.height = Math.min(window.innerHeight, 600);
+    } else {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    // Адаптивное количество частиц
+    const particleCount = isMobile ? 20 : isLowPerformance ? 40 : 60;
 
     class Particle {
       constructor() {
@@ -28,8 +41,8 @@ const Hero = ({ language }) => {
       reset() {
         this.x = Math.random() * canvas.width;
         this.y = -20;
-        this.size = Math.random() * 3 + 1;
-        this.speedY = Math.random() * 0.5 + 0.2;
+        this.size = Math.random() * (isMobile ? 2 : 3) + 1;
+        this.speedY = Math.random() * (isMobile ? 0.3 : 0.5) + 0.2;
         this.speedX = (Math.random() - 0.5) * 0.3;
         this.opacity = Math.random() * 0.5 + 0.2;
       }
@@ -52,27 +65,37 @@ const Hero = ({ language }) => {
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
 
-        // Золотое свечение
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = 'rgba(212, 175, 55, 0.5)';
+        // Убираем shadow blur на мобильных для производительности
+        if (!isMobile) {
+          ctx.shadowBlur = 10;
+          ctx.shadowColor = 'rgba(212, 175, 55, 0.5)';
+        }
       }
     }
+
+    // Золотые частицы
+    const particles = [];
 
     // Создание частиц
     for (let i = 0; i < particleCount; i++) {
       particles.push(new Particle());
     }
 
-    // Линии соединения между частицами
+    // Линии соединения между частицами (упрощенные на мобильных)
     function connectParticles() {
+      // Отключаем линии соединения на мобильных устройствах
+      if (isMobile) return;
+      
+      const maxDistance = isLowPerformance ? 100 : 150;
+      
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
           const distance = Math.sqrt(dx * dx + dy * dy);
 
-          if (distance < 150) {
-            ctx.strokeStyle = `rgba(212, 175, 55, ${0.1 * (1 - distance / 150)})`;
+          if (distance < maxDistance) {
+            ctx.strokeStyle = `rgba(212, 175, 55, ${0.1 * (1 - distance / maxDistance)})`;
             ctx.lineWidth = 0.5;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
@@ -83,8 +106,19 @@ const Hero = ({ language }) => {
       }
     }
 
+    let frameCount = 0;
+    const frameSkip = isMobile ? 2 : 1; // Пропускаем кадры на мобильных
+
     // Анимационный цикл
     function animate() {
+      frameCount++;
+      
+      // Пропускаем кадры на мобильных для лучшей производительности
+      if (frameCount % frameSkip !== 0) {
+        requestAnimationFrame(animate);
+        return;
+      }
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
       particles.forEach(particle => {
