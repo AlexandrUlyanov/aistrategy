@@ -51,12 +51,12 @@ const Header = ({ language, setLanguage }) => {
       }`}
     >
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-center h-20 relative">
           {/* Logo */}
           <Link 
             to="/" 
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="flex items-center space-x-3 group cursor-pointer"
+            className="absolute left-0 flex items-center space-x-3 group cursor-pointer"
           >
             <div className="flex items-center">
               <span className="text-2xl font-light tracking-wider text-graphite group-hover:text-golden transition-colors duration-300">
@@ -68,7 +68,7 @@ const Header = ({ language, setLanguage }) => {
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - Centered */}
           <nav className="hidden lg:flex items-center space-x-8">
             {menuItems.map((item, index) => (
               <a
@@ -83,7 +83,7 @@ const Header = ({ language, setLanguage }) => {
           </nav>
 
           {/* CTA and Language */}
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className="hidden lg:flex items-center space-x-4 absolute right-0">
             <button
               onClick={() => setLanguage(language === 'en' ? 'es' : 'en')}
               className="flex items-center gap-2 px-4 py-2 rounded-md text-graphite hover:text-white hover:bg-golden transition-all duration-300 font-medium"
