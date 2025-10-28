@@ -95,7 +95,7 @@ const Header = ({ language, setLanguage }) => {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden text-graphite p-2"
+            className="lg:hidden text-graphite p-2 absolute right-0"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
