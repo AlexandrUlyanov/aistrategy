@@ -17,13 +17,21 @@ from email.mime.multipart import MIMEMultipart
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
 
-# MongoDB connection
+# MongoDB connection with SSL configuration
 mongo_url = os.environ['MONGO_URL']
-# Configure MongoDB client with SSL settings
+
+# Parse connection string and add necessary SSL parameters
+import ssl
+
+# Create MongoDB client with proper SSL settings
 client = AsyncIOMotorClient(
     mongo_url,
-    tlsAllowInvalidCertificates=True,  # For development, use False in production with proper certs
-    serverSelectionTimeoutMS=5000
+    tls=True,
+    tlsAllowInvalidCertificates=True,  # Temporary for testing
+    tlsCAFile=certifi.where(),  # Use certifi's CA bundle
+    serverSelectionTimeoutMS=10000,
+    connectTimeoutMS=10000,
+    socketTimeoutMS=10000
 )
 db = client[os.environ['DB_NAME']]
 
