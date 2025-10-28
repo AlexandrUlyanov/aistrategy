@@ -1,0 +1,28 @@
+# Docker ignore
+.git
+.gitignore
+node_modules
+__pycache__
+*.pyc
+.env
+.DS_Store
+*.log
+README.md
+.vscode
+.idea
+test_result.md
+docs
+
+# Frontend specific
+build
+dist
+coverage
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Backend specific
+venv
+*.egg-info
+.pytest_cache

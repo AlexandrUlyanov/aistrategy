@@ -1,0 +1,27 @@
+# GCloud ignore file
+.git
+.gitignore
+node_modules/
+__pycache__/
+*.pyc
+.env
+.DS_Store
+*.log
+test_result.md
+.vscode/
+.idea/
+*.md
+docs/
+backup/
+.emergent/
+
+# Frontend specific
+frontend/node_modules/
+frontend/build/
+frontend/.env.local
+
+# Backend specific
+backend/__pycache__/
+backend/*.pyc
+backend/venv/
+backend/.env.local
