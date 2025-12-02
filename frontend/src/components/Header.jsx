@@ -60,10 +60,10 @@ const Header = ({ language, setLanguage }) => {
           >
             <div className="flex items-center">
               <span className="text-2xl font-light tracking-wider text-graphite group-hover:text-golden transition-colors duration-300">
-                AUREUM
+                DONOSTI
               </span>
               <span className="ml-2 text-2xl font-light tracking-wider text-golden group-hover:opacity-80 transition-opacity duration-300">
-                DIGITAL
+                STRATEGIA
               </span>
             </div>
           </Link>
