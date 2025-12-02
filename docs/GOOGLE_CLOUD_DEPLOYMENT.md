@@ -124,10 +124,10 @@ gcloud auth list
 
 ```bash
 # Создание проекта
-gcloud projects create aureum-digital-prod --name="DONOSTI STRATEGIA Production"
+gcloud projects create donosti-strategia-prod --name="DONOSTI STRATEGIA Production"
 
 # Установка текущего проекта
-gcloud config set project aureum-digital-prod
+gcloud config set project donosti-strategia-prod
 
 # Проверка
 gcloud config get-value project
@@ -137,7 +137,7 @@ gcloud config get-value project
 1. Перейдите на https://console.cloud.google.com
 2. Нажмите "Select a project" → "New Project"
 3. Имя: `DONOSTI STRATEGIA Production`
-4. ID: `aureum-digital-prod`
+4. ID: `donosti-strategia-prod`
 
 ### Шаг 3: Включение необходимых API
 
@@ -184,14 +184,14 @@ gcloud config list
 gcloud beta billing accounts list
 
 # Привязка биллинга к проекту
-gcloud beta billing projects link aureum-digital-prod \
+gcloud beta billing projects link donosti-strategia-prod \
   --billing-account=YOUR-BILLING-ACCOUNT-ID
 ```
 
 **Через веб-интерфейс:**
 1. Перейдите в "Billing" → https://console.cloud.google.com/billing
 2. Создайте биллинг аккаунт
-3. Привяжите к проекту `aureum-digital-prod`
+3. Привяжите к проекту `donosti-strategia-prod`
 
 ---
 
@@ -273,7 +273,7 @@ ls -la
 cd backend
 
 # Сборка образа
-docker build -t gcr.io/aureum-digital-prod/aureum-backend:v1 .
+docker build -t gcr.io/donosti-strategia-prod/aureum-backend:v1 .
 
 # Проверка образа
 docker images | grep aureum-backend
@@ -283,7 +283,7 @@ docker run -p 8080:8080 \
   -e MONGO_URL="your-mongodb-url" \
   -e DB_NAME="aureum_digital" \
   -e CORS_ORIGINS="*" \
-  gcr.io/aureum-digital-prod/aureum-backend:v1
+  gcr.io/donosti-strategia-prod/aureum-backend:v1
 
 # Тест в браузере: http://localhost:8080/api/status
 ```
@@ -295,7 +295,7 @@ docker run -p 8080:8080 \
 gcloud auth configure-docker
 
 # Push образа в Container Registry
-docker push gcr.io/aureum-digital-prod/aureum-backend:v1
+docker push gcr.io/donosti-strategia-prod/aureum-backend:v1
 ```
 
 #### Шаг 3: Deploy Backend на Cloud Run
@@ -308,7 +308,7 @@ export CORS_ORIGINS="https://aureumdigital.com"
 
 # Deploy
 gcloud run deploy aureum-backend \
-  --image gcr.io/aureum-digital-prod/aureum-backend:v1 \
+  --image gcr.io/donosti-strategia-prod/aureum-backend:v1 \
   --platform managed \
   --region europe-west1 \
   --allow-unauthenticated \
@@ -342,10 +342,10 @@ EOF
 
 ```bash
 # Сборка образа
-docker build -t gcr.io/aureum-digital-prod/aureum-frontend:v1 .
+docker build -t gcr.io/donosti-strategia-prod/aureum-frontend:v1 .
 
 # Локальный тест (опционально)
-docker run -p 8080:8080 gcr.io/aureum-digital-prod/aureum-frontend:v1
+docker run -p 8080:8080 gcr.io/donosti-strategia-prod/aureum-frontend:v1
 
 # Тест: http://localhost:8080
 ```
@@ -354,14 +354,14 @@ docker run -p 8080:8080 gcr.io/aureum-digital-prod/aureum-frontend:v1
 
 ```bash
 # Push образа
-docker push gcr.io/aureum-digital-prod/aureum-frontend:v1
+docker push gcr.io/donosti-strategia-prod/aureum-frontend:v1
 ```
 
 #### Шаг 7: Deploy Frontend на Cloud Run
 
 ```bash
 gcloud run deploy aureum-frontend \
-  --image gcr.io/aureum-digital-prod/aureum-frontend:v1 \
+  --image gcr.io/donosti-strategia-prod/aureum-frontend:v1 \
   --platform managed \
   --region europe-west1 \
   --allow-unauthenticated \
@@ -393,13 +393,13 @@ open https://aureum-frontend-xxxxxxxxxx-ew.a.run.app
 
 ```bash
 # Предоставление прав Cloud Build
-PROJECT_NUMBER=$(gcloud projects describe aureum-digital-prod --format="value(projectNumber)")
+PROJECT_NUMBER=$(gcloud projects describe donosti-strategia-prod --format="value(projectNumber)")
 
-gcloud projects add-iam-policy-binding aureum-digital-prod \
+gcloud projects add-iam-policy-binding donosti-strategia-prod \
   --member="serviceAccount:${PROJECT_NUMBER}@cloudbuild.gserviceaccount.com" \
   --role="roles/run.admin"
 
-gcloud projects add-iam-policy-binding aureum-digital-prod \
+gcloud projects add-iam-policy-binding donosti-strategia-prod \
   --member="serviceAccount:${PROJECT_NUMBER}@cloudbuild.gserviceaccount.com" \
   --role="roles/iam.serviceAccountUser"
 ```
@@ -722,10 +722,10 @@ Memory: 100,000 * 0.2s * 0.5 GiB * $0.0000025 = $0.025
 
 ```bash
 # Список всех образов
-gcloud container images list --repository=gcr.io/aureum-digital-prod
+gcloud container images list --repository=gcr.io/donosti-strategia-prod
 
 # Удаление старых образов (экономия)
-gcloud container images delete gcr.io/aureum-digital-prod/aureum-backend:old-tag
+gcloud container images delete gcr.io/donosti-strategia-prod/aureum-backend:old-tag
 ```
 
 ---
@@ -742,17 +742,17 @@ gcloud logging read "resource.type=cloud_run_revision AND resource.labels.servic
 gcloud run services describe aureum-backend --region=europe-west1 --format="value(spec.template.spec.containers[0].env)"
 
 # Локальный тест образа
-docker run -it gcr.io/aureum-digital-prod/aureum-backend:latest /bin/bash
+docker run -it gcr.io/donosti-strategia-prod/aureum-backend:latest /bin/bash
 ```
 
 ### Frontend не загружается
 
 ```bash
 # Проверка Nginx конфигурации
-docker run gcr.io/aureum-digital-prod/aureum-frontend:latest cat /etc/nginx/conf.d/default.conf
+docker run gcr.io/donosti-strategia-prod/aureum-frontend:latest cat /etc/nginx/conf.d/default.conf
 
 # Проверка build
-docker run gcr.io/aureum-digital-prod/aureum-frontend:latest ls -la /usr/share/nginx/html
+docker run gcr.io/donosti-strategia-prod/aureum-frontend:latest ls -la /usr/share/nginx/html
 ```
 
 ### Ошибки соединения с MongoDB

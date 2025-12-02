@@ -37,10 +37,10 @@
 gcloud auth login
 
 # Создание проекта
-gcloud projects create aureum-digital-prod --name="DONOSTI STRATEGIA"
+gcloud projects create donosti-strategia-prod --name="DONOSTI STRATEGIA"
 
 # Установка проекта
-gcloud config set project aureum-digital-prod
+gcloud config set project donosti-strategia-prod
 
 # Включение API
 gcloud services enable run.googleapis.com \
@@ -56,7 +56,7 @@ gcloud config set run/region europe-west1
 
 **Через веб-консоль:**
 1. Откройте https://console.cloud.google.com/firestore
-2. Выберите проект: `aureum-digital-prod`
+2. Выберите проект: `donosti-strategia-prod`
 3. Нажмите "Create Database"
 4. Выберите режим: **Native mode** (рекомендуется)
 5. Location: **eur3 (europe-west)** (близко к Испании)
@@ -75,17 +75,17 @@ gcloud firestore databases create --location=eur3
 cd /app/backend
 
 # Сборка Docker образа
-docker build -t gcr.io/aureum-digital-prod/aureum-backend:v1 .
+docker build -t gcr.io/donosti-strategia-prod/aureum-backend:v1 .
 
 # Аутентификация Docker
 gcloud auth configure-docker
 
 # Push образа
-docker push gcr.io/aureum-digital-prod/aureum-backend:v1
+docker push gcr.io/donosti-strategia-prod/aureum-backend:v1
 
 # Deploy на Cloud Run (Firestore автоматически подключится!)
 gcloud run deploy aureum-backend \
-  --image gcr.io/aureum-digital-prod/aureum-backend:v1 \
+  --image gcr.io/donosti-strategia-prod/aureum-backend:v1 \
   --platform managed \
   --region europe-west1 \
   --allow-unauthenticated \
@@ -108,14 +108,14 @@ cd /app/frontend
 echo "REACT_APP_BACKEND_URL=https://aureum-backend-xxx.run.app" > .env
 
 # Сборка Docker образа
-docker build -t gcr.io/aureum-digital-prod/aureum-frontend:v1 .
+docker build -t gcr.io/donosti-strategia-prod/aureum-frontend:v1 .
 
 # Push образа
-docker push gcr.io/aureum-digital-prod/aureum-frontend:v1
+docker push gcr.io/donosti-strategia-prod/aureum-frontend:v1
 
 # Deploy на Cloud Run
 gcloud run deploy aureum-frontend \
-  --image gcr.io/aureum-digital-prod/aureum-frontend:v1 \
+  --image gcr.io/donosti-strategia-prod/aureum-frontend:v1 \
   --platform managed \
   --region europe-west1 \
   --allow-unauthenticated \
@@ -194,13 +194,13 @@ uvicorn server:app --reload
 gcloud iam service-accounts create aureum-dev \
   --display-name="AUREUM Development"
 
-gcloud projects add-iam-policy-binding aureum-digital-prod \
-  --member="serviceAccount:aureum-dev@aureum-digital-prod.iam.gserviceaccount.com" \
+gcloud projects add-iam-policy-binding donosti-strategia-prod \
+  --member="serviceAccount:aureum-dev@donosti-strategia-prod.iam.gserviceaccount.com" \
   --role="roles/datastore.user"
 
 # Скачать ключ
 gcloud iam service-accounts keys create ~/aureum-key.json \
-  --iam-account=aureum-dev@aureum-digital-prod.iam.gserviceaccount.com
+  --iam-account=aureum-dev@donosti-strategia-prod.iam.gserviceaccount.com
 ```
 
 2. **Обновить .env:**
@@ -450,15 +450,15 @@ gcloud logging read "resource.type=datastore_database" --limit=50
 ```bash
 # Backend
 cd /app/backend
-docker build -t gcr.io/aureum-digital-prod/aureum-backend:v2 .
-docker push gcr.io/aureum-digital-prod/aureum-backend:v2
-gcloud run services update aureum-backend --image=gcr.io/aureum-digital-prod/aureum-backend:v2 --region=europe-west1
+docker build -t gcr.io/donosti-strategia-prod/aureum-backend:v2 .
+docker push gcr.io/donosti-strategia-prod/aureum-backend:v2
+gcloud run services update aureum-backend --image=gcr.io/donosti-strategia-prod/aureum-backend:v2 --region=europe-west1
 
 # Frontend
 cd /app/frontend
-docker build -t gcr.io/aureum-digital-prod/aureum-frontend:v2 .
-docker push gcr.io/aureum-digital-prod/aureum-frontend:v2
-gcloud run services update aureum-frontend --image=gcr.io/aureum-digital-prod/aureum-frontend:v2 --region=europe-west1
+docker build -t gcr.io/donosti-strategia-prod/aureum-frontend:v2 .
+docker push gcr.io/donosti-strategia-prod/aureum-frontend:v2
+gcloud run services update aureum-frontend --image=gcr.io/donosti-strategia-prod/aureum-frontend:v2 --region=europe-west1
 ```
 
 ### С CI/CD (через GitHub)

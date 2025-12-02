@@ -202,7 +202,7 @@ uvicorn server:app --reload --host 0.0.0.0 --port 8001
 
 ## 📧 Контакты
 
-- Email: contact@aureumdigital.com
+- Email: contact@donostistrategia.com
 - Локация: San Sebastián, Spain
 
 ## 📄 Лицензия
