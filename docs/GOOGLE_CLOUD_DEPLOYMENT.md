@@ -210,13 +210,13 @@ gcloud beta billing projects link donosti-strategia-prod \
 - Provider: **Google Cloud**
 - Region: **europe-west1** (Бельгия) или **europe-west3** (Франкфурт)
 - Cluster Tier: **M0 Sandbox** (бесплатно) или **M10** (production)
-- Cluster Name: `aureum-digital-cluster`
+- Cluster Name: `donosti-strategia-cluster`
 
 ### Шаг 2: Настройка безопасности
 
 **Database Access:**
 1. Database Access → Add New Database User
-2. Username: `aureum_admin`
+2. Username: `donosti_admin`
 3. Password: Создайте надежный пароль (сохраните!)
 4. Database User Privileges: `Atlas admin`
 
@@ -233,21 +233,21 @@ gcloud beta billing projects link donosti-strategia-prod \
 4. Скопируйте Connection String:
 
 ```
-mongodb+srv://aureum_admin:<password>@aureum-digital-cluster.xxxxx.mongodb.net/?retryWrites=true&w=majority
+mongodb+srv://donosti_admin:<password>@donosti-strategia-cluster.xxxxx.mongodb.net/?retryWrites=true&w=majority
 ```
 
 5. Замените `<password>` на ваш реальный пароль
 
 **Пример финального URL:**
 ```
-mongodb+srv://aureum_admin:MySecurePass123@aureum-digital-cluster.abc123.mongodb.net/aureum_digital?retryWrites=true&w=majority
+mongodb+srv://donosti_admin:MySecurePass123@donosti-strategia-cluster.abc123.mongodb.net/donosti_strategia?retryWrites=true&w=majority
 ```
 
 ### Шаг 4: Создание базы данных
 
 1. В MongoDB Atlas → Collections
 2. Create Database
-3. Database name: `aureum_digital`
+3. Database name: `donosti_strategia`
 4. Collection name: `contacts`
 
 ---
@@ -273,17 +273,17 @@ ls -la
 cd backend
 
 # Сборка образа
-docker build -t gcr.io/donosti-strategia-prod/aureum-backend:v1 .
+docker build -t gcr.io/donosti-strategia-prod/donosti-backend:v1 .
 
 # Проверка образа
-docker images | grep aureum-backend
+docker images | grep donosti-backend
 
 # Локальный тест (опционально)
 docker run -p 8080:8080 \
   -e MONGO_URL="your-mongodb-url" \
-  -e DB_NAME="aureum_digital" \
+  -e DB_NAME="donosti_strategia" \
   -e CORS_ORIGINS="*" \
-  gcr.io/donosti-strategia-prod/aureum-backend:v1
+  gcr.io/donosti-strategia-prod/donosti-backend:v1
 
 # Тест в браузере: http://localhost:8080/api/status
 ```
@@ -295,20 +295,20 @@ docker run -p 8080:8080 \
 gcloud auth configure-docker
 
 # Push образа в Container Registry
-docker push gcr.io/donosti-strategia-prod/aureum-backend:v1
+docker push gcr.io/donosti-strategia-prod/donosti-backend:v1
 ```
 
 #### Шаг 3: Deploy Backend на Cloud Run
 
 ```bash
 # Замените переменные на свои значения
-export MONGO_URL="mongodb+srv://user:password@cluster.mongodb.net/aureum_digital"
-export DB_NAME="aureum_digital"
+export MONGO_URL="mongodb+srv://user:password@cluster.mongodb.net/donosti_strategia"
+export DB_NAME="donosti_strategia"
 export CORS_ORIGINS="https://aureumdigital.com"
 
 # Deploy
-gcloud run deploy aureum-backend \
-  --image gcr.io/donosti-strategia-prod/aureum-backend:v1 \
+gcloud run deploy donosti-backend \
+  --image gcr.io/donosti-strategia-prod/donosti-backend:v1 \
   --platform managed \
   --region europe-west1 \
   --allow-unauthenticated \
@@ -320,7 +320,7 @@ gcloud run deploy aureum-backend \
   --port 8080
 
 # После успешного deploy получите URL:
-# https://aureum-backend-xxxxxxxxxx-ew.a.run.app
+# https://donosti-backend-xxxxxxxxxx-ew.a.run.app
 ```
 
 **Сохраните Backend URL!**
@@ -332,7 +332,7 @@ cd ../frontend
 
 # Создайте .env для production
 cat > .env << EOF
-REACT_APP_BACKEND_URL=https://aureum-backend-xxxxxxxxxx-ew.a.run.app
+REACT_APP_BACKEND_URL=https://donosti-backend-xxxxxxxxxx-ew.a.run.app
 EOF
 
 # Или обновите существующий .env
@@ -342,10 +342,10 @@ EOF
 
 ```bash
 # Сборка образа
-docker build -t gcr.io/donosti-strategia-prod/aureum-frontend:v1 .
+docker build -t gcr.io/donosti-strategia-prod/donosti-frontend:v1 .
 
 # Локальный тест (опционально)
-docker run -p 8080:8080 gcr.io/donosti-strategia-prod/aureum-frontend:v1
+docker run -p 8080:8080 gcr.io/donosti-strategia-prod/donosti-frontend:v1
 
 # Тест: http://localhost:8080
 ```
@@ -354,14 +354,14 @@ docker run -p 8080:8080 gcr.io/donosti-strategia-prod/aureum-frontend:v1
 
 ```bash
 # Push образа
-docker push gcr.io/donosti-strategia-prod/aureum-frontend:v1
+docker push gcr.io/donosti-strategia-prod/donosti-frontend:v1
 ```
 
 #### Шаг 7: Deploy Frontend на Cloud Run
 
 ```bash
-gcloud run deploy aureum-frontend \
-  --image gcr.io/donosti-strategia-prod/aureum-frontend:v1 \
+gcloud run deploy donosti-frontend \
+  --image gcr.io/donosti-strategia-prod/donosti-frontend:v1 \
   --platform managed \
   --region europe-west1 \
   --allow-unauthenticated \
@@ -372,17 +372,17 @@ gcloud run deploy aureum-frontend \
   --port 8080
 
 # После успешного deploy получите URL:
-# https://aureum-frontend-xxxxxxxxxx-ew.a.run.app
+# https://donosti-frontend-xxxxxxxxxx-ew.a.run.app
 ```
 
 #### Шаг 8: Проверка работоспособности
 
 ```bash
 # Проверка Backend
-curl https://aureum-backend-xxxxxxxxxx-ew.a.run.app/api/status
+curl https://donosti-backend-xxxxxxxxxx-ew.a.run.app/api/status
 
 # Проверка Frontend
-open https://aureum-frontend-xxxxxxxxxx-ew.a.run.app
+open https://donosti-frontend-xxxxxxxxxx-ew.a.run.app
 ```
 
 ---
@@ -410,8 +410,8 @@ gcloud projects add-iam-policy-binding donosti-strategia-prod \
 
 ```yaml
 substitutions:
-  _MONGO_URL: 'mongodb+srv://user:password@cluster.mongodb.net/aureum_digital'
-  _DB_NAME: 'aureum_digital'
+  _MONGO_URL: 'mongodb+srv://user:password@cluster.mongodb.net/donosti_strategia'
+  _DB_NAME: 'donosti_strategia'
   _CORS_ORIGINS: 'https://aureumdigital.com'
 ```
 
@@ -450,7 +450,7 @@ gcloud beta builds triggers create github \
 ```bash
 # Добавление домена к Frontend сервису
 gcloud beta run domain-mappings create \
-  --service aureum-frontend \
+  --service donosti-frontend \
   --domain aureumdigital.com \
   --region europe-west1
 ```
@@ -485,7 +485,7 @@ TTL: 3600
 ```bash
 # Добавление api.aureumdigital.com для Backend
 gcloud beta run domain-mappings create \
-  --service aureum-backend \
+  --service donosti-backend \
   --domain api.aureumdigital.com \
   --region europe-west1
 ```
@@ -521,12 +521,12 @@ gcloud beta run domain-mappings describe \
 
 ```bash
 # Backend логи
-gcloud logging read "resource.type=cloud_run_revision AND resource.labels.service_name=aureum-backend" \
+gcloud logging read "resource.type=cloud_run_revision AND resource.labels.service_name=donosti-backend" \
   --limit 50 \
   --format json
 
 # Frontend логи
-gcloud logging read "resource.type=cloud_run_revision AND resource.labels.service_name=aureum-frontend" \
+gcloud logging read "resource.type=cloud_run_revision AND resource.labels.service_name=donosti-frontend" \
   --limit 50
 
 # Логи в реальном времени
@@ -537,7 +537,7 @@ gcloud logging tail "resource.type=cloud_run_revision"
 
 **Через веб-интерфейс:**
 1. Перейдите на https://console.cloud.google.com/run
-2. Выберите сервис (aureum-backend или aureum-frontend)
+2. Выберите сервис (donosti-backend или donosti-frontend)
 3. Вкладка "Metrics"
 
 **Доступные метрики:**
@@ -598,7 +598,7 @@ gcloud beta builds triggers create github \
 1. Triggers → Select trigger → Edit
 2. Substitution variables:
    - `_MONGO_URL`: `mongodb+srv://...`
-   - `_DB_NAME`: `aureum_digital`
+   - `_DB_NAME`: `donosti_strategia`
    - `_CORS_ORIGINS`: `https://aureumdigital.com`
 
 **Или через Secret Manager (более безопасно):**
@@ -725,7 +725,7 @@ Memory: 100,000 * 0.2s * 0.5 GiB * $0.0000025 = $0.025
 gcloud container images list --repository=gcr.io/donosti-strategia-prod
 
 # Удаление старых образов (экономия)
-gcloud container images delete gcr.io/donosti-strategia-prod/aureum-backend:old-tag
+gcloud container images delete gcr.io/donosti-strategia-prod/donosti-backend:old-tag
 ```
 
 ---
@@ -736,41 +736,41 @@ gcloud container images delete gcr.io/donosti-strategia-prod/aureum-backend:old-
 
 ```bash
 # Проверка логов
-gcloud logging read "resource.type=cloud_run_revision AND resource.labels.service_name=aureum-backend" --limit=50
+gcloud logging read "resource.type=cloud_run_revision AND resource.labels.service_name=donosti-backend" --limit=50
 
 # Проверка переменных окружения
-gcloud run services describe aureum-backend --region=europe-west1 --format="value(spec.template.spec.containers[0].env)"
+gcloud run services describe donosti-backend --region=europe-west1 --format="value(spec.template.spec.containers[0].env)"
 
 # Локальный тест образа
-docker run -it gcr.io/donosti-strategia-prod/aureum-backend:latest /bin/bash
+docker run -it gcr.io/donosti-strategia-prod/donosti-backend:latest /bin/bash
 ```
 
 ### Frontend не загружается
 
 ```bash
 # Проверка Nginx конфигурации
-docker run gcr.io/donosti-strategia-prod/aureum-frontend:latest cat /etc/nginx/conf.d/default.conf
+docker run gcr.io/donosti-strategia-prod/donosti-frontend:latest cat /etc/nginx/conf.d/default.conf
 
 # Проверка build
-docker run gcr.io/donosti-strategia-prod/aureum-frontend:latest ls -la /usr/share/nginx/html
+docker run gcr.io/donosti-strategia-prod/donosti-frontend:latest ls -la /usr/share/nginx/html
 ```
 
 ### Ошибки соединения с MongoDB
 
 ```bash
 # Тест подключения из Cloud Run
-gcloud run services update aureum-backend \
+gcloud run services update donosti-backend \
   --set-env-vars MONGO_URL="mongodb+srv://NEW_CONNECTION_STRING"
 
 # Проверка в логах
-gcloud logging read "resource.labels.service_name=aureum-backend AND textPayload=~\"mongo\"" --limit=10
+gcloud logging read "resource.labels.service_name=donosti-backend AND textPayload=~\"mongo\"" --limit=10
 ```
 
 ### Cold start слишком долгий
 
 ```bash
 # Увеличение min-instances
-gcloud run services update aureum-backend \
+gcloud run services update donosti-backend \
   --min-instances=1 \
   --region=europe-west1
 
@@ -786,28 +786,28 @@ gcloud run services update aureum-backend \
 gcloud run services list
 
 # Детали сервиса
-gcloud run services describe aureum-backend --region=europe-west1
+gcloud run services describe donosti-backend --region=europe-west1
 
 # Обновление переменных окружения
-gcloud run services update aureum-backend \
+gcloud run services update donosti-backend \
   --update-env-vars KEY=VALUE \
   --region=europe-west1
 
 # Масштабирование
-gcloud run services update aureum-backend \
+gcloud run services update donosti-backend \
   --max-instances=20 \
   --region=europe-west1
 
 # Откат к предыдущей версии
-gcloud run services update-traffic aureum-backend \
+gcloud run services update-traffic donosti-backend \
   --to-revisions=PREVIOUS_REVISION=100 \
   --region=europe-west1
 
 # Удаление сервиса
-gcloud run services delete aureum-backend --region=europe-west1
+gcloud run services delete donosti-backend --region=europe-west1
 
 # Просмотр ревизий
-gcloud run revisions list --service=aureum-backend --region=europe-west1
+gcloud run revisions list --service=donosti-backend --region=europe-west1
 ```
 
 ---

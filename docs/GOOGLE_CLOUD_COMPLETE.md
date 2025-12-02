@@ -75,17 +75,17 @@ gcloud firestore databases create --location=eur3
 cd /app/backend
 
 # Сборка Docker образа
-docker build -t gcr.io/donosti-strategia-prod/aureum-backend:v1 .
+docker build -t gcr.io/donosti-strategia-prod/donosti-backend:v1 .
 
 # Аутентификация Docker
 gcloud auth configure-docker
 
 # Push образа
-docker push gcr.io/donosti-strategia-prod/aureum-backend:v1
+docker push gcr.io/donosti-strategia-prod/donosti-backend:v1
 
 # Deploy на Cloud Run (Firestore автоматически подключится!)
-gcloud run deploy aureum-backend \
-  --image gcr.io/donosti-strategia-prod/aureum-backend:v1 \
+gcloud run deploy donosti-backend \
+  --image gcr.io/donosti-strategia-prod/donosti-backend:v1 \
   --platform managed \
   --region europe-west1 \
   --allow-unauthenticated \
@@ -105,17 +105,17 @@ gcloud run deploy aureum-backend \
 cd /app/frontend
 
 # Обновите .env с Backend URL
-echo "REACT_APP_BACKEND_URL=https://aureum-backend-xxx.run.app" > .env
+echo "REACT_APP_BACKEND_URL=https://donosti-backend-xxx.run.app" > .env
 
 # Сборка Docker образа
-docker build -t gcr.io/donosti-strategia-prod/aureum-frontend:v1 .
+docker build -t gcr.io/donosti-strategia-prod/donosti-frontend:v1 .
 
 # Push образа
-docker push gcr.io/donosti-strategia-prod/aureum-frontend:v1
+docker push gcr.io/donosti-strategia-prod/donosti-frontend:v1
 
 # Deploy на Cloud Run
-gcloud run deploy aureum-frontend \
-  --image gcr.io/donosti-strategia-prod/aureum-frontend:v1 \
+gcloud run deploy donosti-frontend \
+  --image gcr.io/donosti-strategia-prod/donosti-frontend:v1 \
   --platform managed \
   --region europe-west1 \
   --allow-unauthenticated \
@@ -127,11 +127,11 @@ gcloud run deploy aureum-frontend \
 
 ```bash
 # Проверка Backend
-BACKEND_URL=$(gcloud run services describe aureum-backend --region=europe-west1 --format="value(status.url)")
+BACKEND_URL=$(gcloud run services describe donosti-backend --region=europe-west1 --format="value(status.url)")
 curl ${BACKEND_URL}/api/status
 
 # Откройте Frontend в браузере
-FRONTEND_URL=$(gcloud run services describe aureum-frontend --region=europe-west1 --format="value(status.url)")
+FRONTEND_URL=$(gcloud run services describe donosti-frontend --region=europe-west1 --format="value(status.url)")
 echo "Frontend: ${FRONTEND_URL}"
 ```
 
@@ -389,7 +389,7 @@ Health check
 ```bash
 # Добавление домена
 gcloud beta run domain-mappings create \
-  --service aureum-frontend \
+  --service donosti-frontend \
   --domain aureumdigital.com \
   --region europe-west1
 
@@ -422,7 +422,7 @@ Value: ghs.googlehosted.com
 
 ```bash
 # Backend логи
-gcloud logging read "resource.type=cloud_run_revision AND resource.labels.service_name=aureum-backend" --limit=50
+gcloud logging read "resource.type=cloud_run_revision AND resource.labels.service_name=donosti-backend" --limit=50
 
 # Firestore операции
 gcloud logging read "resource.type=datastore_database" --limit=50
@@ -450,15 +450,15 @@ gcloud logging read "resource.type=datastore_database" --limit=50
 ```bash
 # Backend
 cd /app/backend
-docker build -t gcr.io/donosti-strategia-prod/aureum-backend:v2 .
-docker push gcr.io/donosti-strategia-prod/aureum-backend:v2
-gcloud run services update aureum-backend --image=gcr.io/donosti-strategia-prod/aureum-backend:v2 --region=europe-west1
+docker build -t gcr.io/donosti-strategia-prod/donosti-backend:v2 .
+docker push gcr.io/donosti-strategia-prod/donosti-backend:v2
+gcloud run services update donosti-backend --image=gcr.io/donosti-strategia-prod/donosti-backend:v2 --region=europe-west1
 
 # Frontend
 cd /app/frontend
-docker build -t gcr.io/donosti-strategia-prod/aureum-frontend:v2 .
-docker push gcr.io/donosti-strategia-prod/aureum-frontend:v2
-gcloud run services update aureum-frontend --image=gcr.io/donosti-strategia-prod/aureum-frontend:v2 --region=europe-west1
+docker build -t gcr.io/donosti-strategia-prod/donosti-frontend:v2 .
+docker push gcr.io/donosti-strategia-prod/donosti-frontend:v2
+gcloud run services update donosti-frontend --image=gcr.io/donosti-strategia-prod/donosti-frontend:v2 --region=europe-west1
 ```
 
 ### С CI/CD (через GitHub)
