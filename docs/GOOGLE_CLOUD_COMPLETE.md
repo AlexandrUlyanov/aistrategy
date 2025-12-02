@@ -191,22 +191,22 @@ uvicorn server:app --reload
 
 1. **Создание Service Account:**
 ```bash
-gcloud iam service-accounts create aureum-dev \
+gcloud iam service-accounts create donosti-dev \
   --display-name="AUREUM Development"
 
 gcloud projects add-iam-policy-binding donosti-strategia-prod \
-  --member="serviceAccount:aureum-dev@donosti-strategia-prod.iam.gserviceaccount.com" \
+  --member="serviceAccount:donosti-dev@donosti-strategia-prod.iam.gserviceaccount.com" \
   --role="roles/datastore.user"
 
 # Скачать ключ
-gcloud iam service-accounts keys create ~/aureum-key.json \
-  --iam-account=aureum-dev@donosti-strategia-prod.iam.gserviceaccount.com
+gcloud iam service-accounts keys create ~/donosti-key.json \
+  --iam-account=donosti-dev@donosti-strategia-prod.iam.gserviceaccount.com
 ```
 
 2. **Обновить .env:**
 ```bash
 cd /app/backend
-echo 'GOOGLE_APPLICATION_CREDENTIALS=/Users/you/aureum-key.json' >> .env
+echo 'GOOGLE_APPLICATION_CREDENTIALS=/Users/you/donosti-key.json' >> .env
 ```
 
 3. **Запуск:**
@@ -227,8 +227,8 @@ API будет работать, но данные не будут сохран�
 ```bash
 # Создание триггера для GitHub
 gcloud beta builds triggers create github \
-  --name="aureum-deploy-main" \
-  --repo-name=aureum-digital \
+  --name="donosti-deploy-main" \
+  --repo-name=donosti-strategia \
   --repo-owner=YOUR_GITHUB_USERNAME \
   --branch-pattern="^main$" \
   --build-config=cloudbuild.yaml
@@ -247,8 +247,8 @@ gcloud beta builds triggers create github \
 **Изменения в substitutions (если нужно):**
 ```yaml
 substitutions:
-  _CORS_ORIGINS: 'https://aureumdigital.com'
-  _SMTP_EMAIL: 'noreply@aureumdigital.com'
+  _CORS_ORIGINS: 'https://donostistrategia.com'
+  _SMTP_EMAIL: 'noreply@donostistrategia.com'
   _SMTP_PASSWORD: 'your-app-password'
 ```
 
@@ -390,7 +390,7 @@ Health check
 # Добавление домена
 gcloud beta run domain-mappings create \
   --service donosti-frontend \
-  --domain aureumdigital.com \
+  --domain donostistrategia.com \
   --region europe-west1
 
 # Настройка DNS (у вашего регистратора)

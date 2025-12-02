@@ -304,7 +304,7 @@ docker push gcr.io/donosti-strategia-prod/donosti-backend:v1
 # Замените переменные на свои значения
 export MONGO_URL="mongodb+srv://user:password@cluster.mongodb.net/donosti_strategia"
 export DB_NAME="donosti_strategia"
-export CORS_ORIGINS="https://aureumdigital.com"
+export CORS_ORIGINS="https://donostistrategia.com"
 
 # Deploy
 gcloud run deploy donosti-backend \
@@ -412,7 +412,7 @@ gcloud projects add-iam-policy-binding donosti-strategia-prod \
 substitutions:
   _MONGO_URL: 'mongodb+srv://user:password@cluster.mongodb.net/donosti_strategia'
   _DB_NAME: 'donosti_strategia'
-  _CORS_ORIGINS: 'https://aureumdigital.com'
+  _CORS_ORIGINS: 'https://donostistrategia.com'
 ```
 
 #### Шаг 3: Запуск Cloud Build
@@ -433,7 +433,7 @@ gcloud builds log BUILD_ID
 ```bash
 # Подключение GitHub репозитория
 gcloud beta builds triggers create github \
-  --repo-name=aureum-digital \
+  --repo-name=donosti-strategia \
   --repo-owner=YOUR_GITHUB_USERNAME \
   --branch-pattern="^main$" \
   --build-config=cloudbuild.yaml
@@ -451,7 +451,7 @@ gcloud beta builds triggers create github \
 # Добавление домена к Frontend сервису
 gcloud beta run domain-mappings create \
   --service donosti-frontend \
-  --domain aureumdigital.com \
+  --domain donostistrategia.com \
   --region europe-west1
 ```
 
@@ -483,10 +483,10 @@ TTL: 3600
 ### Шаг 3: Настройка API Subdomain
 
 ```bash
-# Добавление api.aureumdigital.com для Backend
+# Добавление api.donostistrategia.com для Backend
 gcloud beta run domain-mappings create \
   --service donosti-backend \
-  --domain api.aureumdigital.com \
+  --domain api.donostistrategia.com \
   --region europe-west1
 ```
 
@@ -505,7 +505,7 @@ SSL сертификаты устанавливаются автоматичес
 ```bash
 # Проверка статуса домена
 gcloud beta run domain-mappings describe \
-  --domain aureumdigital.com \
+  --domain donostistrategia.com \
   --region europe-west1
 ```
 
@@ -552,7 +552,7 @@ gcloud logging tail "resource.type=cloud_run_revision"
 
 ```bash
 # Создание топика для уведомлений
-gcloud pubsub topics create aureum-alerts
+gcloud pubsub topics create donosti-alerts
 
 # Создание алертов (через веб-интерфейс проще)
 # https://console.cloud.google.com/monitoring/alerting
@@ -576,8 +576,8 @@ gcloud pubsub topics create aureum-alerts
 
 ```bash
 gcloud beta builds triggers create github \
-  --name="aureum-deploy-main" \
-  --repo-name=aureum-digital \
+  --name="donosti-deploy-main" \
+  --repo-name=donosti-strategia \
   --repo-owner=YOUR_GITHUB_USERNAME \
   --branch-pattern="^main$" \
   --build-config=cloudbuild.yaml \
@@ -599,7 +599,7 @@ gcloud beta builds triggers create github \
 2. Substitution variables:
    - `_MONGO_URL`: `mongodb+srv://...`
    - `_DB_NAME`: `donosti_strategia`
-   - `_CORS_ORIGINS`: `https://aureumdigital.com`
+   - `_CORS_ORIGINS`: `https://donostistrategia.com`
 
 **Или через Secret Manager (более безопасно):**
 
