@@ -1,4 +1,4 @@
-// AUREUM DIGITAL - Premium Agency Data
+// DONOSTI STRATEGIA - Premium Agency Data
 
 export const services = [
   {
