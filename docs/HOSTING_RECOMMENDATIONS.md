@@ -187,7 +187,7 @@
    - `MONGO_URL` (автоматически)
    - `SMTP_EMAIL`
    - `SMTP_PASSWORD`
-6. ✅ Добавьте custom domain (aureumdigital.com)
+6. ✅ Добавьте custom domain (donostistrategia.com)
 7. ✅ SSL настроится автоматически
 
 **Стоимость:** $15-25/месяц для начала
@@ -286,9 +286,9 @@
 **Backend Service:**
 ```
 MONGO_URL=<автоматически от Railway>
-DB_NAME=aureum_digital_prod
-CORS_ORIGINS=https://aureumdigital.com
-SMTP_EMAIL=noreply@aureumdigital.com
+DB_NAME=donosti_strategia_prod
+CORS_ORIGINS=https://donostistrategia.com
+SMTP_EMAIL=noreply@donostistrategia.com
 SMTP_PASSWORD=your-app-password
 ```
 
@@ -300,7 +300,7 @@ REACT_APP_BACKEND_URL=https://your-backend.railway.app
 ### Шаг 5: Custom Domain
 
 1. Settings → Networking → Custom Domain
-2. Добавьте `aureumdigital.com`
+2. Добавьте `donostistrategia.com`
 3. Настройте DNS у регистратора:
    ```
    A     @     [Railway IP]

@@ -192,7 +192,7 @@ uvicorn server:app --reload
 1. **Создание Service Account:**
 ```bash
 gcloud iam service-accounts create donosti-dev \
-  --display-name="AUREUM Development"
+  --display-name="DONOSTI Development"
 
 gcloud projects add-iam-policy-binding donosti-strategia-prod \
   --member="serviceAccount:donosti-dev@donosti-strategia-prod.iam.gserviceaccount.com" \

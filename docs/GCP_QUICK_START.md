@@ -14,10 +14,10 @@
 gcloud auth login
 
 # Создание проекта
-gcloud projects create aureum-digital-prod
+gcloud projects create donosti-strategia-prod
 
 # Установка проекта
-gcloud config set project aureum-digital-prod
+gcloud config set project donosti-strategia-prod
 
 # Включение API
 gcloud services enable run.googleapis.com containerregistry.googleapis.com cloudbuild.googleapis.com
@@ -38,7 +38,7 @@ gcloud config set run/region europe-west1
 6. Connect → Connection String:
 
 ```
-mongodb+srv://username:password@cluster.mongodb.net/aureum_digital
+mongodb+srv://username:password@cluster.mongodb.net/donosti_strategia
 ```
 
 ---
@@ -49,21 +49,21 @@ mongodb+srv://username:password@cluster.mongodb.net/aureum_digital
 cd /app/backend
 
 # Сборка Docker образа
-docker build -t gcr.io/aureum-digital-prod/aureum-backend:v1 .
+docker build -t gcr.io/donosti-strategia-prod/donosti-backend:v1 .
 
 # Аутентификация Docker
 gcloud auth configure-docker
 
 # Push образа
-docker push gcr.io/aureum-digital-prod/aureum-backend:v1
+docker push gcr.io/donosti-strategia-prod/donosti-backend:v1
 
 # Deploy на Cloud Run
-gcloud run deploy aureum-backend \
-  --image gcr.io/aureum-digital-prod/aureum-backend:v1 \
+gcloud run deploy donosti-backend \
+  --image gcr.io/donosti-strategia-prod/donosti-backend:v1 \
   --platform managed \
   --region europe-west1 \
   --allow-unauthenticated \
-  --set-env-vars MONGO_URL="YOUR_MONGODB_URL",DB_NAME="aureum_digital",CORS_ORIGINS="*" \
+  --set-env-vars MONGO_URL="YOUR_MONGODB_URL",DB_NAME="donosti_strategia",CORS_ORIGINS="*" \
   --memory 512Mi
 
 # Сохраните Backend URL из вывода!
@@ -77,17 +77,17 @@ gcloud run deploy aureum-backend \
 cd /app/frontend
 
 # Обновите .env с Backend URL
-echo "REACT_APP_BACKEND_URL=https://aureum-backend-xxx.run.app" > .env
+echo "REACT_APP_BACKEND_URL=https://donosti-backend-xxx.run.app" > .env
 
 # Сборка Docker образа
-docker build -t gcr.io/aureum-digital-prod/aureum-frontend:v1 .
+docker build -t gcr.io/donosti-strategia-prod/donosti-frontend:v1 .
 
 # Push образа
-docker push gcr.io/aureum-digital-prod/aureum-frontend:v1
+docker push gcr.io/donosti-strategia-prod/donosti-frontend:v1
 
 # Deploy на Cloud Run
-gcloud run deploy aureum-frontend \
-  --image gcr.io/aureum-digital-prod/aureum-frontend:v1 \
+gcloud run deploy donosti-frontend \
+  --image gcr.io/donosti-strategia-prod/donosti-frontend:v1 \
   --platform managed \
   --region europe-west1 \
   --allow-unauthenticated \
@@ -101,8 +101,8 @@ gcloud run deploy aureum-frontend \
 ## ✅ Готово!
 
 Ваш сайт работает на:
-- Frontend: `https://aureum-frontend-xxxxx.run.app`
-- Backend: `https://aureum-backend-xxxxx.run.app`
+- Frontend: `https://donosti-frontend-xxxxx.run.app`
+- Backend: `https://donosti-backend-xxxxx.run.app`
 
 ---
 
@@ -111,8 +111,8 @@ gcloud run deploy aureum-frontend \
 ```bash
 # Добавление custom domain
 gcloud beta run domain-mappings create \
-  --service aureum-frontend \
-  --domain aureumdigital.com \
+  --service donosti-frontend \
+  --domain donostistrategia.com \
   --region europe-west1
 
 # Следуйте инструкциям по настройке DNS

@@ -130,7 +130,7 @@ REACT_APP_BACKEND_URL=https://your-backend-url.com
 Backend (.env):
 ```
 MONGO_URL=mongodb://localhost:27017
-DB_NAME=aureum_digital
+DB_NAME=donosti_strategia
 CORS_ORIGINS=*
 SMTP_EMAIL=your-email@gmail.com
 SMTP_PASSWORD=your-app-password
