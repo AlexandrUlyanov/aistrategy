@@ -1,4 +1,4 @@
-# 🚀 AUREUM DIGITAL - Полная настройка на Google Cloud
+# 🚀 DONOSTI STRATEGIA - Полная настройка на Google Cloud
 
 ## ✅ Проект полностью переведен на Google Cloud сервисы!
 
@@ -37,7 +37,7 @@
 gcloud auth login
 
 # Создание проекта
-gcloud projects create aureum-digital-prod --name="AUREUM DIGITAL"
+gcloud projects create aureum-digital-prod --name="DONOSTI STRATEGIA"
 
 # Установка проекта
 gcloud config set project aureum-digital-prod
@@ -340,7 +340,7 @@ Health check
 ```json
 {
   "status": "healthy",
-  "service": "AUREUM DIGITAL API",
+  "service": "DONOSTI STRATEGIA API",
   "database": "connected",
   "timestamp": "2025-10-27T10:30:00.000Z"
 }
@@ -475,7 +475,7 @@ git push origin main
 
 ## ✅ Готово!
 
-Ваш проект AUREUM DIGITAL теперь полностью работает на Google Cloud:
+Ваш проект DONOSTI STRATEGIA теперь полностью работает на Google Cloud:
 
 - ✅ **Cloud Run** - Frontend и Backend
 - ✅ **Firestore** - База данных

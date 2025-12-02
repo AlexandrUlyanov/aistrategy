@@ -1,8 +1,8 @@
-# 🌐 Рекомендации по хостингу для AUREUM DIGITAL
+# 🌐 Рекомендации по хостингу для DONOSTI STRATEGIA
 
 ## Обзор требований
 
-Ваше приложение AUREUM DIGITAL - это полноценное full-stack приложение с:
+Ваше приложение DONOSTI STRATEGIA - это полноценное full-stack приложение с:
 - **Frontend**: React (SPA)
 - **Backend**: FastAPI (Python)
 - **Database**: MongoDB
@@ -172,7 +172,7 @@
 
 ---
 
-## 🎯 Рекомендация для AUREUM DIGITAL
+## 🎯 Рекомендация для DONOSTI STRATEGIA
 
 ### Вариант 1: Быстрый старт (Рекомендуется) 🚀
 
@@ -272,7 +272,7 @@
 1. Перейдите на https://railway.app
 2. Sign up через GitHub
 3. New Project → Deploy from GitHub repo
-4. Выберите ваш репозиторий AUREUM DIGITAL
+4. Выберите ваш репозиторий DONOSTI STRATEGIA
 5. Railway создаст 2 сервиса: Frontend и Backend
 
 ### Шаг 3: Добавить MongoDB

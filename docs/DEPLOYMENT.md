@@ -1,4 +1,4 @@
-# 🚀 Инструкции по развертыванию AUREUM DIGITAL
+# 🚀 Инструкции по развертыванию DONOSTI STRATEGIA
 
 ## Содержание
 - [Развертывание в production](#развертывание-в-production)
@@ -214,7 +214,7 @@ sudo nano /etc/systemd/system/aureum-backend.service
 
 ```ini
 [Unit]
-Description=AUREUM DIGITAL Backend
+Description=DONOSTI STRATEGIA Backend
 After=network.target mongodb.service
 
 [Service]

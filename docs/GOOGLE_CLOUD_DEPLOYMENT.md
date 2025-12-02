@@ -1,4 +1,4 @@
-# 🚀 Развертывание AUREUM DIGITAL на Google Cloud Platform
+# 🚀 Развертывание DONOSTI STRATEGIA на Google Cloud Platform
 
 ## Содержание
 - [Введение](#введение)
@@ -16,7 +16,7 @@
 
 ## Введение
 
-Это руководство описывает процесс развертывания полнофункционального приложения AUREUM DIGITAL на Google Cloud Platform с использованием:
+Это руководство описывает процесс развертывания полнофункционального приложения DONOSTI STRATEGIA на Google Cloud Platform с использованием:
 - **Cloud Run** для Backend (FastAPI) и Frontend (React)
 - **MongoDB Atlas** для базы данных
 - **Cloud Build** для CI/CD
@@ -124,7 +124,7 @@ gcloud auth list
 
 ```bash
 # Создание проекта
-gcloud projects create aureum-digital-prod --name="AUREUM DIGITAL Production"
+gcloud projects create aureum-digital-prod --name="DONOSTI STRATEGIA Production"
 
 # Установка текущего проекта
 gcloud config set project aureum-digital-prod
@@ -136,7 +136,7 @@ gcloud config get-value project
 **Через веб-интерфейс:**
 1. Перейдите на https://console.cloud.google.com
 2. Нажмите "Select a project" → "New Project"
-3. Имя: `AUREUM DIGITAL Production`
+3. Имя: `DONOSTI STRATEGIA Production`
 4. ID: `aureum-digital-prod`
 
 ### Шаг 3: Включение необходимых API
@@ -814,7 +814,7 @@ gcloud run revisions list --service=aureum-backend --region=europe-west1
 
 ## Заключение
 
-Поздравляем! Ваше приложение AUREUM DIGITAL теперь работает на Google Cloud Platform с:
+Поздравляем! Ваше приложение DONOSTI STRATEGIA теперь работает на Google Cloud Platform с:
 - ✅ Автоматическим масштабированием
 - ✅ HTTPS из коробки
 - ✅ Глобальной доступностью
