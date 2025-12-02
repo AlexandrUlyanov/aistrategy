@@ -207,7 +207,7 @@ uvicorn server:app --reload --host 0.0.0.0 --port 8001
 
 ## 📄 Лицензия
 
-© 2025 AUREUM DIGITAL. Все права защищены.
+© 2025 DONOSTI STRATEGIA. Все права защищены.
 
 ---
 
