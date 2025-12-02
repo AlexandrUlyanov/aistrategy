@@ -18,15 +18,15 @@
 
 **Frontend (.env)**
 ```env
-REACT_APP_BACKEND_URL=https://api.aureumdigital.com
+REACT_APP_BACKEND_URL=https://api.donostistrategia.com
 ```
 
 **Backend (.env)**
 ```env
 MONGO_URL=mongodb://your-mongo-host:27017
-DB_NAME=aureum_digital_prod
-CORS_ORIGINS=https://aureumdigital.com,https://www.aureumdigital.com
-SMTP_EMAIL=noreply@aureumdigital.com
+DB_NAME=donosti_strategia_prod
+CORS_ORIGINS=https://donostistrategia.com,https://www.donostistrategia.com
+SMTP_EMAIL=noreply@donostistrategia.com
 SMTP_PASSWORD=your-secure-app-password
 ```
 
@@ -154,27 +154,27 @@ sudo apt install -y certbot python3-certbot-nginx
 #### 3. Создание пользователя приложения
 
 ```bash
-sudo useradd -m -s /bin/bash aureum
-sudo usermod -aG sudo aureum
-sudo su - aureum
+sudo useradd -m -s /bin/bash donosti
+sudo usermod -aG sudo donosti
+sudo su - donosti
 ```
 
 #### 4. Клонирование проекта
 
 ```bash
-cd /home/aureum
-git clone https://your-repo-url.git aureum-digital
-cd aureum-digital
+cd /home/donosti
+git clone https://your-repo-url.git donosti-strategia
+cd donosti-strategia
 ```
 
 #### 5. Настройка Frontend
 
 ```bash
-cd /home/aureum/aureum-digital/frontend
+cd /home/donosti/donosti-strategia/frontend
 
 # Создание .env файла
 cat > .env << EOF
-REACT_APP_BACKEND_URL=https://api.aureumdigital.com
+REACT_APP_BACKEND_URL=https://api.donostistrategia.com
 EOF
 
 # Установка и сборка
@@ -185,7 +185,7 @@ yarn build
 #### 6. Настройка Backend
 
 ```bash
-cd /home/aureum/aureum-digital/backend
+cd /home/donosti/donosti-strategia/backend
 
 # Создание виртуального окружения
 python3 -m venv venv
@@ -197,9 +197,9 @@ pip install -r requirements.txt
 # Создание .env файла
 cat > .env << EOF
 MONGO_URL=mongodb://localhost:27017
-DB_NAME=aureum_digital_prod
-CORS_ORIGINS=https://aureumdigital.com
-SMTP_EMAIL=noreply@aureumdigital.com
+DB_NAME=donosti_strategia_prod
+CORS_ORIGINS=https://donostistrategia.com
+SMTP_EMAIL=noreply@donostistrategia.com
 SMTP_PASSWORD=your-app-password
 EOF
 ```
@@ -209,7 +209,7 @@ EOF
 **Backend сервис:**
 
 ```bash
-sudo nano /etc/systemd/system/aureum-backend.service
+sudo nano /etc/systemd/system/donosti-backend.service
 ```
 
 ```ini
@@ -219,10 +219,10 @@ After=network.target mongodb.service
 
 [Service]
 Type=simple
-User=aureum
-WorkingDirectory=/home/aureum/aureum-digital/backend
-Environment="PATH=/home/aureum/aureum-digital/backend/venv/bin"
-ExecStart=/home/aureum/aureum-digital/backend/venv/bin/uvicorn server:app --host 0.0.0.0 --port 8001 --workers 4
+User=donosti
+WorkingDirectory=/home/donosti/donosti-strategia/backend
+Environment="PATH=/home/donosti/donosti-strategia/backend/venv/bin"
+ExecStart=/home/donosti/donosti-strategia/backend/venv/bin/uvicorn server:app --host 0.0.0.0 --port 8001 --workers 4
 Restart=always
 RestartSec=10
 
@@ -232,24 +232,24 @@ WantedBy=multi-user.target
 
 ```bash
 sudo systemctl daemon-reload
-sudo systemctl start aureum-backend
-sudo systemctl enable aureum-backend
-sudo systemctl status aureum-backend
+sudo systemctl start donosti-backend
+sudo systemctl enable donosti-backend
+sudo systemctl status donosti-backend
 ```
 
 #### 8. Настройка Nginx
 
 ```bash
-sudo nano /etc/nginx/sites-available/aureumdigital.com
+sudo nano /etc/nginx/sites-available/donostistrategia.com
 ```
 
 ```nginx
 # Frontend
 server {
     listen 80;
-    server_name aureumdigital.com www.aureumdigital.com;
+    server_name donostistrategia.com www.donostistrategia.com;
     
-    root /home/aureum/aureum-digital/frontend/build;
+    root /home/donosti/donosti-strategia/frontend/build;
     index index.html;
     
     # Gzip compression
@@ -271,7 +271,7 @@ server {
 # Backend API
 server {
     listen 80;
-    server_name api.aureumdigital.com;
+    server_name api.donostistrategia.com;
     
     location / {
         proxy_pass http://127.0.0.1:8001;
@@ -289,7 +289,7 @@ server {
 
 ```bash
 # Включение конфигурации
-sudo ln -s /etc/nginx/sites-available/aureumdigital.com /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/donostistrategia.com /etc/nginx/sites-enabled/
 sudo nginx -t
 sudo systemctl reload nginx
 ```
@@ -298,7 +298,7 @@ sudo systemctl reload nginx
 
 ```bash
 # Автоматическая установка SSL
-sudo certbot --nginx -d aureumdigital.com -d www.aureumdigital.com -d api.aureumdigital.com
+sudo certbot --nginx -d donostistrategia.com -d www.donostistrategia.com -d api.donostistrategia.com
 
 # Автоматическое обновление
 sudo certbot renew --dry-run
@@ -372,25 +372,25 @@ version: '3.8'
 services:
   mongodb:
     image: mongo:6.0
-    container_name: aureum-mongo
+    container_name: donosti-mongo
     restart: always
     volumes:
       - mongo-data:/data/db
     environment:
-      MONGO_INITDB_DATABASE: aureum_digital
+      MONGO_INITDB_DATABASE: donosti_strategia
     ports:
       - "27017:27017"
 
   backend:
     build: ./backend
-    container_name: aureum-backend
+    container_name: donosti-backend
     restart: always
     depends_on:
       - mongodb
     environment:
       MONGO_URL: mongodb://mongodb:27017
-      DB_NAME: aureum_digital
-      CORS_ORIGINS: https://aureumdigital.com
+      DB_NAME: donosti_strategia
+      CORS_ORIGINS: https://donostistrategia.com
       SMTP_EMAIL: ${SMTP_EMAIL}
       SMTP_PASSWORD: ${SMTP_PASSWORD}
     ports:
@@ -398,7 +398,7 @@ services:
 
   frontend:
     build: ./frontend
-    container_name: aureum-frontend
+    container_name: donosti-frontend
     restart: always
     depends_on:
       - backend
@@ -417,7 +417,7 @@ volumes:
 ```bash
 # Создание .env файла для docker-compose
 cat > .env << EOF
-SMTP_EMAIL=noreply@aureumdigital.com
+SMTP_EMAIL=noreply@donostistrategia.com
 SMTP_PASSWORD=your-app-password
 EOF
 
@@ -447,19 +447,19 @@ docker-compose restart
 A      @    YOUR_SERVER_IP        3600
 A      www  YOUR_SERVER_IP        3600
 A      api  YOUR_SERVER_IP        3600
-CNAME  *    aureumdigital.com     3600
+CNAME  *    donostistrategia.com     3600
 ```
 
 ### Проверка DNS
 
 ```bash
 # Проверка A записей
-dig aureumdigital.com +short
-dig www.aureumdigital.com +short
-dig api.aureumdigital.com +short
+dig donostistrategia.com +short
+dig www.donostistrategia.com +short
+dig api.donostistrategia.com +short
 
 # Проверка распространения DNS
-nslookup aureumdigital.com 8.8.8.8
+nslookup donostistrategia.com 8.8.8.8
 ```
 
 ---
@@ -470,7 +470,7 @@ nslookup aureumdigital.com 8.8.8.8
 
 ```bash
 # Backend логи (systemd)
-sudo journalctl -u aureum-backend -f
+sudo journalctl -u donosti-backend -f
 
 # Nginx логи
 sudo tail -f /var/log/nginx/access.log
@@ -490,7 +490,7 @@ htop
 df -h
 
 # Статус сервисов
-sudo systemctl status aureum-backend
+sudo systemctl status donosti-backend
 sudo systemctl status nginx
 sudo systemctl status mongod
 ```
@@ -515,24 +515,24 @@ cd prometheus-2.40.0.linux-amd64
 
 ```bash
 # Создание скрипта backup
-cat > /home/aureum/backup.sh << 'EOF'
+cat > /home/donosti/backup.sh << 'EOF'
 #!/bin/bash
 DATE=$(date +"%Y%m%d_%H%M%S")
-BACKUP_DIR="/home/aureum/backups"
+BACKUP_DIR="/home/donosti/backups"
 mkdir -p $BACKUP_DIR
 
 # Backup MongoDB
-mongodump --db aureum_digital_prod --out $BACKUP_DIR/mongo_$DATE
+mongodump --db donosti_strategia_prod --out $BACKUP_DIR/mongo_$DATE
 
 # Удаление старых backup (старше 30 дней)
 find $BACKUP_DIR -type d -mtime +30 -exec rm -rf {} +
 EOF
 
-chmod +x /home/aureum/backup.sh
+chmod +x /home/donosti/backup.sh
 
 # Добавление в cron (ежедневно в 2:00)
 crontab -e
-# Добавить: 0 2 * * * /home/aureum/backup.sh
+# Добавить: 0 2 * * * /home/donosti/backup.sh
 ```
 
 ---
@@ -542,11 +542,11 @@ crontab -e
 ### Обновление через Git
 
 ```bash
-cd /home/aureum/aureum-digital
+cd /home/donosti/donosti-strategia
 
 # Создание backup текущей версии
-sudo systemctl stop aureum-backend
-cp -r /home/aureum/aureum-digital /home/aureum/aureum-digital.backup
+sudo systemctl stop donosti-backend
+cp -r /home/donosti/donosti-strategia /home/donosti/donosti-strategia.backup
 
 # Обновление кода
 git pull origin main
@@ -562,17 +562,17 @@ source venv/bin/activate
 pip install -r requirements.txt
 
 # Перезапуск
-sudo systemctl start aureum-backend
+sudo systemctl start donosti-backend
 sudo systemctl reload nginx
 ```
 
 ### Откат к предыдущей версии
 
 ```bash
-sudo systemctl stop aureum-backend
-rm -rf /home/aureum/aureum-digital
-mv /home/aureum/aureum-digital.backup /home/aureum/aureum-digital
-sudo systemctl start aureum-backend
+sudo systemctl stop donosti-backend
+rm -rf /home/donosti/donosti-strategia
+mv /home/donosti/donosti-strategia.backup /home/donosti/donosti-strategia
+sudo systemctl start donosti-backend
 ```
 
 ---
@@ -583,13 +583,13 @@ sudo systemctl start aureum-backend
 
 ```bash
 # Проверка логов
-sudo journalctl -u aureum-backend -n 50
+sudo journalctl -u donosti-backend -n 50
 
 # Проверка порта
 sudo netstat -tulpn | grep 8001
 
 # Ручной запуск для отладки
-cd /home/aureum/aureum-digital/backend
+cd /home/donosti/donosti-strategia/backend
 source venv/bin/activate
 uvicorn server:app --host 0.0.0.0 --port 8001
 ```
@@ -601,11 +601,11 @@ uvicorn server:app --host 0.0.0.0 --port 8001
 sudo nginx -t
 
 # Пересборка Frontend
-cd /home/aureum/aureum-digital/frontend
+cd /home/donosti/donosti-strategia/frontend
 yarn build
 
 # Проверка прав доступа
-ls -la /home/aureum/aureum-digital/frontend/build
+ls -la /home/donosti/donosti-strategia/frontend/build
 ```
 
 ### MongoDB проблемы
@@ -618,7 +618,7 @@ sudo systemctl status mongod
 mongo --eval "db.adminCommand('ping')"
 
 # Восстановление из backup
-mongorestore --db aureum_digital_prod /path/to/backup
+mongorestore --db donosti_strategia_prod /path/to/backup
 ```
 
 ---
