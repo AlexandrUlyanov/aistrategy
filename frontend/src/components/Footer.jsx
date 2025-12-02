@@ -16,8 +16,8 @@ const Footer = ({ language }) => {
             viewport={{ once: true }}
           >
             <div className="flex items-center mb-4">
-              <span className="text-2xl font-light tracking-wider text-white">AUREUM</span>
-              <span className="ml-2 text-2xl font-light tracking-wider text-golden">DIGITAL</span>
+              <span className="text-2xl font-light tracking-wider text-white">DONOSTI</span>
+              <span className="ml-2 text-2xl font-light tracking-wider text-golden">STRATEGIA</span>
             </div>
             <p className="text-gray-400 mb-6 font-light leading-relaxed">
               {language === 'es'
@@ -144,7 +144,7 @@ const Footer = ({ language }) => {
           className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400 font-light"
         >
           <p>
-            © {currentYear} AUREUM DIGITAL.{' '}
+            © {currentYear} DONOSTI STRATEGIA.{' '}
             {language === 'es' ? 'Todos los derechos reservados.' : 'All rights reserved.'}
           </p>
           <div className="flex gap-6">
