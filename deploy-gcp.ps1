@@ -4,7 +4,10 @@ param(
     [string]$Region = "europe-west1",
     [string]$MongoUrl = "mongodb+srv://user:password@cluster.mongodb.net",
     [string]$DbName = "aureum_digital_prod",
-    [string]$CorsOrigins = "*"
+    [string]$CorsOrigins = "*",
+    [string]$SmtpEmail = "",
+    [string]$SmtpPassword = "",
+    [string]$ContactToEmail = ""
 )
 
 $ErrorActionPreference = "Stop"
@@ -38,7 +41,7 @@ gcloud.cmd services enable run.googleapis.com containerregistry.googleapis.com c
 Write-Host "Starting Cloud Build deploy..."
 gcloud.cmd builds submit `
   --config=cloudbuild.yaml `
-  --substitutions="_MONGO_URL=$MongoUrl,_DB_NAME=$DbName,_CORS_ORIGINS=$CorsOrigins" `
+  --substitutions="_MONGO_URL=$MongoUrl,_DB_NAME=$DbName,_CORS_ORIGINS=$CorsOrigins,_SMTP_EMAIL=$SmtpEmail,_SMTP_PASSWORD=$SmtpPassword,_CONTACT_TO_EMAIL=$ContactToEmail" `
   .
 
 $backendUrl = gcloud.cmd run services describe aureum-backend --region=$Region --format="value(status.url)"

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { blogPosts } from '../mockData';
+import { blogInsights } from '../blogInsights';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 import { Badge } from './ui/badge';
 
@@ -80,6 +81,11 @@ const Blog = ({ language }) => {
                   <Badge className="absolute top-4 left-4 bg-white/95 text-graphite border-0">
                     {language === 'es' ? post.categoryEs : post.category}
                   </Badge>
+                  {blogInsights[post.slug] && (
+                    <Badge className="absolute top-4 right-4 bg-golden text-white border-0">
+                      {language === 'es' ? 'Con Datos' : 'Data-backed'}
+                    </Badge>
+                  )}
                 </div>
 
                 <div className="p-6">

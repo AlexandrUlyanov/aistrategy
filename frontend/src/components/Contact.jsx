@@ -39,6 +39,11 @@ const Contact = ({ language }) => {
         throw new Error('Failed to submit contact form');
       }
 
+      const data = await response.json();
+      if (data.email_sent === false) {
+        throw new Error(data.email_error || 'Email delivery failed');
+      }
+
       toast.success(
         language === 'es'
           ? 'Message sent! We will contact you soon.'

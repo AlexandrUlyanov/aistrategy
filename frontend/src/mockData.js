@@ -51,7 +51,8 @@ export const portfolio = [
     descriptionEs: "Marca de alquiler de villas de lujo con presencia digital premium",
     category: "Hospitality",
     categoryEs: "Hospitalidad",
-    image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80",
+    image: "https://image.thum.io/get/width/1400/crop/900/https://villalanperna.com/gallery/",
+    previewImage: "https://image.thum.io/get/width/1400/crop/900/https://villalanperna.com/gallery/",
     challenge: "Transform luxury villa into internationally recognized brand with seamless booking experience",
     challengeEs: "Transformar villa de lujo en marca reconocida internacionalmente con experiencia de reserva fluida",
     solution: "Comprehensive brand identity, multilingual website, Airbnb integration, content strategy and social media presence",
@@ -76,7 +77,67 @@ export const portfolio = [
     location: "San Sebastián, Spain",
     year: "2020-2025",
     website: "villalanperna.com",
-    services: ["Brand Strategy", "Web Development", "Content Marketing"]
+    services: ["Brand Strategy", "Web Development", "Content Marketing"],
+    techStack: ["WordPress", "Booking UX", "SEO", "Analytics"],
+    caseScreenshots: [
+      {
+        label: "Gallery",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://villalanperna.com/gallery/"
+      },
+      {
+        label: "Villa Details",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://villalanperna.com/villa-lanperna-2/"
+      },
+      {
+        label: "Apartment Details",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://villalanperna.com/lanperna1-2/"
+      },
+      {
+        label: "About",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://villalanperna.com/about/"
+      },
+      {
+        label: "Reviews",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://villalanperna.com/reviews/"
+      },
+      {
+        label: "Contact",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://villalanperna.com/contact/"
+      },
+      {
+        label: "Places & Events",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://villalanperna.com/places-events/"
+      },
+      {
+        label: "Attractions",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://villalanperna.com/category/attractions/"
+      },
+      {
+        label: "Gastronomic",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://villalanperna.com/category/gastronomic/"
+      },
+      {
+        label: "Outdoor",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://villalanperna.com/category/outdoor/"
+      },
+      {
+        label: "ES Home",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://villalanperna.com/es/"
+      },
+      {
+        label: "Cuisine Article",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://villalanperna.com/basque-and-san-sebastian-cuisine/"
+      },
+      {
+        label: "What To See",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://villalanperna.com/what-to-see-in-san-sebastian/"
+      }
+    ],
+    cardHighlights: [
+      "High-intent booking funnel",
+      "Localized content for international guests",
+      "Premium visual storytelling"
+    ]
   },
   {
     id: 2,
@@ -85,7 +146,8 @@ export const portfolio = [
     descriptionEs: "Transformación digital para casa editorial líder",
     category: "Media",
     categoryEs: "Medios",
-    image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&q=80",
+    image: "https://image.thum.io/get/width/1400/crop/900/https://mrmag.ru/novosti/",
+    previewImage: "https://image.thum.io/get/width/1400/crop/900/https://mrmag.ru/novosti/",
     challenge: "Modernize digital presence and monetization strategy for established media brand",
     challengeEs: "Modernizar presencia digital y estrategia de monetización para marca establecida",
     solution: "Platform redesign, content management system, SEO strategy, advertising integration and reader engagement tools",
@@ -110,6 +172,32 @@ export const portfolio = [
     location: "Russia",
     year: "2018-2024",
     website: "mrmag.ru",
+    caseScreenshots: [
+      {
+        label: "News",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://mrmag.ru/novosti/"
+      },
+      {
+        label: "Company",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://mrmag.ru/o_kompanii"
+      },
+      {
+        label: "Delivery",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://mrmag.ru/dostavka"
+      },
+      {
+        label: "Contacts",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://mrmag.ru/kontakty"
+      },
+      {
+        label: "Stores",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://mrmag.ru/adresa_magazinov"
+      },
+      {
+        label: "App",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://mrmag.ru/app"
+      }
+    ],
     services: ["Web Development", "Digital Marketing", "Content Strategy"]
   },
   {
@@ -119,7 +207,8 @@ export const portfolio = [
     descriptionEs: "Infraestructura digital B2B para soluciones de calefacción industrial",
     category: "B2B Industrial",
     categoryEs: "B2B Industrial",
-    image: "https://images.unsplash.com/photo-1581092160607-ee67d66e9aa3?w=800&q=80",
+    image: "https://image.thum.io/get/width/1400/crop/900/https://t-tepla.ru/catalog/",
+    previewImage: "https://image.thum.io/get/width/1400/crop/900/https://t-tepla.ru/catalog/",
     challenge: "Create professional platform for complex industrial products with technical specifications",
     challengeEs: "Crear plataforma profesional para productos industriales complejos con especificaciones técnicas",
     solution: "B2B website with product catalog, technical documentation system, lead generation tools and CRM integration",
@@ -144,6 +233,32 @@ export const portfolio = [
     location: "Russia",
     year: "2019-2024",
     website: "t-tepla.ru",
+    caseScreenshots: [
+      {
+        label: "Catalog",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://t-tepla.ru/catalog/"
+      },
+      {
+        label: "About",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://t-tepla.ru/about/"
+      },
+      {
+        label: "Fireplaces",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://t-tepla.ru/catalog/kaminy/"
+      },
+      {
+        label: "Doors",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://t-tepla.ru/catalog/dveri/"
+      },
+      {
+        label: "Stones",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://t-tepla.ru/catalog/kamni/"
+      },
+      {
+        label: "Cart",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://t-tepla.ru/cart/"
+      }
+    ],
     services: ["Web Development", "Digital Marketing", "Business Consulting"]
   },
   {
@@ -153,7 +268,8 @@ export const portfolio = [
     descriptionEs: "Transformación e-commerce para equipos de tratamiento de agua",
     category: "E-commerce",
     categoryEs: "E-commerce",
-    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80",
+    image: "https://image.thum.io/get/width/1400/crop/900/https://vodovorot.info/catalog/",
+    previewImage: "https://image.thum.io/get/width/1400/crop/900/https://vodovorot.info/catalog/",
     challenge: "Build online sales channel for specialized equipment with complex decision-making process",
     challengeEs: "Construir canal de ventas online para equipos especializados con proceso de decisión complejo",
     solution: "E-commerce platform with product comparison, expert consultation system, educational content and automated marketing",
@@ -178,6 +294,32 @@ export const portfolio = [
     location: "Russia",
     year: "2017-2024",
     website: "vodovorot.info",
+    caseScreenshots: [
+      {
+        label: "Catalog",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://vodovorot.info/catalog/"
+      },
+      {
+        label: "Basket",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://vodovorot.info/basket/"
+      },
+      {
+        label: "Accessories",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://vodovorot.info/catalog/aksessuary/"
+      },
+      {
+        label: "Automation",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://vodovorot.info/catalog/avtomatika_dlya_nasosov_1/"
+      },
+      {
+        label: "Tank",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://vodovorot.info/catalog/bak_dlya_dusha_1/"
+      },
+      {
+        label: "Contacts",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://vodovorot.info/kontakty/"
+      }
+    ],
     services: ["Web Development", "Digital Marketing", "Brand Strategy"]
   },
   {
@@ -187,7 +329,8 @@ export const portfolio = [
     descriptionEs: "Presencia digital para clínica de cardiología especializada",
     category: "Healthcare",
     categoryEs: "Salud",
-    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80",
+    image: "https://image.thum.io/get/width/1400/crop/900/https://cardio-penza.ru/company/",
+    previewImage: "https://image.thum.io/get/width/1400/crop/900/https://cardio-penza.ru/company/",
     challenge: "Build patient trust and streamline appointment booking for specialized medical services",
     challengeEs: "Construir confianza del paciente y optimizar reservas de citas para servicios médicos especializados",
     solution: "Professional medical website with online booking, doctor profiles, patient education, local SEO and trust-building content",
@@ -212,6 +355,32 @@ export const portfolio = [
     location: "Russia",
     year: "2016-2024",
     website: "cardio-penza.ru",
+    caseScreenshots: [
+      {
+        label: "Company",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://cardio-penza.ru/company/"
+      },
+      {
+        label: "FAQ",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://cardio-penza.ru/company/faq/"
+      },
+      {
+        label: "History",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://cardio-penza.ru/company/istoriya/"
+      },
+      {
+        label: "Official Info",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://cardio-penza.ru/company/ofitsialnaya-informatsiya/"
+      },
+      {
+        label: "Licenses",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://cardio-penza.ru/company/ofitsialnaya-informatsiya/svidetelstva-i-litsenzii/"
+      },
+      {
+        label: "How To Visit",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://cardio-penza.ru/patsientam/kak-popast-k-nam-v-tsentr/"
+      }
+    ],
     services: ["Web Development", "Digital Marketing", "Content Strategy"]
   },
   {
@@ -221,7 +390,8 @@ export const portfolio = [
     descriptionEs: "Plataforma B2B para proveedor de equipos médicos",
     category: "B2B Medical",
     categoryEs: "B2B Médico",
-    image: "https://images.unsplash.com/photo-1583912086296-be5d5cb8e69c?w=800&q=80",
+    image: "https://image.thum.io/get/width/1400/crop/900/https://surmeb.ru/articles/",
+    previewImage: "https://image.thum.io/get/width/1400/crop/900/https://surmeb.ru/articles/",
     challenge: "Position medical equipment supplier as trusted partner for healthcare institutions",
     challengeEs: "Posicionar proveedor de equipos médicos como socio confiable para instituciones de salud",
     solution: "B2B platform with product catalog, procurement system, technical support portal and educational resources",
@@ -246,7 +416,167 @@ export const portfolio = [
     location: "Russia",
     year: "2015-2024",
     website: "surmeb.ru",
+    caseScreenshots: [
+      {
+        label: "Articles",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://surmeb.ru/articles/"
+      },
+      {
+        label: "3D Configurator",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://surmeb.ru/3d/"
+      },
+      {
+        label: "3D Mobile",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://surmeb.ru/3d/mobile/"
+      },
+      {
+        label: "Kitchen Trends",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://surmeb.ru/articles/glavnye-trendy-dizayna-kukhon-v-2026-stili-tsveta-i-materialy/"
+      },
+      {
+        label: "Design Guide",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://surmeb.ru/articles/dizayn-kukhni-v-2025-godu-modnye-trendy-i-aktualnye-sovety/"
+      },
+      {
+        label: "Materials",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://surmeb.ru/articles/iz-kakogo-materiala-zakazat-kukhnyu-vybiraem-fasady/"
+      }
+    ],
     services: ["Web Development", "Business Consulting", "Digital Marketing"]
+  },
+  {
+    id: 7,
+    title: "EntrayCompara",
+    description: "Growth platform: automation, AI integration, CRM, marketing, analytics and SEO",
+    descriptionEs: "Plataforma de crecimiento: automatizaciГіn, integraciГіn de IA, CRM, marketing, analГ­tica y SEO",
+    category: "AI Automation",
+    categoryEs: "AutomatizaciГіn IA",
+    image: "/portfolio/entraycompara/home.png",
+    previewImage: "/portfolio/entraycompara/home.png",
+    challenge: "Unify operations, marketing and lead management in one digital system while scaling acquisition efficiently",
+    challengeEs: "Unificar operaciones, marketing y gestiГіn de leads en un solo sistema digital mientras se escala la captaciГіn de forma eficiente",
+    solution: "Implemented process automation, AI-assisted workflows, CRM pipeline architecture, performance marketing setup, analytics dashboards and technical SEO framework",
+    solutionEs: "ImplementaciГіn de automatizaciГіn de procesos, flujos asistidos por IA, arquitectura de pipeline CRM, configuraciГіn de marketing de rendimiento, paneles analГ­ticos y framework de SEO tГ©cnico",
+    results: [
+      "210% growth in qualified leads",
+      "68% faster lead response time",
+      "175% increase in organic visibility"
+    ],
+    resultsEs: [
+      "210% crecimiento en leads calificados",
+      "68% menor tiempo de respuesta a leads",
+      "175% aumento en visibilidad orgГЎnica"
+    ],
+    metrics: {
+      leads: "+210%",
+      response: "-68%",
+      visibility: "+175%"
+    },
+    tags: ["Automation", "AI Integration", "CRM", "SEO"],
+    client: "EntrayCompara",
+    location: "Spain",
+    year: "2025-2026",
+    website: "entraycompara.com",
+    caseScreenshots: [
+      {
+        label: "Homepage",
+        url: "/portfolio/entraycompara/home.png"
+      },
+      {
+        label: "Services",
+        url: "/portfolio/entraycompara/services.png"
+      },
+      {
+        label: "SEO",
+        url: "/portfolio/entraycompara/seo.png"
+      },
+      {
+        label: "Automation",
+        url: "/portfolio/entraycompara/automation.png"
+      },
+      {
+        label: "Contact",
+        url: "/portfolio/entraycompara/contact.png"
+      },
+      {
+        label: "Blog",
+        url: "/portfolio/entraycompara/blog.png"
+      }
+    ],
+    services: ["Web Development", "Digital Marketing", "Business Consulting"],
+    techStack: ["CRM", "AI Workflows", "Analytics", "SEO"],
+    cardHighlights: [
+      "Unified sales and marketing stack",
+      "AI-assisted lead qualification",
+      "SEO and analytics-driven growth"
+    ]
+  },
+  {
+    id: 8,
+    title: "Asculap",
+    description: "Digital growth platform for medical products and healthcare demand generation",
+    descriptionEs: "Plataforma de crecimiento digital para productos mГ©dicos y generaciГіn de demanda en salud",
+    category: "Healthcare",
+    categoryEs: "Salud",
+    image: "https://image.thum.io/get/width/1400/crop/900/https://asculap.ru/",
+    previewImage: "https://image.thum.io/get/width/1400/crop/900/https://asculap.ru/",
+    challenge: "Scale digital visibility and streamline lead acquisition for a healthcare-focused brand with complex product positioning",
+    challengeEs: "Escalar la visibilidad digital y optimizar la captaciГіn de leads para una marca de salud con posicionamiento de producto complejo",
+    solution: "Built a conversion-oriented web presence with CRM-ready lead capture, SEO architecture, analytics tracking and performance-focused content funnels",
+    solutionEs: "Desarrollamos una presencia web orientada a conversiГіn con captaciГіn de leads lista para CRM, arquitectura SEO, analГ­tica y embudos de contenido orientados a rendimiento",
+    results: [
+      "165% increase in qualified inquiries",
+      "140% growth in organic traffic",
+      "72% faster processing of incoming leads"
+    ],
+    resultsEs: [
+      "165% aumento en consultas calificadas",
+      "140% crecimiento en trГЎfico orgГЎnico",
+      "72% mГЎs rГЎpido el procesamiento de leads entrantes"
+    ],
+    metrics: {
+      inquiries: "+165%",
+      traffic: "+140%",
+      speed: "+72%"
+    },
+    tags: ["Healthcare", "CRM", "SEO", "Analytics"],
+    client: "Asculap",
+    location: "Russia",
+    year: "2024-2026",
+    website: "asculap.ru",
+    caseScreenshots: [
+      {
+        label: "Homepage",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://asculap.ru/"
+      },
+      {
+        label: "Catalog",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://asculap.ru/catalog/"
+      },
+      {
+        label: "Products",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://asculap.ru/products/"
+      },
+      {
+        label: "Services",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://asculap.ru/services/"
+      },
+      {
+        label: "About",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://asculap.ru/about/"
+      },
+      {
+        label: "Contacts",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://asculap.ru/contacts/"
+      }
+    ],
+    services: ["Web Development", "Digital Marketing", "Business Consulting"],
+    techStack: ["CRM Integration", "Analytics", "SEO", "Lead Automation"],
+    cardHighlights: [
+      "Healthcare-focused lead funnels",
+      "SEO-driven patient and partner visibility",
+      "CRM-ready conversion architecture"
+    ]
   }
 ];
 
@@ -2110,3 +2440,4 @@ At AI STRATEGY, we help companies build content strategies that deliver measurab
 En AI STRATEGY, ayudamos a las empresas a construir estrategias de contenido que entregan resultados comerciales medibles.`
   }
 ];
+

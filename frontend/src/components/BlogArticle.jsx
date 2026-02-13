@@ -3,6 +3,7 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, ArrowLeft, Tag, ArrowRight } from 'lucide-react';
 import { blogPosts } from '../mockData';
+import { blogInsights } from '../blogInsights';
 import Breadcrumbs from './Breadcrumbs';
 
 const BlogArticle = ({ language = 'en' }) => {
@@ -33,7 +34,10 @@ const BlogArticle = ({ language = 'en' }) => {
   const allDisplayArticles = [...relatedArticles, ...moreArticles].slice(0, 6);
 
   const title = language === 'es' ? article.titleEs : article.title;
-  const content = language === 'es' ? article.contentEs : article.content;
+  const insights = blogInsights[article.slug];
+  const content = insights
+    ? (language === 'es' ? insights.content.es : insights.content.en)
+    : (language === 'es' ? article.contentEs : article.content);
   const category = language === 'es' ? article.categoryEs : article.category;
   const readTime = language === 'es' ? article.readTimeEs : article.readTime;
   const excerpt = language === 'es' ? article.excerptEs : article.excerpt;
@@ -52,39 +56,73 @@ const BlogArticle = ({ language = 'en' }) => {
   // Parse markdown-like content to HTML
   const parseContent = (text) => {
     if (!text) return '';
-    
-    return text
-      .split('\n')
-      .map((line, index) => {
-        // H2 headers
-        if (line.startsWith('## ')) {
-          return `<h2 key="${index}" class="article-h2">${line.substring(3)}</h2>`;
+
+    const lines = text.split('\n');
+    const html = [];
+    let inList = false;
+
+    lines.forEach((rawLine, index) => {
+      let line = rawLine;
+
+      line = line.replace(/\[(.*?)\]\((https?:\/\/.*?)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+      line = line.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+
+      if (line.startsWith('## ')) {
+        if (inList) {
+          html.push('</ul>');
+          inList = false;
         }
-        // H3 headers
-        if (line.startsWith('### ')) {
-          return `<h3 key="${index}" class="article-h3">${line.substring(4)}</h3>`;
+        html.push(`<h2 key="${index}" class="article-h2">${line.substring(3)}</h2>`);
+        return;
+      }
+
+      if (line.startsWith('### ')) {
+        if (inList) {
+          html.push('</ul>');
+          inList = false;
         }
-        // Bold text
-        line = line.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-        // Lists
-        if (line.startsWith('- ')) {
-          return `<li key="${index}" class="article-li">${line.substring(2)}</li>`;
+        html.push(`<h3 key="${index}" class="article-h3">${line.substring(4)}</h3>`);
+        return;
+      }
+
+      if (line.startsWith('- ')) {
+        if (!inList) {
+          html.push('<ul class="article-ul">');
+          inList = true;
         }
-        // Empty lines
-        if (line.trim() === '') {
-          return '<br key="${index}" />';
+        html.push(`<li key="${index}" class="article-li">${line.substring(2)}</li>`);
+        return;
+      }
+
+      if (line.trim() === '') {
+        if (inList) {
+          html.push('</ul>');
+          inList = false;
         }
-        // Code blocks
-        if (line.startsWith('```')) {
-          return '';
+        html.push('<br key="${index}" />');
+        return;
+      }
+
+      if (line.startsWith('```')) {
+        return;
+      }
+
+      if (!line.startsWith('<') && line.trim() !== '') {
+        if (inList) {
+          html.push('</ul>');
+          inList = false;
         }
-        // Regular paragraphs
-        if (!line.startsWith('<') && line.trim() !== '') {
-          return `<p key="${index}" class="article-p">${line}</p>`;
-        }
-        return line;
-      })
-      .join('');
+        html.push(`<p key="${index}" class="article-p">${line}</p>`);
+      } else {
+        html.push(line);
+      }
+    });
+
+    if (inList) {
+      html.push('</ul>');
+    }
+
+    return html.join('');
   };
 
   return (
@@ -154,11 +192,88 @@ const BlogArticle = ({ language = 'en' }) => {
             />
           </div>
 
+          {insights && (
+            <div className="mb-12 space-y-8">
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="blog-lead-block"
+              >
+                <p className="text-lg md:text-xl font-light leading-relaxed">
+                  {language === 'es' ? insights.lead.es : insights.lead.en}
+                </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                <h3 className="blog-insights-title">{language === 'es' ? 'Estadísticas Clave' : 'Key Stats'}</h3>
+                <div className="grid md:grid-cols-3 gap-4 mt-4">
+                  {insights.keyStats.map((stat, i) => (
+                    <div key={i} className="blog-stat-card">
+                      <div className="blog-stat-value">{stat.value}</div>
+                      <p className="blog-stat-label">{language === 'es' ? stat.labelEs : stat.labelEn}</p>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
+                <h3 className="blog-insights-title">{language === 'es' ? 'Flujo Estratégico' : 'Strategic Flow'}</h3>
+                <div className="grid md:grid-cols-2 gap-4 mt-4">
+                  {insights.infographic.map((item, i) => (
+                    <div key={i} className="blog-flow-card">
+                      <span className="blog-flow-step">{`0${i + 1}`}</span>
+                      <div>
+                        <p className="blog-flow-title">{language === 'es' ? item.stepEs : item.stepEn}</p>
+                        <p className="blog-flow-detail">{language === 'es' ? item.detailEs : item.detailEn}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
+          )}
+
           {/* Article Content */}
           <div 
             className="article-content prose prose-lg max-w-none"
             dangerouslySetInnerHTML={{ __html: parseContent(content) }}
           />
+
+          {insights && (
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="mt-12"
+            >
+              <h3 className="blog-insights-title">{language === 'es' ? 'Fuentes' : 'Sources'}</h3>
+              <div className="grid md:grid-cols-3 gap-4 mt-4">
+                {insights.keyStats.map((stat, i) => (
+                  <a
+                    key={i}
+                    href={stat.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="blog-source-card"
+                  >
+                    <p className="blog-source-name">{stat.source}</p>
+                    <p className="blog-source-meta">
+                      {language === 'es' ? stat.labelEs : stat.labelEn}
+                    </p>
+                  </a>
+                ))}
+              </div>
+            </motion.div>
+          )}
         </motion.div>
 
         {/* More Articles Navigation */}

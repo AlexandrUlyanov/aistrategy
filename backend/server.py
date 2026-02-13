@@ -1,4 +1,4 @@
-from fastapi import FastAPI, APIRouter, HTTPException
+﻿from fastapi import FastAPI, APIRouter, HTTPException
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 import os
@@ -44,9 +44,9 @@ try:
         # Use default credentials (works on Cloud Run)
         db = firestore.Client()
     
-    logging.info("✅ Firestore connection successful")
+    logging.info("вњ… Firestore connection successful")
 except Exception as e:
-    logging.error(f"❌ Firestore connection failed: {e}")
+    logging.error(f"вќЊ Firestore connection failed: {e}")
     db = None
 
 
@@ -85,6 +85,8 @@ async def get_status():
 async def submit_contact_form(contact: ContactForm):
     """Submit contact form and send email"""
     try:
+        email_sent = False
+        email_error_message = ""
         # Save to Firestore
         if db:
             contact_dict = contact.model_dump()
@@ -94,18 +96,21 @@ async def submit_contact_form(contact: ContactForm):
             # Save to Firestore collection 'contacts'
             doc_ref = db.collection('contacts').document(contact.id)
             doc_ref.set(contact_dict)
-            logging.info(f"✅ Contact saved to Firestore: {contact.id}")
+            logging.info(f"вњ… Contact saved to Firestore: {contact.id}")
         
         # Send email notification
         try:
-            smtp_email = os.environ.get('SMTP_EMAIL')
-            smtp_password = os.environ.get('SMTP_PASSWORD')
+            smtp_email = (os.environ.get('SMTP_EMAIL') or '').strip()
+            smtp_password = (os.environ.get('SMTP_PASSWORD') or '').replace(' ', '').strip()
+            contact_to_email = (os.environ.get('CONTACT_TO_EMAIL') or smtp_email or '').strip()
+            recipient_emails = [e.strip() for e in contact_to_email.replace(';', ',').split(',') if e.strip()]
             
-            if smtp_email and smtp_password:
+            if smtp_email and smtp_password and recipient_emails:
                 msg = MIMEMultipart('alternative')
                 msg['Subject'] = f"New Contact from AUREUM DIGITAL - {contact.name}"
                 msg['From'] = smtp_email
-                msg['To'] = "ulyanov.ht@gmail.com"
+                msg['To'] = ", ".join(recipient_emails)
+                msg['Reply-To'] = contact.email
                 
                 # Email body
                 text = f"""
@@ -150,20 +155,26 @@ async def submit_contact_form(contact: ContactForm):
                 with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
                     server.login(smtp_email, smtp_password)
                     server.send_message(msg)
-                
-                logging.info("✅ Email sent successfully")
+
+                email_sent = True
+                logging.info("вњ… Email sent successfully")
+            else:
+                logging.warning("Email not sent: missing SMTP_EMAIL/SMTP_PASSWORD/CONTACT_TO_EMAIL")
         except Exception as email_error:
-            logging.error(f"❌ Email sending failed: {email_error}")
+            email_error_message = str(email_error)
+            logging.error(f"вќЊ Email sending failed: {email_error}")
             # Don't fail the whole request if email fails
         
         return {
             "success": True,
             "message": "Contact form submitted successfully",
-            "id": contact.id
+            "id": contact.id,
+            "email_sent": email_sent,
+            "email_error": email_error_message
         }
     
     except Exception as e:
-        logging.error(f"❌ Contact form submission failed: {e}")
+        logging.error(f"вќЊ Contact form submission failed: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 
@@ -190,7 +201,7 @@ async def get_contacts(limit: int = 50):
         }
     
     except Exception as e:
-        logging.error(f"❌ Failed to fetch contacts: {e}")
+        logging.error(f"вќЊ Failed to fetch contacts: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 
@@ -201,14 +212,17 @@ app.include_router(api_router)
 # Startup event
 @app.on_event("startup")
 async def startup_db_client():
-    logging.info("🚀 Starting AUREUM DIGITAL API...")
+    logging.info("рџљЂ Starting AUREUM DIGITAL API...")
     if db:
-        logging.info("✅ Firestore initialized")
+        logging.info("вњ… Firestore initialized")
     else:
-        logging.warning("⚠️ Firestore not available")
+        logging.warning("вљ пёЏ Firestore not available")
 
 
 # Shutdown event
 @app.on_event("shutdown")
 async def shutdown_db_client():
-    logging.info("👋 Shutting down AUREUM DIGITAL API...")
+    logging.info("рџ‘‹ Shutting down AUREUM DIGITAL API...")
+
+
+

@@ -1,12 +1,42 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { portfolio } from '../mockData';
 import { ExternalLink, X, CheckCircle } from 'lucide-react';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious
+} from './ui/carousel';
 
 const Portfolio = ({ language }) => {
   const [selectedProject, setSelectedProject] = useState(null);
+  const [carouselApi, setCarouselApi] = useState(null);
+  const [currentSlide, setCurrentSlide] = useState(1);
+  const [totalSlides, setTotalSlides] = useState(0);
+
+  useEffect(() => {
+    if (!carouselApi) {
+      return;
+    }
+
+    const updateCarouselState = () => {
+      setCurrentSlide(carouselApi.selectedScrollSnap() + 1);
+      setTotalSlides(carouselApi.scrollSnapList().length);
+    };
+
+    updateCarouselState();
+    carouselApi.on('select', updateCarouselState);
+    carouselApi.on('reInit', updateCarouselState);
+
+    return () => {
+      carouselApi.off('select', updateCarouselState);
+      carouselApi.off('reInit', updateCarouselState);
+    };
+  }, [carouselApi, selectedProject]);
 
   return (
     <section id="projects" className="section-padding bg-gray-50">
@@ -47,7 +77,7 @@ const Portfolio = ({ language }) => {
                 {/* Image */}
                 <div className="relative h-64 overflow-hidden">
                   <img
-                    src={project.image}
+                    src={project.previewImage || project.image}
                     alt={project.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
@@ -55,6 +85,11 @@ const Portfolio = ({ language }) => {
                   <Badge className="absolute top-4 left-4 bg-white/95 text-graphite border-0 shadow-sm">
                     {language === 'es' ? project.categoryEs : project.category}
                   </Badge>
+                  {project.website && (
+                    <span className="absolute top-4 right-4 bg-graphite/90 text-white text-xs px-2.5 py-1 rounded-full">
+                      {project.website}
+                    </span>
+                  )}
                 </div>
 
                 {/* Content */}
@@ -64,6 +99,9 @@ const Portfolio = ({ language }) => {
                   </h3>
                   <p className="text-gray-600 text-sm mb-4 line-clamp-2 font-light">
                     {language === 'es' ? project.descriptionEs : project.description}
+                  </p>
+                  <p className="text-xs text-gray-500 mb-4">
+                    {project.location} • {project.year}
                   </p>
 
                   {/* Metrics */}
@@ -75,6 +113,30 @@ const Portfolio = ({ language }) => {
                       </div>
                     ))}
                   </div>
+
+                  {/* Project details */}
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {(project.techStack || project.services || []).slice(0, 3).map((item, i) => (
+                      <span
+                        key={i}
+                        className="px-2.5 py-1 rounded-full bg-gray-100 border border-gray-200 text-xs text-gray-600"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+
+                  {(project.cardHighlights && project.cardHighlights.length > 0) && (
+                    <p className="mt-3 text-xs text-gray-600 line-clamp-2">
+                      {project.cardHighlights[0]}
+                    </p>
+                  )}
+
+                  {project.caseScreenshots && project.caseScreenshots.length > 0 && (
+                    <p className="mt-2 text-xs text-gray-500">
+                      UI Screenshots: {project.caseScreenshots.length}
+                    </p>
+                  )}
 
                   {/* View Case Study */}
                   <div className="mt-4 text-sm text-graphite font-light flex items-center justify-between">
@@ -180,6 +242,81 @@ const Portfolio = ({ language }) => {
                     </div>
                   ))}
                 </div>
+
+                {/* Interface Screenshots */}
+                {selectedProject.caseScreenshots && selectedProject.caseScreenshots.length > 0 && (
+                  <div className="mb-8">
+                    <h3 className="text-xl font-light text-graphite mb-4 flex items-center">
+                      <span className="w-1.5 h-1.5 bg-golden rounded-full mr-3"></span>
+                      {language === 'es' ? 'Interfaces del sitio' : 'Website Interfaces'}
+                    </h3>
+
+                    <Carousel
+                      setApi={setCarouselApi}
+                      opts={{ loop: true }}
+                      className="w-full"
+                    >
+                      <CarouselContent>
+                        {selectedProject.caseScreenshots.map((shot, i) => (
+                          <CarouselItem key={i}>
+                            <a
+                              href={shot.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="group block"
+                            >
+                              <div className="rounded-2xl border border-zinc-300 bg-white shadow-[0_24px_60px_-35px_rgba(0,0,0,0.5)] overflow-hidden">
+                                <div className="h-9 border-b border-zinc-200 bg-zinc-100 flex items-center px-3">
+                                  <div className="flex items-center gap-1.5 mr-3">
+                                    <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]"></span>
+                                    <span className="w-2.5 h-2.5 rounded-full bg-[#febc2e]"></span>
+                                    <span className="w-2.5 h-2.5 rounded-full bg-[#28c840]"></span>
+                                  </div>
+                                  <div className="h-6 flex-1 rounded-full border border-zinc-200 bg-white text-[11px] text-zinc-500 px-3 flex items-center truncate">
+                                    {selectedProject.website}/{shot.label.toLowerCase().replace(/\s+/g, '-')}
+                                  </div>
+                                </div>
+                                <div className="p-3 bg-gradient-to-b from-zinc-100 to-white">
+                                  <div className="rounded-xl overflow-hidden border border-zinc-200">
+                                    <img
+                                      src={shot.url}
+                                      alt={`${selectedProject.title} ${shot.label}`}
+                                      className="w-full aspect-[16/10] object-cover group-hover:scale-[1.015] transition-transform duration-500"
+                                      loading="lazy"
+                                    />
+                                  </div>
+                                </div>
+                                <div className="px-4 pb-4 text-sm text-gray-700 font-light flex items-center justify-between">
+                                  <span>{shot.label}</span>
+                                  <ExternalLink className="w-4 h-4 text-golden" />
+                                </div>
+                              </div>
+                            </a>
+                          </CarouselItem>
+                        ))}
+                      </CarouselContent>
+
+                      <CarouselPrevious className="left-3 top-1/2 -translate-y-1/2 bg-white/95 border-zinc-200 hover:bg-white" />
+                      <CarouselNext className="right-3 top-1/2 -translate-y-1/2 bg-white/95 border-zinc-200 hover:bg-white" />
+                    </Carousel>
+
+                    <div className="mt-4 flex items-center justify-between">
+                      <p className="text-sm text-gray-500">
+                        {currentSlide}/{totalSlides || selectedProject.caseScreenshots.length}
+                      </p>
+                      <div className="flex items-center gap-1.5">
+                        {selectedProject.caseScreenshots.map((_, i) => (
+                          <span
+                            key={i}
+                            className={`h-1.5 rounded-full transition-all ${
+                              i + 1 === currentSlide ? 'w-6 bg-golden' : 'w-1.5 bg-gray-300'
+                            }`}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
 
                 {/* Services & Tags */}
                 <div className="flex flex-wrap gap-2 mb-6">
