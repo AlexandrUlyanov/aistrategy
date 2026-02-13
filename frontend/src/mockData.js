@@ -1,4 +1,4 @@
-// DONOSTI STRATEGIA - Premium Agency Data
+// AI STRATEGY - Premium Agency Data
 
 export const services = [
   {
@@ -258,9 +258,9 @@ export const ceoInfo = {
   positionEs: "Fundador y CEO",
   positionRu: "Основатель и Генеральный директор",
   image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&q=80",
-  message: "For over 15 years, we've been helping brands find their voice and grow with purpose. At DONOSTI STRATEGIA, we don't just create marketing campaigns—we architect brand experiences that resonate across markets and cultures. Our approach combines strategic depth with creative excellence, ensuring every project delivers measurable impact and lasting value.",
-  messageEs: "Durante más de 15 años, hemos ayudado a las marcas a encontrar su voz y crecer con propósito. En DONOSTI STRATEGIA, no solo creamos campañas de marketing—arquitecturamos experiencias de marca que resuenan a través de mercados y culturas. Nuestro enfoque combina profundidad estratégica con excelencia creativa, asegurando que cada proyecto entregue impacto medible y valor duradero.",
-  messageRu: "Более 15 лет мы помогаем брендам найти свой голос и расти осознанно. В DONOSTI STRATEGIA мы не просто создаем маркетинговые кампании—мы создаем архитектуру брендов, которые находят отклик на разных рынках и в разных культурах. Наш подход сочетает стратегическую глубину с творческим совершенством, обеспечивая измеримое влияние и долгосрочную ценность каждого проекта."
+  message: "For over 15 years, we've been helping brands find their voice and grow with purpose. At AI STRATEGY, we don't just create marketing campaigns—we architect brand experiences that resonate across markets and cultures. Our approach combines strategic depth with creative excellence, ensuring every project delivers measurable impact and lasting value.",
+  messageEs: "Durante más de 15 años, hemos ayudado a las marcas a encontrar su voz y crecer con propósito. En AI STRATEGY, no solo creamos campañas de marketing—arquitecturamos experiencias de marca que resuenan a través de mercados y culturas. Nuestro enfoque combina profundidad estratégica con excelencia creativa, asegurando que cada proyecto entregue impacto medible y valor duradero.",
+  messageRu: "Более 15 лет мы помогаем брендам найти свой голос и расти осознанно. В AI STRATEGY мы не просто создаем маркетинговые кампании—мы создаем архитектуру брендов, которые находят отклик на разных рынках и в разных культурах. Наш подход сочетает стратегическую глубину с творческим совершенством, обеспечивая измеримое влияние и долгосрочную ценность каждого проекта."
 };
 
 export const testimonials = [
@@ -271,8 +271,8 @@ export const testimonials = [
     company: "Grupo Inmobiliario Valencia",
     location: "Valencia, España",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
-    quote: "DONOSTI STRATEGIA nos ayudó a posicionarnos como líderes en el mercado inmobiliario de lujo. Su enfoque estratégico y conocimiento del mercado español fueron fundamentales para nuestro crecimiento del 200%.",
-    quoteEs: "DONOSTI STRATEGIA nos ayudó a posicionarnos como líderes en el mercado inmobiliario de lujo. Su enfoque estratégico y conocimiento del mercado español fueron fundamentales para nuestro crecimiento del 200%.",
+    quote: "AI STRATEGY nos ayudó a posicionarnos como líderes en el mercado inmobiliario de lujo. Su enfoque estratégico y conocimiento del mercado español fueron fundamentales para nuestro crecimiento del 200%.",
+    quoteEs: "AI STRATEGY nos ayudó a posicionarnos como líderes en el mercado inmobiliario de lujo. Su enfoque estratégico y conocimiento del mercado español fueron fundamentales para nuestro crecimiento del 200%.",
     rating: 5
   },
   {
@@ -282,8 +282,8 @@ export const testimonials = [
     company: "TechVentures International",
     location: "New York, USA",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80",
-    quote: "Working with DONOSTI STRATEGIA was transformative for our European expansion. Their strategic insight and execution excellence helped us penetrate Spanish and European markets with remarkable success.",
-    quoteEs: "Trabajar con DONOSTI STRATEGIA fue transformador para nuestra expansión europea. Su visión estratégica y excelencia en ejecución nos ayudó a penetrar los mercados español y europeo con éxito notable.",
+    quote: "Working with AI STRATEGY was transformative for our European expansion. Their strategic insight and execution excellence helped us penetrate Spanish and European markets with remarkable success.",
+    quoteEs: "Trabajar con AI STRATEGY fue transformador para nuestra expansión europea. Su visión estratégica y excelencia en ejecución nos ayudó a penetrar los mercados español y europeo con éxito notable.",
     rating: 5
   },
   {
@@ -293,8 +293,8 @@ export const testimonials = [
     company: "Estudio de Diseño Barcelona",
     location: "Barcelona, España",
     image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80",
-    quote: "Como diseñadora, aprecio profundamente la estética y atención al detalle de DONOSTI STRATEGIA. No solo mejoraron nuestra presencia digital, sino que elevaron toda nuestra marca. Resultados espectaculares.",
-    quoteEs: "Como diseñadora, aprecio profundamente la estética y atención al detalle de DONOSTI STRATEGIA. No solo mejoraron nuestra presencia digital, sino que elevaron toda nuestra marca. Resultados espectaculares.",
+    quote: "Como diseñadora, aprecio profundamente la estética y atención al detalle de AI STRATEGY. No solo mejoraron nuestra presencia digital, sino que elevaron toda nuestra marca. Resultados espectaculares.",
+    quoteEs: "Como diseñadora, aprecio profundamente la estética y atención al detalle de AI STRATEGY. No solo mejoraron nuestra presencia digital, sino que elevaron toda nuestra marca. Resultados espectaculares.",
     rating: 5
   },
   {
@@ -304,8 +304,8 @@ export const testimonials = [
     company: "Global Ventures LLC",
     location: "San Francisco, USA",
     image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80",
-    quote: "DONOSTI STRATEGIA's strategic approach to brand architecture is world-class. They helped us establish strong presence in European markets and achieve 180% ROI in first year.",
-    quoteEs: "El enfoque estratégico de DONOSTI STRATEGIA en arquitectura de marca es de clase mundial. Nos ayudaron a establecer fuerte presencia en mercados europeos y lograr 180% ROI en el primer año.",
+    quote: "AI STRATEGY's strategic approach to brand architecture is world-class. They helped us establish strong presence in European markets and achieve 180% ROI in first year.",
+    quoteEs: "El enfoque estratégico de AI STRATEGY en arquitectura de marca es de clase mundial. Nos ayudaron a establecer fuerte presencia en mercados europeos y lograr 180% ROI en el primer año.",
     rating: 5
   },
   {
@@ -315,8 +315,8 @@ export const testimonials = [
     company: "T-Tepla",
     location: "Россия",
     image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80",
-    quote: "DONOSTI STRATEGIA понимает сложность B2B и создал платформу, которая действительно работает. Генерация лидов выросла в разы, система идеально интегрирована. Профессионалы высшего класса.",
-    quoteEs: "DONOSTI STRATEGIA comprende la complejidad B2B y creó una plataforma que realmente funciona. La generación de leads creció dramáticamente, el sistema está perfectamente integrado. Profesionales de primer nivel.",
+    quote: "AI STRATEGY понимает сложность B2B и создал платформу, которая действительно работает. Генерация лидов выросла в разы, система идеально интегрирована. Профессионалы высшего класса.",
+    quoteEs: "AI STRATEGY comprende la complejidad B2B y creó una plataforma que realmente funciona. La generación de leads creció dramáticamente, el sistema está perfectamente integrado. Profesionales de primer nivel.",
     rating: 5
   },
   {
@@ -326,8 +326,8 @@ export const testimonials = [
     company: "Hoteles Boutique España",
     location: "Madrid, España",
     image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&q=80",
-    quote: "La transformación digital que DONOSTI STRATEGIA realizó para nuestra cadena de hoteles fue excepcional. Reservas online aumentaron 250%, y nuestra marca ahora compite con grandes cadenas internacionales.",
-    quoteEs: "La transformación digital que DONOSTI STRATEGIA realizó para nuestra cadena de hoteles fue excepcional. Reservas online aumentaron 250%, y nuestra marca ahora compite con grandes cadenas internacionales.",
+    quote: "La transformación digital que AI STRATEGY realizó para nuestra cadena de hoteles fue excepcional. Reservas online aumentaron 250%, y nuestra marca ahora compite con grandes cadenas internacionales.",
+    quoteEs: "La transformación digital que AI STRATEGY realizó para nuestra cadena de hoteles fue excepcional. Reservas online aumentaron 250%, y nuestra marca ahora compite con grandes cadenas internacionales.",
     rating: 5
   }
 ];
@@ -471,7 +471,7 @@ When a Russian B2B company wanted to expand into European markets, we restructur
 
 Strong brand architecture provides the foundation for sustainable growth. Whether you're planning expansion, entering new markets, or optimizing your current portfolio, strategic brand architecture is essential for success.
 
-At DONOSTI STRATEGIA, we specialize in creating brand architectures that support ambitious business goals while maintaining clarity and consistency across markets and cultures.`,
+At AI STRATEGY, we specialize in creating brand architectures that support ambitious business goals while maintaining clarity and consistency across markets and cultures.`,
     contentEs: `La arquitectura de marca es la estructura organizacional del portafolio de marcas, productos y servicios de una empresa. Es el marco estratégico que define cómo las diferentes ofertas se relacionan entre sí y con la marca maestra.
 
 ## Por Qué Importa la Arquitectura de Marca
@@ -519,7 +519,7 @@ Execute su arquitectura sistemáticamente
 
 ## Conclusión
 
-Una arquitectura de marca sólida proporciona la base para el crecimiento sostenible. En DONOSTI STRATEGIA, nos especializamos en crear arquitecturas de marca que apoyan objetivos comerciales ambiciosos.`
+Una arquitectura de marca sólida proporciona la base para el crecimiento sostenible. En AI STRATEGY, nos especializamos en crear arquitecturas de marca que apoyan objetivos comerciales ambiciosos.`
   },
   {
     id: 2,
@@ -664,7 +664,7 @@ The companies that thrive will be those that view digital not as a project but a
 
 Digital transformation succeeds when it's driven by business strategy and customer value, not technology trends. It requires integrated thinking, committed leadership, and organizational change management.
 
-At DONOSTI STRATEGIA, we help businesses navigate this complex journey—from strategy development through implementation and optimization—ensuring transformation delivers lasting business value.`,
+At AI STRATEGY, we help businesses navigate this complex journey—from strategy development through implementation and optimization—ensuring transformation delivers lasting business value.`,
     contentEs: `La transformación digital se ha convertido en un imperativo empresarial, pero muchas organizaciones luchan por lograr resultados significativos. El desafío no es la tecnología, sino la reimaginación fundamental de cómo el negocio crea y entrega valor.
 
 ## El Paradigma de la Transformación
@@ -677,7 +677,7 @@ Muchas iniciativas de transformación digital fracasan porque se centran en la i
 
 ## Enfoque Estratégico
 
-En DONOSTI STRATEGIA, ayudamos a las empresas a navegar este viaje complejo, desde el desarrollo de estrategia hasta la implementación y optimización.`
+En AI STRATEGY, ayudamos a las empresas a navegar este viaje complejo, desde el desarrollo de estrategia hasta la implementación y optimización.`
   },
   {
     id: 3,
@@ -909,14 +909,14 @@ Rushing market entry without proper legal framework causes:
 
 European market entry offers tremendous opportunities but requires strategic planning, cultural sensitivity, and committed execution. Success comes from respecting market diversity, adapting to local preferences, and building genuine relationships.
 
-At DONOSTI STRATEGIA, we specialize in helping international companies successfully enter and grow in European markets, particularly Spain and Southern Europe. Our deep understanding of both business strategy and cultural nuances enables smooth market entry and sustainable growth.`,
+At AI STRATEGY, we specialize in helping international companies successfully enter and grow in European markets, particularly Spain and Southern Europe. Our deep understanding of both business strategy and cultural nuances enables smooth market entry and sustainable growth.`,
     contentEs: `Europa representa uno de los mercados más grandes y sofisticados del mundo. Sin embargo, entrar en los mercados europeos requiere una planificación cuidadosa y sensibilidad cultural.
 
 ## Comprendiendo el Panorama del Mercado Europeo
 
 Europa no es un mercado monolítico sino una colección de países distintos, cada uno con idiomas, entornos regulatorios y prácticas comerciales únicas.
 
-En DONOSTI STRATEGIA, nos especializamos en ayudar a empresas internacionales a entrar y crecer exitosamente en mercados europeos.`
+En AI STRATEGY, nos especializamos en ayudar a empresas internacionales a entrar y crecer exitosamente en mercados europeos.`
   },
   {
     id: 4,
@@ -1100,10 +1100,10 @@ Digital transformation and luxury positioning are not contradictory. Strategic u
 
 Success requires maintaining core luxury principles—exclusivity, quality, experience—while leveraging digital capabilities to tell better stories, create stronger connections, and deliver exceptional experiences.
 
-At DONOSTI STRATEGIA, we specialize in luxury brand positioning, helping premium brands navigate digital transformation while preserving and enhancing the qualities that make them special.`,
+At AI STRATEGY, we specialize in luxury brand positioning, helping premium brands navigate digital transformation while preserving and enhancing the qualities that make them special.`,
     contentEs: `Las marcas de lujo enfrentan un desafío único en la era digital: cómo mantener el aura de exclusividad mientras llegan a audiencias más amplias a través de canales digitales.
 
-En DONOSTI STRATEGIA, nos especializamos en posicionamiento de marcas de lujo, ayudando a marcas premium a navegar la transformación digital.`
+En AI STRATEGY, nos especializamos en posicionamiento de marcas de lujo, ayudando a marcas premium a navegar la transformación digital.`
   },
   {
     id: 5,
@@ -1440,10 +1440,10 @@ Track metrics that matter:
 
 Successful B2B lead generation requires strategic integration of content marketing, SEO, social media, marketing automation, and sales alignment. It's not about quick wins but building systematic approaches that consistently attract and convert qualified prospects.
 
-At DONOSTI STRATEGIA, we specialize in B2B lead generation strategies that deliver qualified leads and measurable ROI. From strategy development to implementation and optimization, we help B2B companies build sophisticated lead generation systems.`,
+At AI STRATEGY, we specialize in B2B lead generation strategies that deliver qualified leads and measurable ROI. From strategy development to implementation and optimization, we help B2B companies build sophisticated lead generation systems.`,
     contentEs: `La generación de leads B2B ha evolucionado dramáticamente. Las estrategias digitales sofisticadas han reemplazado las llamadas en frío.
 
-En DONOSTI STRATEGIA, nos especializamos en estrategias de generación de leads B2B que entregan leads calificados y ROI medible.`
+En AI STRATEGY, nos especializamos en estrategias de generación de leads B2B que entregan leads calificados y ROI medible.`
   },
   {
     id: 6,
@@ -1730,10 +1730,10 @@ Emerging technologies shaping future:
 
 Great web design in 2025 balances aesthetic ambition with user-centered fundamentals. Success comes from understanding your audience, respecting their needs, and creating experiences that are both beautiful and functional.
 
-At DONOSTI STRATEGIA, we create web experiences that push creative boundaries while delivering measurable business results. Our designs combine contemporary aesthetics with solid UX fundamentals, ensuring your website looks exceptional and performs brilliantly.`,
+At AI STRATEGY, we create web experiences that push creative boundaries while delivering measurable business results. Our designs combine contemporary aesthetics with solid UX fundamentals, ensuring your website looks exceptional and performs brilliantly.`,
     contentEs: `El diseño web en 2025 equilibra opciones estéticas audaces con principios fundamentales de UX. A medida que la tecnología avanza y las expectativas de los usuarios evolucionan.
 
-En DONOSTI STRATEGIA, creamos experiencias web que combinan estética contemporánea con fundamentos sólidos de UX.`
+En AI STRATEGY, creamos experiencias web que combinan estética contemporánea con fundamentos sólidos de UX.`
   },
   {
     id: 7,
@@ -2104,9 +2104,9 @@ Success requires:
 - Regular analysis and optimization
 - Effective communication of results
 
-At DONOSTI STRATEGIA, we help companies build content strategies that deliver measurable business results. From strategy development to execution and optimization, we ensure your content investment drives real ROI.`,
+At AI STRATEGY, we help companies build content strategies that deliver measurable business results. From strategy development to execution and optimization, we ensure your content investment drives real ROI.`,
     contentEs: `El marketing de contenidos genera resultados, pero medir su impacto desafía a muchos especialistas en marketing. Esta guía proporciona marcos para medir la efectividad del contenido.
 
-En DONOSTI STRATEGIA, ayudamos a las empresas a construir estrategias de contenido que entregan resultados comerciales medibles.`
+En AI STRATEGY, ayudamos a las empresas a construir estrategias de contenido que entregan resultados comerciales medibles.`
   }
 ];

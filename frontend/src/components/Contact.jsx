@@ -7,6 +7,7 @@ import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { toast } from 'sonner';
 
 const Contact = ({ language }) => {
+  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'https://aureum-backend-6ducyuumta-ew.a.run.app';
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -19,15 +20,37 @@ const Contact = ({ language }) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    setTimeout(() => {
+    try {
+      const response = await fetch(`${backendUrl}/api/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          message: formData.message,
+          language
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit contact form');
+      }
+
       toast.success(
         language === 'es'
-          ? '¡Mensaje enviado! Nos pondremos en contacto pronto.'
+          ? 'Message sent! We will contact you soon.'
           : 'Message sent! We\'ll get back to you soon.'
       );
       setFormData({ name: '', email: '', company: '', message: '' });
+    } catch (error) {
+      console.error('Contact form submission failed', error);
+      toast.error('Could not send the message. Please try again.');
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
 
   const handleChange = (e) => {
@@ -232,3 +255,4 @@ const Contact = ({ language }) => {
 };
 
 export default Contact;
+

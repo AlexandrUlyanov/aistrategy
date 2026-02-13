@@ -5,17 +5,14 @@ FROM node:18-alpine AS build
 
 WORKDIR /app
 
-# Копирование package files
-COPY package.json yarn.lock ./
-
-# Установка зависимостей
-RUN yarn install --frozen-lockfile --production=false
+COPY package.json ./
+RUN npm install --legacy-peer-deps
 
 # Копирование исходного кода
 COPY . .
 
 # Build production version
-RUN yarn build
+RUN npm run build
 
 # Stage 2: Production с Nginx
 FROM nginx:alpine
