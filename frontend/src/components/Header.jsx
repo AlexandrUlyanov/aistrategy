@@ -27,12 +27,10 @@ const Header = ({ language, setLanguage }) => {
 
   const handleNavClick = (e, href) => {
     e.preventDefault();
-    
-    // If we're on blog article page, navigate to home first
+
     if (location.pathname.startsWith('/blog/')) {
       navigate('/' + href);
     } else {
-      // Smooth scroll to section
       const element = document.querySelector(href);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
@@ -50,85 +48,75 @@ const Header = ({ language, setLanguage }) => {
         isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-transparent'
       }`}
     >
-      <div className="container mx-auto px-4 lg:px-8">
-        <div className="flex items-center justify-center h-20 relative">
-          {/* Logo */}
-          <Link 
-            to="/" 
+      <div className="container mx-auto px-3 sm:px-4 lg:px-8">
+        <div className="relative flex h-16 items-center justify-between sm:h-20 lg:justify-center">
+          <Link
+            to="/"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="absolute left-0 flex items-center space-x-3 group cursor-pointer"
+            className="flex min-w-0 items-center gap-1 sm:gap-2 cursor-pointer lg:absolute lg:left-0"
           >
-            <div className="flex items-center">
-              <span className="text-2xl font-light tracking-wider text-graphite group-hover:text-golden transition-colors duration-300">
-                AI
-              </span>
-              <span className="ml-2 text-2xl font-light tracking-wider text-golden group-hover:opacity-80 transition-opacity duration-300">
-                STRATEGY
-              </span>
-            </div>
+            <span className="header-letter-glow truncate text-[1.45rem] font-light tracking-[0.08em] text-golden sm:text-2xl sm:tracking-wider">AI</span>
+            <span className="header-letter-glow truncate text-[1.45rem] font-light tracking-[0.08em] text-golden sm:text-2xl sm:tracking-wider">STRATEGY</span>
           </Link>
 
-          {/* Desktop Navigation - Centered */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center gap-8">
             {menuItems.map((item, index) => (
               <a
                 key={index}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className="text-sm tracking-wide text-gray-700 hover:text-golden transition-colors duration-200 font-light uppercase cursor-pointer"
+                className="header-letter-glow text-[1rem] font-normal uppercase tracking-[0.14em] text-golden cursor-pointer transition-colors duration-200"
               >
                 {language === 'es' ? item.labelEs : item.label}
               </a>
             ))}
           </nav>
 
-          {/* CTA and Language */}
-          <div className="hidden lg:flex items-center space-x-4 absolute right-0">
+          <div className="absolute right-0 hidden lg:flex items-center">
             <button
               onClick={() => setLanguage(language === 'en' ? 'es' : 'en')}
-              className="flex items-center gap-2 px-4 py-2 rounded-md text-graphite hover:text-white hover:bg-golden transition-all duration-300 font-medium"
+              className="header-letter-glow inline-flex items-center gap-2 rounded-md border border-[#d4af37]/45 px-3 py-2 text-xs font-semibold tracking-[0.12em] text-golden transition-all duration-300 hover:border-[#f0cf74] hover:text-[#f0cf74]"
             >
-              <Globe className="w-4 h-4" />
+              <Globe className="h-4 w-4" />
               {language === 'en' ? 'ES' : 'EN'}
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
-            className="lg:hidden text-graphite p-2 absolute right-0"
+            aria-label="Open menu"
+            className="rounded-md p-2.5 text-golden transition-colors hover:bg-white/10 lg:hidden"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white border-t border-gray-200"
+            className="border-t border-gray-200 bg-white lg:hidden"
           >
-            <nav className="container mx-auto px-4 py-6 flex flex-col space-y-4">
+            <nav className="container mx-auto flex flex-col space-y-4 px-4 py-6">
               {menuItems.map((item, index) => (
                 <a
                   key={index}
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className="text-graphite hover:text-golden transition-colors py-2 uppercase text-sm tracking-wide cursor-pointer"
+                  className="header-letter-glow py-2 text-sm uppercase tracking-wide text-golden cursor-pointer"
                 >
                   {language === 'es' ? item.labelEs : item.label}
                 </a>
               ))}
-              <div className="flex items-center space-x-4 pt-4 border-t border-gray-200">
+              <div className="flex items-center border-t border-gray-200 pt-4">
                 <button
                   onClick={() => setLanguage(language === 'en' ? 'es' : 'en')}
-                  className="flex items-center gap-2 px-4 py-2 rounded-md text-graphite hover:text-white hover:bg-golden transition-all duration-300 font-medium"
+                  className="header-letter-glow inline-flex items-center gap-2 rounded-md border border-[#d4af37]/45 px-3 py-2 text-xs font-semibold tracking-[0.12em] text-golden"
                 >
-                  <Globe className="w-4 h-4" />
+                  <Globe className="h-4 w-4" />
                   {language === 'en' ? 'ES' : 'EN'}
                 </button>
               </div>

@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Compass, TrendingUp, Code, Briefcase } from 'lucide-react';
+import { Compass, TrendingUp, Code, Briefcase, Sparkles } from 'lucide-react';
 import { services } from '../mockData';
+import ServicesCinematicBackdrop from './ServicesCinematicBackdrop';
 
 const iconMap = {
   Compass: Compass,
@@ -10,63 +11,127 @@ const iconMap = {
   Briefcase: Briefcase
 };
 
+const pillarCopy = {
+  en: [
+    'Position your brand where attention becomes demand',
+    'Reduce decision friction with clear service pathways',
+    'Convert interest into measurable growth momentum'
+  ],
+  es: [
+    'Posiciona tu marca donde la atencion se convierte en demanda',
+    'Reduce friccion de decision con rutas de servicio claras',
+    'Convierte interes en impulso de crecimiento medible'
+  ]
+};
+
+const outcomes = {
+  1: {
+    en: 'Own a distinctive market position',
+    es: 'Logra una posicion distintiva en tu mercado'
+  },
+  2: {
+    en: 'Turn visibility into qualified demand',
+    es: 'Convierte visibilidad en demanda calificada'
+  },
+  3: {
+    en: 'Launch premium digital experiences',
+    es: 'Lanza experiencias digitales premium'
+  },
+  4: {
+    en: 'Scale with a clear expansion roadmap',
+    es: 'Escala con una hoja de ruta clara de expansion'
+  }
+};
+
 const Services = ({ language }) => {
+  const isEs = language === 'es';
+
   return (
-    <section id="services" className="section-padding bg-white">
-      <div className="container mx-auto px-4 lg:px-8">
+    <section id="services" className="services-cinematic-section section-padding relative overflow-hidden">
+      <ServicesCinematicBackdrop />
+      <div className="services-cinematic-vignette" />
+      <div className="services-cinematic-topglow" />
+
+      <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 26 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.65 }}
+          className="text-center mb-14"
         >
-          <span className="text-sm text-golden uppercase tracking-widest mb-4 block">
-            {language === 'es' ? 'Servicios' : 'Services'}
+          <span className="services-eyebrow mb-4 block">
+            {isEs ? 'Servicios' : 'Services'}
           </span>
-          <h2 className="text-4xl lg:text-5xl font-light text-graphite mb-6">
-            {language === 'es' ? 'Soluciones Estratégicas' : 'Strategic Solutions'}
+
+          <h2 className="services-cinematic-title mb-5">
+            {isEs ? 'Disenamos la ruta para dominar tu categoria' : 'We design the route to dominate your category'}
           </h2>
-          <div className="golden-divider"></div>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto mt-6 font-light">
-            {language === 'es'
-              ? 'Combinamos pensamiento estratégico con excelencia creativa'
-              : 'Combining strategic thinking with creative excellence'}
+
+          <p className="services-intro max-w-3xl mx-auto">
+            {isEs
+              ? 'Cada servicio esta presentado para mantener foco, crear claridad de decision y mover al cliente desde interes hasta accion.'
+              : 'Each service is presented to hold focus, create decision clarity, and move clients from interest to action.'}
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="grid md:grid-cols-3 gap-4 lg:gap-6 mb-12"
+        >
+          {pillarCopy[isEs ? 'es' : 'en'].map((pill, index) => (
+            <div key={index} className="services-attention-pill">
+              <Sparkles className="w-4 h-4 text-golden shrink-0" />
+              <p className="services-pill-text">{pill}</p>
+            </div>
+          ))}
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 gap-7 max-w-6xl mx-auto">
           {services.map((service, index) => {
             const Icon = iconMap[service.icon];
+            const outcome = outcomes[service.id] || outcomes[1];
+
             return (
               <motion.div
                 key={service.id}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 28 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-                className="premium-card p-8 hover-lift"
+                transition={{ delay: index * 0.08, duration: 0.55 }}
+                className="services-cinematic-card"
               >
-                <div className="flex items-start gap-6">
-                  <div className="flex-shrink-0 w-14 h-14 bg-golden/10 rounded-lg flex items-center justify-center">
-                    <Icon className="w-7 h-7 text-golden" />
+                <div className="services-card-header">
+                  <div className="services-icon-wrap">
+                    <Icon className="w-6 h-6 text-golden" />
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-light text-graphite mb-3">
-                      {language === 'es' ? service.titleEs : service.title}
+                  <div>
+                    <h3 className="services-card-title">
+                      {isEs ? service.titleEs : service.title}
                     </h3>
-                    <p className="text-gray-600 mb-6 leading-relaxed font-light">
-                      {language === 'es' ? service.descriptionEs : service.description}
+                    <p className="services-card-kicker">
+                      {isEs ? 'Resultado principal' : 'Primary Outcome'}
                     </p>
-                    <div className="space-y-2">
-                      {service.features.map((feature, i) => (
-                        <div key={i} className="flex items-center text-sm text-gray-700">
-                          <div className="w-1.5 h-1.5 bg-golden rounded-full mr-3"></div>
-                          <span>{feature}</span>
-                        </div>
-                      ))}
-                    </div>
+                    <p className="services-card-outcome">
+                      {isEs ? outcome.es : outcome.en}
+                    </p>
                   </div>
+                </div>
+
+                <p className="services-card-description">
+                  {isEs ? service.descriptionEs : service.description}
+                </p>
+
+                <div className="space-y-2.5">
+                  {service.features.map((feature, i) => (
+                    <div key={i} className="services-feature-row">
+                      <span className="services-feature-index">{String(i + 1).padStart(2, '0')}</span>
+                      <span className="services-feature-text">{feature}</span>
+                    </div>
+                  ))}
                 </div>
               </motion.div>
             );
