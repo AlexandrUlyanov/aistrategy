@@ -1,4 +1,4 @@
-@tailwind base;
+﻿@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -20,20 +20,20 @@ code {
 
 @layer base {
   :root {
-    /* AUREUM DIGITAL Premium Colors */
-    --background: 0 0% 98%;              /* #fafafa - Светлый фон */
-    --foreground: 0 0% 17%;              /* #2c2c2c - Графитовый */
-    --card: 0 0% 100%;                   /* #ffffff - Белый */
+    /* Vidrai Co. Premium Colors */
+    --background: 0 0% 98%;              /* #fafafa - light background */
+    --foreground: 0 0% 17%;              /* #2c2c2c - graphite */
+    --card: 0 0% 100%;                   /* #ffffff - white */
     --card-foreground: 0 0% 17%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 17%;
-    --primary: 43 74% 49%;               /* #D4AF37 - Золотой */
+    --primary: 43 74% 49%;               /* #D4AF37 - gold */
     --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 17%;               /* #2c2c2c - Графитовый */
+    --secondary: 0 0% 17%;               /* #2c2c2c - graphite */
     --secondary-foreground: 0 0% 98%;
     --muted: 0 0% 92%;                   /* #ebebeb */
     --muted-foreground: 0 0% 45%;
-    --accent: 43 74% 49%;                /* #D4AF37 - Золотой акцент */
+    --accent: 43 74% 49%;                /* #D4AF37 - gold */
     --accent-foreground: 0 0% 17%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
@@ -57,3 +57,4 @@ code {
     @apply bg-background text-foreground;
   }
 }
+

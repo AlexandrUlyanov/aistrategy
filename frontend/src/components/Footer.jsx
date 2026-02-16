@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin, Instagram, Mail, MapPin, Phone } from 'lucide-react';
 
@@ -16,8 +16,8 @@ const Footer = ({ language }) => {
             viewport={{ once: true }}
           >
             <div className="flex items-center mb-4">
-              <span className="text-2xl font-light tracking-wider text-white">AI</span>
-              <span className="ml-2 text-2xl font-light tracking-wider text-golden">STRATEGY</span>
+              <span className="text-2xl font-light tracking-wider text-white">VIDRAI</span>
+              <span className="ml-2 text-2xl font-light tracking-wider text-golden">CO.</span>
             </div>
             <p className="text-gray-400 mb-6 font-light leading-relaxed">
               {language === 'es'
@@ -123,13 +123,13 @@ const Footer = ({ language }) => {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-golden flex-shrink-0" />
-                <a href="mailto:contact@donostistrategia.com" className="hover:text-golden transition-colors">
-                  contact@donostistrategia.com
+                <a href="mailto:ulyanov.ht@gmail.com" className="hover:text-golden transition-colors">
+                  ulyanov.ht@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-golden flex-shrink-0" />
-                <span>+34 XXX XXX XXX</span>
+                <span>+34688841502</span>
               </li>
             </ul>
           </motion.div>
@@ -144,7 +144,7 @@ const Footer = ({ language }) => {
           className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400 font-light"
         >
           <p>
-            © {currentYear} AI STRATEGY.{' '}
+            © {currentYear} Vidrai Co.{' '}
             {language === 'es' ? 'Todos los derechos reservados.' : 'All rights reserved.'}
           </p>
           <div className="flex gap-6">
@@ -165,3 +165,8 @@ const Footer = ({ language }) => {
 };
 
 export default Footer;
+
+
+
+
+

@@ -1,21 +1,12 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, Globe } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Header = ({ language, setLanguage }) => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const menuItems = [
     { label: 'Services', labelEs: 'Servicios', href: '#services' },
@@ -44,9 +35,7 @@ const Header = ({ language, setLanguage }) => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#070b1a]/88 backdrop-blur-md shadow-[0_8px_28px_rgba(0,0,0,0.45)] border-b border-white/10`}
     >
       <div className="container mx-auto px-3 sm:px-4 lg:px-8">
         <div className="relative flex h-16 items-center justify-between sm:h-20 lg:justify-center">
@@ -55,8 +44,8 @@ const Header = ({ language, setLanguage }) => {
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="flex min-w-0 items-center gap-1 sm:gap-2 cursor-pointer lg:absolute lg:left-0"
           >
-            <span className="header-letter-glow truncate text-[1.45rem] font-light tracking-[0.08em] text-golden sm:text-2xl sm:tracking-wider">AI</span>
-            <span className="header-letter-glow truncate text-[1.45rem] font-light tracking-[0.08em] text-golden sm:text-2xl sm:tracking-wider">STRATEGY</span>
+            <span className="header-letter-glow truncate text-[1.45rem] font-light tracking-[0.08em] text-golden sm:text-2xl sm:tracking-wider">VIDRAI</span>
+            <span className="header-letter-glow truncate text-[1.45rem] font-light tracking-[0.08em] text-golden sm:text-2xl sm:tracking-wider">CO.</span>
           </Link>
 
           <nav className="hidden lg:flex items-center gap-8">
@@ -129,3 +118,10 @@ const Header = ({ language, setLanguage }) => {
 };
 
 export default Header;
+
+
+
+
+
+
+

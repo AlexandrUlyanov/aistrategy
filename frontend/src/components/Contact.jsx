@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
@@ -121,8 +121,8 @@ const Contact = ({ language }) => {
                   </div>
                   <div>
                     <div className="text-sm text-gray-500 mb-1 font-light">Email</div>
-                    <a href="mailto:contact@donostistrategia.com" className="text-graphite hover:text-golden transition-colors font-light">
-                      contact@donostistrategia.com
+                    <a href="mailto:ulyanov.ht@gmail.com" className="text-graphite hover:text-golden transition-colors font-light">
+                      ulyanov.ht@gmail.com
                     </a>
                   </div>
                 </div>
@@ -135,7 +135,7 @@ const Contact = ({ language }) => {
                     <div className="text-sm text-gray-500 mb-1 font-light">
                       {language === 'es' ? 'Teléfono' : 'Phone'}
                     </div>
-                    <div className="text-graphite font-light">+34 XXX XXX XXX</div>
+                    <div className="text-graphite font-light">+34688841502</div>
                   </div>
                 </div>
               </div>
@@ -260,4 +260,6 @@ const Contact = ({ language }) => {
 };
 
 export default Contact;
+
+
 

@@ -1,4 +1,4 @@
-// AI STRATEGY - Premium Agency Data
+﻿// Vidrai Co. - Premium Agency Data
 
 export const services = [
   {
@@ -6,40 +6,44 @@ export const services = [
     title: "Brand Strategy",
     titleEs: "Estrategia de Marca",
     description: "Strategic positioning and brand architecture that transforms businesses into recognizable market leaders.",
-    descriptionEs: "Posicionamiento estratégico y arquitectura de marca que transforma negocios en líderes reconocibles del mercado.",
+    descriptionEs: "Posicionamiento estrategico y arquitectura de marca que transforma negocios en lideres reconocibles del mercado.",
     icon: "Compass",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-    features: ["Brand Audit", "Market Positioning", "Competitive Analysis", "Brand Architecture"]
+    features: ["Brand Audit", "Market Positioning", "Competitive Analysis", "Brand Architecture"],
+    featuresEs: ["Auditoria de Marca", "Posicionamiento de Mercado", "Analisis Competitivo", "Arquitectura de Marca"]
   },
   {
     id: 2,
     title: "Digital Marketing",
     titleEs: "Marketing Digital",
     description: "Data-driven campaigns across digital channels that deliver measurable ROI and sustainable growth.",
-    descriptionEs: "Campañas basadas en datos en canales digitales que entregan ROI medible y crecimiento sostenible.",
+    descriptionEs: "Campanas basadas en datos en canales digitales que entregan ROI medible y crecimiento sostenible.",
     icon: "TrendingUp",
     image: "https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=800&q=80",
-    features: ["Media Planning", "Performance Marketing", "Content Strategy", "Social Media"]
+    features: ["Media Planning", "Performance Marketing", "Content Strategy", "Social Media"],
+    featuresEs: ["Planificacion de Medios", "Marketing de Rendimiento", "Estrategia de Contenido", "Redes Sociales"]
   },
   {
     id: 3,
     title: "Web Development",
     titleEs: "Desarrollo Web",
     description: "Premium websites and digital platforms built with cutting-edge technology and elegant design.",
-    descriptionEs: "Sitios web premium y plataformas digitales construidas con tecnología de vanguardia y diseño elegante.",
+    descriptionEs: "Sitios web premium y plataformas digitales construidas con tecnologia de vanguardia y diseno elegante.",
     icon: "Code",
     image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=80",
-    features: ["Custom Development", "E-commerce", "CMS Integration", "Performance Optimization"]
+    features: ["Custom Development", "E-commerce", "CMS Integration", "Performance Optimization"],
+    featuresEs: ["Desarrollo a Medida", "Comercio Electronico", "Integracion CMS", "Optimizacion de Rendimiento"]
   },
   {
     id: 4,
     title: "Business Consulting",
-    titleEs: "Consultoría de Negocios",
+    titleEs: "Consultoria de Negocios",
     description: "Strategic guidance for international market entry and business expansion with proven methodologies.",
-    descriptionEs: "Orientación estratégica para entrada a mercados internacionales y expansión de negocios con metodologías probadas.",
+    descriptionEs: "Orientacion estrategica para entrada a mercados internacionales y expansion de negocios con metodologias probadas.",
     icon: "Briefcase",
     image: "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=800&q=80",
-    features: ["Market Research", "Growth Strategy", "International Expansion", "Partnership Development"]
+    features: ["Market Research", "Growth Strategy", "International Expansion", "Partnership Development"],
+    featuresEs: ["Investigacion de Mercado", "Estrategia de Crecimiento", "Expansion Internacional", "Desarrollo de Alianzas"]
   }
 ];
 
@@ -56,16 +60,16 @@ export const portfolio = [
     challenge: "Transform luxury villa into internationally recognized brand with seamless booking experience",
     challengeEs: "Transformar villa de lujo en marca reconocida internacionalmente con experiencia de reserva fluida",
     solution: "Comprehensive brand identity, multilingual website, Airbnb integration, content strategy and social media presence",
-    solutionEs: "Identidad de marca integral, sitio web multilingüe, integración con Airbnb, estrategia de contenido y presencia en redes sociales",
+    solutionEs: "Identidad de marca integral, sitio web multilingue, integracion con Airbnb, estrategia de contenido y presencia en redes sociales",
     results: [
       "380% increase in bookings",
       "4.89/5 rating (171+ reviews)",
-      "Top-rated property in San Sebastián"
+      "Top-rated property in San Sebastian"
     ],
     resultsEs: [
       "380% aumento en reservas",
-      "4.89/5 puntuación (171+ reseñas)",
-      "Propiedad mejor valorada en San Sebastián"
+      "4.89/5 puntuacion (171+ resenas)",
+      "Propiedad mejor valorada en San Sebastian"
     ],
     metrics: {
       bookings: "+380%",
@@ -74,7 +78,7 @@ export const portfolio = [
     },
     tags: ["Branding", "Web Design", "Digital Strategy"],
     client: "Villa Lanperna",
-    location: "San Sebastián, Spain",
+    location: "San Sebastian, Spain",
     year: "2020-2025",
     website: "villalanperna.com",
     services: ["Brand Strategy", "Web Development", "Content Marketing"],
@@ -143,22 +147,22 @@ export const portfolio = [
     id: 2,
     title: "MRMAG",
     description: "Digital transformation for leading media publishing house",
-    descriptionEs: "Transformación digital para casa editorial líder",
+    descriptionEs: "Transformacion digital para casa editorial lider",
     category: "Media",
     categoryEs: "Medios",
     image: "https://image.thum.io/get/width/1400/crop/900/https://mrmag.ru/novosti/",
     previewImage: "https://image.thum.io/get/width/1400/crop/900/https://mrmag.ru/novosti/",
     challenge: "Modernize digital presence and monetization strategy for established media brand",
-    challengeEs: "Modernizar presencia digital y estrategia de monetización para marca establecida",
+    challengeEs: "Modernizar presencia digital y estrategia de monetizacion para marca establecida",
     solution: "Platform redesign, content management system, SEO strategy, advertising integration and reader engagement tools",
-    solutionEs: "Rediseño de plataforma, sistema de gestión de contenido, estrategia SEO, integración publicitaria y herramientas de engagement",
+    solutionEs: "Rediseno de plataforma, sistema de gestion de contenido, estrategia SEO, integracion publicitaria y herramientas de engagement",
     results: [
       "250% growth in organic traffic",
       "180% increase in reader engagement",
       "95% revenue growth from digital channels"
     ],
     resultsEs: [
-      "250% crecimiento en tráfico orgánico",
+      "250% crecimiento en trafico organico",
       "180% aumento en engagement de lectores",
       "95% crecimiento de ingresos digitales"
     ],
@@ -176,26 +180,6 @@ export const portfolio = [
       {
         label: "News",
         url: "https://image.thum.io/get/width/1400/crop/900/https://mrmag.ru/novosti/"
-      },
-      {
-        label: "Company",
-        url: "https://image.thum.io/get/width/1400/crop/900/https://mrmag.ru/o_kompanii"
-      },
-      {
-        label: "Delivery",
-        url: "https://image.thum.io/get/width/1400/crop/900/https://mrmag.ru/dostavka"
-      },
-      {
-        label: "Contacts",
-        url: "https://image.thum.io/get/width/1400/crop/900/https://mrmag.ru/kontakty"
-      },
-      {
-        label: "Stores",
-        url: "https://image.thum.io/get/width/1400/crop/900/https://mrmag.ru/adresa_magazinov"
-      },
-      {
-        label: "App",
-        url: "https://image.thum.io/get/width/1400/crop/900/https://mrmag.ru/app"
       }
     ],
     services: ["Web Development", "Digital Marketing", "Content Strategy"]
@@ -204,15 +188,15 @@ export const portfolio = [
     id: 3,
     title: "T-Tepla",
     description: "B2B digital infrastructure for industrial heating solutions",
-    descriptionEs: "Infraestructura digital B2B para soluciones de calefacción industrial",
+    descriptionEs: "Infraestructura digital B2B para soluciones de calefaccion industrial",
     category: "B2B Industrial",
     categoryEs: "B2B Industrial",
     image: "https://image.thum.io/get/width/1400/crop/900/https://t-tepla.ru/catalog/",
     previewImage: "https://image.thum.io/get/width/1400/crop/900/https://t-tepla.ru/catalog/",
     challenge: "Create professional platform for complex industrial products with technical specifications",
-    challengeEs: "Crear plataforma profesional para productos industriales complejos con especificaciones técnicas",
+    challengeEs: "Crear plataforma profesional para productos industriales complejos con especificaciones tecnicas",
     solution: "B2B website with product catalog, technical documentation system, lead generation tools and CRM integration",
-    solutionEs: "Sitio web B2B con catálogo de productos, sistema de documentación técnica, herramientas de generación de leads e integración CRM",
+    solutionEs: "Sitio web B2B con catalogo de productos, sistema de documentacion tecnica, herramientas de generacion de leads e integracion CRM",
     results: [
       "160% increase in qualified leads",
       "85% higher conversion rate",
@@ -220,7 +204,7 @@ export const portfolio = [
     ],
     resultsEs: [
       "160% aumento en leads calificados",
-      "85% mayor tasa de conversión",
+      "85% mayor tasa de conversion",
       "120% crecimiento en ventas B2B"
     ],
     metrics: {
@@ -265,15 +249,15 @@ export const portfolio = [
     id: 4,
     title: "Vodovorot",
     description: "E-commerce transformation for water treatment equipment",
-    descriptionEs: "Transformación e-commerce para equipos de tratamiento de agua",
+    descriptionEs: "Transformacion e-commerce para equipos de tratamiento de agua",
     category: "E-commerce",
     categoryEs: "E-commerce",
     image: "https://image.thum.io/get/width/1400/crop/900/https://vodovorot.info/catalog/",
     previewImage: "https://image.thum.io/get/width/1400/crop/900/https://vodovorot.info/catalog/",
     challenge: "Build online sales channel for specialized equipment with complex decision-making process",
-    challengeEs: "Construir canal de ventas online para equipos especializados con proceso de decisión complejo",
+    challengeEs: "Construir canal de ventas online para equipos especializados con proceso de decision complejo",
     solution: "E-commerce platform with product comparison, expert consultation system, educational content and automated marketing",
-    solutionEs: "Plataforma e-commerce con comparación de productos, sistema de consulta experta, contenido educativo y marketing automatizado",
+    solutionEs: "Plataforma e-commerce con comparacion de productos, sistema de consulta experta, contenido educativo y marketing automatizado",
     results: [
       "300% increase in online sales",
       "220% growth in customer base",
@@ -326,15 +310,15 @@ export const portfolio = [
     id: 5,
     title: "Cardio Penza",
     description: "Digital presence for specialized cardiology clinic",
-    descriptionEs: "Presencia digital para clínica de cardiología especializada",
+    descriptionEs: "Presencia digital para clinica de cardiologia especializada",
     category: "Healthcare",
     categoryEs: "Salud",
     image: "https://image.thum.io/get/width/1400/crop/900/https://cardio-penza.ru/company/",
     previewImage: "https://image.thum.io/get/width/1400/crop/900/https://cardio-penza.ru/company/",
     challenge: "Build patient trust and streamline appointment booking for specialized medical services",
-    challengeEs: "Construir confianza del paciente y optimizar reservas de citas para servicios médicos especializados",
+    challengeEs: "Construir confianza del paciente y optimizar reservas de citas para servicios medicos especializados",
     solution: "Professional medical website with online booking, doctor profiles, patient education, local SEO and trust-building content",
-    solutionEs: "Sitio web médico profesional con reservas online, perfiles de doctores, educación al paciente, SEO local y contenido de confianza",
+    solutionEs: "Sitio web medico profesional con reservas online, perfiles de doctores, educacion al paciente, SEO local y contenido de confianza",
     results: [
       "195% increase in appointments",
       "240% improvement in patient trust metrics",
@@ -342,8 +326,8 @@ export const portfolio = [
     ],
     resultsEs: [
       "195% aumento en citas",
-      "240% mejora en métricas de confianza",
-      "94% tasa de retención de pacientes"
+      "240% mejora en metricas de confianza",
+      "94% tasa de retencion de pacientes"
     ],
     metrics: {
       appointments: "+195%",
@@ -387,15 +371,15 @@ export const portfolio = [
     id: 6,
     title: "Surmeb",
     description: "B2B platform for medical equipment supplier",
-    descriptionEs: "Plataforma B2B para proveedor de equipos médicos",
+    descriptionEs: "Plataforma B2B para proveedor de equipos medicos",
     category: "B2B Medical",
-    categoryEs: "B2B Médico",
+    categoryEs: "B2B Medico",
     image: "https://image.thum.io/get/width/1400/crop/900/https://surmeb.ru/articles/",
     previewImage: "https://image.thum.io/get/width/1400/crop/900/https://surmeb.ru/articles/",
     challenge: "Position medical equipment supplier as trusted partner for healthcare institutions",
-    challengeEs: "Posicionar proveedor de equipos médicos como socio confiable para instituciones de salud",
+    challengeEs: "Posicionar proveedor de equipos medicos como socio confiable para instituciones de salud",
     solution: "B2B platform with product catalog, procurement system, technical support portal and educational resources",
-    solutionEs: "Plataforma B2B con catálogo de productos, sistema de adquisiciones, portal de soporte técnico y recursos educativos",
+    solutionEs: "Plataforma B2B con catalogo de productos, sistema de adquisiciones, portal de soporte tecnico y recursos educativos",
     results: [
       "150% growth in partner network",
       "280% increase in orders",
@@ -404,7 +388,7 @@ export const portfolio = [
     resultsEs: [
       "150% crecimiento en red de socios",
       "280% aumento en pedidos",
-      "96% tasa de satisfacción"
+      "96% tasa de satisfaccion"
     ],
     metrics: {
       partners: "+150%",
@@ -448,15 +432,15 @@ export const portfolio = [
     id: 7,
     title: "EntrayCompara",
     description: "Growth platform: automation, AI integration, CRM, marketing, analytics and SEO",
-    descriptionEs: "Plataforma de crecimiento: automatizaciГіn, integraciГіn de IA, CRM, marketing, analГ­tica y SEO",
+    descriptionEs: "Plataforma de crecimiento: automatización, integración de IA, CRM, marketing, analítica y SEO",
     category: "AI Automation",
-    categoryEs: "AutomatizaciГіn IA",
+    categoryEs: "Automatización IA",
     image: "/portfolio/entraycompara/home.png",
     previewImage: "/portfolio/entraycompara/home.png",
     challenge: "Unify operations, marketing and lead management in one digital system while scaling acquisition efficiently",
-    challengeEs: "Unificar operaciones, marketing y gestiГіn de leads en un solo sistema digital mientras se escala la captaciГіn de forma eficiente",
+    challengeEs: "Unificar operaciones, marketing y gestión de leads en un solo sistema digital mientras se escala la captación de forma eficiente",
     solution: "Implemented process automation, AI-assisted workflows, CRM pipeline architecture, performance marketing setup, analytics dashboards and technical SEO framework",
-    solutionEs: "ImplementaciГіn de automatizaciГіn de procesos, flujos asistidos por IA, arquitectura de pipeline CRM, configuraciГіn de marketing de rendimiento, paneles analГ­ticos y framework de SEO tГ©cnico",
+    solutionEs: "Implementación de automatización de procesos, flujos asistidos por IA, arquitectura de pipeline CRM, configuración de marketing de rendimiento, paneles analíticos y framework de SEO técnico",
     results: [
       "210% growth in qualified leads",
       "68% faster lead response time",
@@ -465,7 +449,7 @@ export const portfolio = [
     resultsEs: [
       "210% crecimiento en leads calificados",
       "68% menor tiempo de respuesta a leads",
-      "175% aumento en visibilidad orgГЎnica"
+      "175% aumento en visibilidad orgánica"
     ],
     metrics: {
       leads: "+210%",
@@ -515,15 +499,15 @@ export const portfolio = [
     id: 8,
     title: "Asculap",
     description: "Digital growth platform for medical products and healthcare demand generation",
-    descriptionEs: "Plataforma de crecimiento digital para productos mГ©dicos y generaciГіn de demanda en salud",
+    descriptionEs: "Plataforma de crecimiento digital para productos médicos y generación de demanda en salud",
     category: "Healthcare",
     categoryEs: "Salud",
     image: "https://image.thum.io/get/width/1400/crop/900/https://asculap.ru/",
     previewImage: "https://image.thum.io/get/width/1400/crop/900/https://asculap.ru/",
     challenge: "Scale digital visibility and streamline lead acquisition for a healthcare-focused brand with complex product positioning",
-    challengeEs: "Escalar la visibilidad digital y optimizar la captaciГіn de leads para una marca de salud con posicionamiento de producto complejo",
+    challengeEs: "Escalar la visibilidad digital y optimizar la captación de leads para una marca de salud con posicionamiento de producto complejo",
     solution: "Built a conversion-oriented web presence with CRM-ready lead capture, SEO architecture, analytics tracking and performance-focused content funnels",
-    solutionEs: "Desarrollamos una presencia web orientada a conversiГіn con captaciГіn de leads lista para CRM, arquitectura SEO, analГ­tica y embudos de contenido orientados a rendimiento",
+    solutionEs: "Desarrollamos una presencia web orientada a conversión con captación de leads lista para CRM, arquitectura SEO, analítica y embudos de contenido orientados a rendimiento",
     results: [
       "165% increase in qualified inquiries",
       "140% growth in organic traffic",
@@ -531,8 +515,8 @@ export const portfolio = [
     ],
     resultsEs: [
       "165% aumento en consultas calificadas",
-      "140% crecimiento en trГЎfico orgГЎnico",
-      "72% mГЎs rГЎpido el procesamiento de leads entrantes"
+      "140% crecimiento en tráfico orgánico",
+      "72% más rápido el procesamiento de leads entrantes"
     ],
     metrics: {
       inquiries: "+165%",
@@ -568,14 +552,60 @@ export const portfolio = [
       {
         label: "Contacts",
         url: "https://image.thum.io/get/width/1400/crop/900/https://asculap.ru/contacts/"
-      }
-    ],
+      }    ],
     services: ["Web Development", "Digital Marketing", "Business Consulting"],
     techStack: ["CRM Integration", "Analytics", "SEO", "Lead Automation"],
     cardHighlights: [
       "Healthcare-focused lead funnels",
       "SEO-driven patient and partner visibility",
       "CRM-ready conversion architecture"
+    ]
+  },
+  {
+    id: 9,
+    title: "Arvia Trade",
+    description: "Corporate digital platform for international commodity trading and partnership acquisition",
+    descriptionEs: "Plataforma digital corporativa para comercio internacional de commodities y captacion de alianzas",
+    category: "B2B Trade",
+    categoryEs: "Comercio B2B",
+    image: "https://image.thum.io/get/width/1400/crop/900/https://arviatrade.com/",
+    previewImage: "https://image.thum.io/get/width/1400/crop/900/https://arviatrade.com/",
+    challenge: "Build trust-first international positioning and a clear conversion path for B2B inquiries across new markets",
+    challengeEs: "Construir un posicionamiento internacional basado en confianza y una ruta de conversion clara para consultas B2B en nuevos mercados",
+    solution: "Created a premium multilingual web presence with structured service pages, lead capture flow, analytics and SEO-ready architecture",
+    solutionEs: "Creamos una presencia web premium multilingue con paginas de servicios estructuradas, flujo de captacion de leads, analitica y arquitectura SEO",
+    results: [
+      "190% increase in qualified B2B inquiries",
+      "130% growth in international organic visibility",
+      "55% reduction in response time for new partnerships"
+    ],
+    resultsEs: [
+      "190% aumento en consultas B2B calificadas",
+      "130% crecimiento en visibilidad organica internacional",
+      "55% reduccion del tiempo de respuesta para nuevas alianzas"
+    ],
+    metrics: {
+      inquiries: "+190%",
+      visibility: "+130%",
+      response: "-55%"
+    },
+    tags: ["B2B", "Web Development", "SEO", "Lead Generation"],
+    client: "Arvia Trade",
+    location: "Spain",
+    year: "2025-2026",
+    website: "arviatrade.com",
+    caseScreenshots: [
+      {
+        label: "Homepage",
+        url: "https://image.thum.io/get/width/1400/crop/900/https://arviatrade.com/"
+      }
+    ],
+    services: ["Web Development", "Digital Marketing", "Business Consulting"],
+    techStack: ["React", "Analytics", "SEO", "Lead Forms"],
+    cardHighlights: [
+      "Premium B2B positioning",
+      "Clear inquiry conversion flow",
+      "International-ready content structure"
     ]
   }
 ];
@@ -588,9 +618,9 @@ export const ceoInfo = {
   positionEs: "Fundador y CEO",
   positionRu: "Основатель и Генеральный директор",
   image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&q=80",
-  message: "For over 15 years, we've been helping brands find their voice and grow with purpose. At AI STRATEGY, we don't just create marketing campaigns—we architect brand experiences that resonate across markets and cultures. Our approach combines strategic depth with creative excellence, ensuring every project delivers measurable impact and lasting value.",
-  messageEs: "Durante más de 15 años, hemos ayudado a las marcas a encontrar su voz y crecer con propósito. En AI STRATEGY, no solo creamos campañas de marketing—arquitecturamos experiencias de marca que resuenan a través de mercados y culturas. Nuestro enfoque combina profundidad estratégica con excelencia creativa, asegurando que cada proyecto entregue impacto medible y valor duradero.",
-  messageRu: "Более 15 лет мы помогаем брендам найти свой голос и расти осознанно. В AI STRATEGY мы не просто создаем маркетинговые кампании—мы создаем архитектуру брендов, которые находят отклик на разных рынках и в разных культурах. Наш подход сочетает стратегическую глубину с творческим совершенством, обеспечивая измеримое влияние и долгосрочную ценность каждого проекта."
+  message: "For over 15 years, we've been helping brands find their voice and grow with purpose. At Vidrai Co., we don't just create marketing campaigns—we architect brand experiences that resonate across markets and cultures. Our approach combines strategic depth with creative excellence, ensuring every project delivers measurable impact and lasting value.",
+  messageEs: "Durante mas de 15 anos, hemos ayudado a las marcas a encontrar su voz y crecer con proposito. En Vidrai Co., no solo creamos campanas de marketing—arquitecturamos experiencias de marca que resuenan a traves de mercados y culturas. Nuestro enfoque combina profundidad estrategica con excelencia creativa, asegurando que cada proyecto entregue impacto medible y valor duradero.",
+  messageRu: "Более 15 лет мы помогаем брендам найти свой голос и расти осознанно. В Vidrai Co. мы не просто создаем маркетинговые кампании—мы создаем архитектуру брендов, которые находят отклик на разных рынках и в разных культурах. Наш подход сочетает стратегическую глубину с творческим совершенством, обеспечивая измеримое влияние и долгосрочную ценность каждого проекта."
 };
 
 export const testimonials = [
@@ -599,10 +629,10 @@ export const testimonials = [
     name: "Carlos Mendoza",
     position: "Director de Marketing",
     company: "Grupo Inmobiliario Valencia",
-    location: "Valencia, España",
+    location: "Valencia, Espana",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
-    quote: "AI STRATEGY nos ayudó a posicionarnos como líderes en el mercado inmobiliario de lujo. Su enfoque estratégico y conocimiento del mercado español fueron fundamentales para nuestro crecimiento del 200%.",
-    quoteEs: "AI STRATEGY nos ayudó a posicionarnos como líderes en el mercado inmobiliario de lujo. Su enfoque estratégico y conocimiento del mercado español fueron fundamentales para nuestro crecimiento del 200%.",
+    quote: "Vidrai Co. nos ayudo a posicionarnos como lideres en el mercado inmobiliario de lujo. Su enfoque estrategico y conocimiento del mercado espanol fueron fundamentales para nuestro crecimiento del 200%.",
+    quoteEs: "Vidrai Co. nos ayudo a posicionarnos como lideres en el mercado inmobiliario de lujo. Su enfoque estrategico y conocimiento del mercado espanol fueron fundamentales para nuestro crecimiento del 200%.",
     rating: 5
   },
   {
@@ -612,19 +642,19 @@ export const testimonials = [
     company: "TechVentures International",
     location: "New York, USA",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80",
-    quote: "Working with AI STRATEGY was transformative for our European expansion. Their strategic insight and execution excellence helped us penetrate Spanish and European markets with remarkable success.",
-    quoteEs: "Trabajar con AI STRATEGY fue transformador para nuestra expansión europea. Su visión estratégica y excelencia en ejecución nos ayudó a penetrar los mercados español y europeo con éxito notable.",
+    quote: "Working with Vidrai Co. was transformative for our European expansion. Their strategic insight and execution excellence helped us penetrate Spanish and European markets with remarkable success.",
+    quoteEs: "Trabajar con Vidrai Co. fue transformador para nuestra expansion europea. Su vision estrategica y excelencia en ejecucion nos ayudo a penetrar los mercados espanol y europeo con exito notable.",
     rating: 5
   },
   {
     id: 3,
-    name: "María González",
+    name: "Maria Gonzalez",
     position: "Fundadora",
-    company: "Estudio de Diseño Barcelona",
-    location: "Barcelona, España",
+    company: "Estudio de Diseno Barcelona",
+    location: "Barcelona, Espana",
     image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80",
-    quote: "Como diseñadora, aprecio profundamente la estética y atención al detalle de AI STRATEGY. No solo mejoraron nuestra presencia digital, sino que elevaron toda nuestra marca. Resultados espectaculares.",
-    quoteEs: "Como diseñadora, aprecio profundamente la estética y atención al detalle de AI STRATEGY. No solo mejoraron nuestra presencia digital, sino que elevaron toda nuestra marca. Resultados espectaculares.",
+    quote: "Como disenadora, aprecio profundamente la estetica y atencion al detalle de Vidrai Co.. No solo mejoraron nuestra presencia digital, sino que elevaron toda nuestra marca. Resultados espectaculares.",
+    quoteEs: "Como disenadora, aprecio profundamente la estetica y atencion al detalle de Vidrai Co.. No solo mejoraron nuestra presencia digital, sino que elevaron toda nuestra marca. Resultados espectaculares.",
     rating: 5
   },
   {
@@ -634,8 +664,8 @@ export const testimonials = [
     company: "Global Ventures LLC",
     location: "San Francisco, USA",
     image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80",
-    quote: "AI STRATEGY's strategic approach to brand architecture is world-class. They helped us establish strong presence in European markets and achieve 180% ROI in first year.",
-    quoteEs: "El enfoque estratégico de AI STRATEGY en arquitectura de marca es de clase mundial. Nos ayudaron a establecer fuerte presencia en mercados europeos y lograr 180% ROI en el primer año.",
+    quote: "Vidrai Co.'s strategic approach to brand architecture is world-class. They helped us establish strong presence in European markets and achieve 180% ROI in first year.",
+    quoteEs: "El enfoque estrategico de Vidrai Co. en arquitectura de marca es de clase mundial. Nos ayudaron a establecer fuerte presencia en mercados europeos y lograr 180% ROI en el primer ano.",
     rating: 5
   },
   {
@@ -645,37 +675,37 @@ export const testimonials = [
     company: "T-Tepla",
     location: "Россия",
     image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80",
-    quote: "AI STRATEGY понимает сложность B2B и создал платформу, которая действительно работает. Генерация лидов выросла в разы, система идеально интегрирована. Профессионалы высшего класса.",
-    quoteEs: "AI STRATEGY comprende la complejidad B2B y creó una plataforma que realmente funciona. La generación de leads creció dramáticamente, el sistema está perfectamente integrado. Profesionales de primer nivel.",
+    quote: "Vidrai Co. понимает сложность B2B и создал платформу, которая действительно работает. Генерация лидов выросла в разы, система идеально интегрирована. Профессионалы высшего класса.",
+    quoteEs: "Vidrai Co. comprende la complejidad B2B y creo una plataforma que realmente funciona. La generacion de leads crecio dramaticamente, el sistema esta perfectamente integrado. Profesionales de primer nivel.",
     rating: 5
   },
   {
     id: 6,
-    name: "Isabel Fernández",
+    name: "Isabel Fernandez",
     position: "Directora Comercial",
-    company: "Hoteles Boutique España",
-    location: "Madrid, España",
+    company: "Hoteles Boutique Espana",
+    location: "Madrid, Espana",
     image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&q=80",
-    quote: "La transformación digital que AI STRATEGY realizó para nuestra cadena de hoteles fue excepcional. Reservas online aumentaron 250%, y nuestra marca ahora compite con grandes cadenas internacionales.",
-    quoteEs: "La transformación digital que AI STRATEGY realizó para nuestra cadena de hoteles fue excepcional. Reservas online aumentaron 250%, y nuestra marca ahora compite con grandes cadenas internacionales.",
+    quote: "La transformacion digital que Vidrai Co. realizo para nuestra cadena de hoteles fue excepcional. Reservas online aumentaron 250%, y nuestra marca ahora compite con grandes cadenas internacionales.",
+    quoteEs: "La transformacion digital que Vidrai Co. realizo para nuestra cadena de hoteles fue excepcional. Reservas online aumentaron 250%, y nuestra marca ahora compite con grandes cadenas internacionales.",
     rating: 5
   }
 ];
 
 export const stats = [
-  { value: 15, suffix: "+", label: "Years of Experience", labelEs: "Años de Experiencia" },
+  { value: 15, suffix: "+", label: "Years of Experience", labelEs: "Anos de Experiencia" },
   { value: 200, suffix: "+", label: "Projects Delivered", labelEs: "Proyectos Entregados" },
   { value: 50, suffix: "+", label: "International Clients", labelEs: "Clientes Internacionales" },
-  { value: 98, suffix: "%", label: "Client Satisfaction", labelEs: "Satisfacción del Cliente" }
+  { value: 98, suffix: "%", label: "Client Satisfaction", labelEs: "Satisfaccion del Cliente" }
 ];
 
 export const process = [
   {
     step: 1,
     title: "Discovery & Audit",
-    titleEs: "Descubrimiento y Auditoría",
+    titleEs: "Descubrimiento y Auditoria",
     description: "Deep analysis of your business, market position, and competitive landscape to identify opportunities and strategic direction.",
-    descriptionEs: "Análisis profundo de su negocio, posición de mercado y panorama competitivo para identificar oportunidades y dirección estratégica.",
+    descriptionEs: "Analisis profundo de su negocio, posicion de mercado y panorama competitivo para identificar oportunidades y direccion estrategica.",
     icon: "Search"
   },
   {
@@ -683,23 +713,23 @@ export const process = [
     title: "Strategy Development",
     titleEs: "Desarrollo de Estrategia",
     description: "Creating comprehensive brand and digital strategy aligned with your business objectives and market realities.",
-    descriptionEs: "Creación de estrategia integral de marca y digital alineada con sus objetivos de negocio y realidades del mercado.",
+    descriptionEs: "Creacion de estrategia integral de marca y digital alineada con sus objetivos de negocio y realidades del mercado.",
     icon: "Target"
   },
   {
     step: 3,
     title: "Implementation",
-    titleEs: "Implementación",
+    titleEs: "Implementacion",
     description: "Executing the strategy with precision, combining creative excellence and technical expertise to build your digital presence.",
-    descriptionEs: "Ejecutando la estrategia con precisión, combinando excelencia creativa y experiencia técnica para construir su presencia digital.",
+    descriptionEs: "Ejecutando la estrategia con precision, combinando excelencia creativa y experiencia tecnica para construir su presencia digital.",
     icon: "Zap"
   },
   {
     step: 4,
     title: "Growth & Optimization",
-    titleEs: "Crecimiento y Optimización",
+    titleEs: "Crecimiento y Optimizacion",
     description: "Continuous monitoring, optimization, and scaling to ensure sustainable growth and maximum return on investment.",
-    descriptionEs: "Monitoreo continuo, optimización y escalamiento para asegurar crecimiento sostenible y máximo retorno de inversión.",
+    descriptionEs: "Monitoreo continuo, optimizacion y escalamiento para asegurar crecimiento sostenible y maximo retorno de inversion.",
     icon: "TrendingUp"
   }
 ];
@@ -711,7 +741,7 @@ export const blogPosts = [
     title: "Brand Architecture: Building Foundations for Growth",
     titleEs: "Arquitectura de Marca: Construyendo Fundamentos para el Crecimiento",
     excerpt: "Understanding brand architecture is crucial for companies planning expansion or market entry. We explore strategic frameworks that support sustainable growth.",
-    excerptEs: "Comprender la arquitectura de marca es crucial para empresas que planean expansión o entrada al mercado. Exploramos marcos estratégicos que apoyan el crecimiento sostenible.",
+    excerptEs: "Comprender la arquitectura de marca es crucial para empresas que planean expansion o entrada al mercado. Exploramos marcos estrategicos que apoyan el crecimiento sostenible.",
     category: "Brand Strategy",
     categoryEs: "Estrategia de Marca",
     author: "Alexander Ulyanov",
@@ -801,16 +831,16 @@ When a Russian B2B company wanted to expand into European markets, we restructur
 
 Strong brand architecture provides the foundation for sustainable growth. Whether you're planning expansion, entering new markets, or optimizing your current portfolio, strategic brand architecture is essential for success.
 
-At AI STRATEGY, we specialize in creating brand architectures that support ambitious business goals while maintaining clarity and consistency across markets and cultures.`,
-    contentEs: `La arquitectura de marca es la estructura organizacional del portafolio de marcas, productos y servicios de una empresa. Es el marco estratégico que define cómo las diferentes ofertas se relacionan entre sí y con la marca maestra.
+At Vidrai Co., we specialize in creating brand architectures that support ambitious business goals while maintaining clarity and consistency across markets and cultures.`,
+    contentEs: `La arquitectura de marca es la estructura organizacional del portafolio de marcas, productos y servicios de una empresa. Es el marco estrategico que define como las diferentes ofertas se relacionan entre si y con la marca maestra.
 
-## Por Qué Importa la Arquitectura de Marca
+## Por Que Importa la Arquitectura de Marca
 
 En el panorama competitivo actual, una arquitectura de marca clara es esencial para:
-- **Claridad Estratégica**: Proporcionar dirección para el crecimiento y expansión
+- **Claridad Estrategica**: Proporcionar direccion para el crecimiento y expansion
 - **Posicionamiento de Mercado**: Diferenciar sus ofertas en mercados saturados
-- **Comprensión del Cliente**: Facilitar la navegación de su portafolio
-- **Eficiencia Operacional**: Optimizar esfuerzos de marketing y comunicación
+- **Comprension del Cliente**: Facilitar la navegacion de su portafolio
+- **Eficiencia Operacional**: Optimizar esfuerzos de marketing y comunicacion
 
 ## Tipos de Arquitectura de Marca
 
@@ -833,31 +863,31 @@ Esta estrategia mantiene identidades de marca separadas para diferentes producto
 ## Construyendo Su Arquitectura de Marca
 
 ### 1. Audite Su Estado Actual
-Comience con una revisión integral de su portafolio:
+Comience con una revision integral de su portafolio:
 - Mapee todas las marcas, productos y servicios
 - Analice relaciones y superposiciones
 - Identifique brechas y oportunidades
 
-### 2. Defina Intención Estratégica
+### 2. Defina Intencion Estrategica
 Clarifique sus objetivos de negocio
 
-### 3. Diseñe Su Estructura
+### 3. Disene Su Estructura
 Cree un marco que apoye su estrategia
 
 ### 4. Implemente y Gestione
-Execute su arquitectura sistemáticamente
+Execute su arquitectura sistematicamente
 
-## Conclusión
+## Conclusion
 
-Una arquitectura de marca sólida proporciona la base para el crecimiento sostenible. En AI STRATEGY, nos especializamos en crear arquitecturas de marca que apoyan objetivos comerciales ambiciosos.`
+Una arquitectura de marca solida proporciona la base para el crecimiento sostenible. En Vidrai Co., nos especializamos en crear arquitecturas de marca que apoyan objetivos comerciales ambiciosos.`
   },
   {
     id: 2,
     slug: "digital-transformation-beyond-technology",
     title: "Digital Transformation: Beyond Technology",
-    titleEs: "Transformación Digital: Más Allá de la Tecnología",
+    titleEs: "Transformacion Digital: Mas Alla de la Tecnologia",
     excerpt: "Digital transformation is not just about implementing new technology—it's about reimagining business models and customer experiences for the digital age.",
-    excerptEs: "La transformación digital no se trata solo de implementar nueva tecnología—se trata de reimaginar modelos de negocio y experiencias del cliente para la era digital.",
+    excerptEs: "La transformacion digital no se trata solo de implementar nueva tecnologia—se trata de reimaginar modelos de negocio y experiencias del cliente para la era digital.",
     category: "Digital Strategy",
     categoryEs: "Estrategia Digital",
     author: "Alexander Ulyanov",
@@ -994,28 +1024,28 @@ The companies that thrive will be those that view digital not as a project but a
 
 Digital transformation succeeds when it's driven by business strategy and customer value, not technology trends. It requires integrated thinking, committed leadership, and organizational change management.
 
-At AI STRATEGY, we help businesses navigate this complex journey—from strategy development through implementation and optimization—ensuring transformation delivers lasting business value.`,
-    contentEs: `La transformación digital se ha convertido en un imperativo empresarial, pero muchas organizaciones luchan por lograr resultados significativos. El desafío no es la tecnología, sino la reimaginación fundamental de cómo el negocio crea y entrega valor.
+At Vidrai Co., we help businesses navigate this complex journey—from strategy development through implementation and optimization—ensuring transformation delivers lasting business value.`,
+    contentEs: `La transformacion digital se ha convertido en un imperativo empresarial, pero muchas organizaciones luchan por lograr resultados significativos. El desafio no es la tecnologia, sino la reimaginacion fundamental de como el negocio crea y entrega valor.
 
-## El Paradigma de la Transformación
+## El Paradigma de la Transformacion
 
-La verdadera transformación digital va más allá de digitalizar procesos existentes. Requiere repensar los modelos de negocio, la experiencia del cliente, las operaciones y la cultura organizacional.
+La verdadera transformacion digital va mas alla de digitalizar procesos existentes. Requiere repensar los modelos de negocio, la experiencia del cliente, las operaciones y la cultura organizacional.
 
-## Por Qué Fallan los Enfoques Tradicionales
+## Por Que Fallan los Enfoques Tradicionales
 
-Muchas iniciativas de transformación digital fracasan porque se centran en la implementación tecnológica en lugar de la transformación del negocio.
+Muchas iniciativas de transformacion digital fracasan porque se centran en la implementacion tecnologica en lugar de la transformacion del negocio.
 
-## Enfoque Estratégico
+## Enfoque Estrategico
 
-En AI STRATEGY, ayudamos a las empresas a navegar este viaje complejo, desde el desarrollo de estrategia hasta la implementación y optimización.`
+En Vidrai Co., ayudamos a las empresas a navegar este viaje complejo, desde el desarrollo de estrategia hasta la implementacion y optimizacion.`
   },
   {
     id: 3,
     slug: "entering-european-markets",
     title: "Entering European Markets: Strategic Considerations",
-    titleEs: "Entrada a Mercados Europeos: Consideraciones Estratégicas",
+    titleEs: "Entrada a Mercados Europeos: Consideraciones Estrategicas",
     excerpt: "A comprehensive guide to successfully entering European markets, covering regulatory requirements, cultural nuances, and market-specific strategies.",
-    excerptEs: "Una guía completa para entrar exitosamente en mercados europeos, cubriendo requisitos regulatorios, matices culturales y estrategias específicas del mercado.",
+    excerptEs: "Una guia completa para entrar exitosamente en mercados europeos, cubriendo requisitos regulatorios, matices culturales y estrategias especificas del mercado.",
     category: "International Business",
     categoryEs: "Negocios Internacionales",
     author: "Alexander Ulyanov",
@@ -1186,7 +1216,7 @@ Establish appropriate financial infrastructure:
 **Results:**
 - Successful market entry within 6 months
 - 15 enterprise customers acquired first year
-- €1.2M revenue in year one
+- в‚¬1.2M revenue in year one
 - Foundation for expansion to Portugal and Italy
 
 ## Common Pitfalls to Avoid
@@ -1239,14 +1269,14 @@ Rushing market entry without proper legal framework causes:
 
 European market entry offers tremendous opportunities but requires strategic planning, cultural sensitivity, and committed execution. Success comes from respecting market diversity, adapting to local preferences, and building genuine relationships.
 
-At AI STRATEGY, we specialize in helping international companies successfully enter and grow in European markets, particularly Spain and Southern Europe. Our deep understanding of both business strategy and cultural nuances enables smooth market entry and sustainable growth.`,
-    contentEs: `Europa representa uno de los mercados más grandes y sofisticados del mundo. Sin embargo, entrar en los mercados europeos requiere una planificación cuidadosa y sensibilidad cultural.
+At Vidrai Co., we specialize in helping international companies successfully enter and grow in European markets, particularly Spain and Southern Europe. Our deep understanding of both business strategy and cultural nuances enables smooth market entry and sustainable growth.`,
+    contentEs: `Europa representa uno de los mercados mas grandes y sofisticados del mundo. Sin embargo, entrar en los mercados europeos requiere una planificacion cuidadosa y sensibilidad cultural.
 
 ## Comprendiendo el Panorama del Mercado Europeo
 
-Europa no es un mercado monolítico sino una colección de países distintos, cada uno con idiomas, entornos regulatorios y prácticas comerciales únicas.
+Europa no es un mercado monolitico sino una coleccion de paises distintos, cada uno con idiomas, entornos regulatorios y practicas comerciales unicas.
 
-En AI STRATEGY, nos especializamos en ayudar a empresas internacionales a entrar y crecer exitosamente en mercados europeos.`
+En Vidrai Co., nos especializamos en ayudar a empresas internacionales a entrar y crecer exitosamente en mercados europeos.`
   },
   {
     id: 4,
@@ -1254,7 +1284,7 @@ En AI STRATEGY, nos especializamos en ayudar a empresas internacionales a entrar
     title: "Luxury Brand Positioning in the Digital Age",
     titleEs: "Posicionamiento de Marcas de Lujo en la Era Digital",
     excerpt: "How luxury brands can maintain exclusivity while embracing digital transformation. Strategies for premium positioning in modern markets.",
-    excerptEs: "Cómo las marcas de lujo pueden mantener la exclusividad mientras adoptan la transformación digital. Estrategias para posicionamiento premium.",
+    excerptEs: "Como las marcas de lujo pueden mantener la exclusividad mientras adoptan la transformacion digital. Estrategias para posicionamiento premium.",
     category: "Brand Strategy",
     categoryEs: "Estrategia de Marca",
     author: "Alexander Ulyanov",
@@ -1299,7 +1329,7 @@ Emphasize experience over transaction:
 
 ## Case Study: Villa Lanperna - Luxury Vacation Rental
 
-**Challenge**: Position luxury villa in competitive San Sebastián market while maintaining premium brand perception and achieving high occupancy rates.
+**Challenge**: Position luxury villa in competitive San Sebastian market while maintaining premium brand perception and achieving high occupancy rates.
 
 **Strategy:**
 - Premium website with cinematic photography and video
@@ -1320,7 +1350,7 @@ Emphasize experience over transaction:
 - 380% increase in bookings while maintaining premium pricing
 - 4.89/5 rating (171+ reviews) - top-rated property
 - 95% occupancy rate during peak season
-- Recognition as leading luxury villa in San Sebastián
+- Recognition as leading luxury villa in San Sebastian
 - Strong word-of-mouth and repeat bookings
 
 **Key Success Factors:**
@@ -1430,18 +1460,18 @@ Digital transformation and luxury positioning are not contradictory. Strategic u
 
 Success requires maintaining core luxury principles—exclusivity, quality, experience—while leveraging digital capabilities to tell better stories, create stronger connections, and deliver exceptional experiences.
 
-At AI STRATEGY, we specialize in luxury brand positioning, helping premium brands navigate digital transformation while preserving and enhancing the qualities that make them special.`,
-    contentEs: `Las marcas de lujo enfrentan un desafío único en la era digital: cómo mantener el aura de exclusividad mientras llegan a audiencias más amplias a través de canales digitales.
+At Vidrai Co., we specialize in luxury brand positioning, helping premium brands navigate digital transformation while preserving and enhancing the qualities that make them special.`,
+    contentEs: `Las marcas de lujo enfrentan un desafio unico en la era digital: como mantener el aura de exclusividad mientras llegan a audiencias mas amplias a traves de canales digitales.
 
-En AI STRATEGY, nos especializamos en posicionamiento de marcas de lujo, ayudando a marcas premium a navegar la transformación digital.`
+En Vidrai Co., nos especializamos en posicionamiento de marcas de lujo, ayudando a marcas premium a navegar la transformacion digital.`
   },
   {
     id: 5,
     slug: "b2b-lead-generation-strategies",
     title: "B2B Lead Generation: Modern Strategies That Work",
-    titleEs: "Generación de Leads B2B: Estrategias Modernas Que Funcionan",
+    titleEs: "Generacion de Leads B2B: Estrategias Modernas Que Funcionan",
     excerpt: "Proven strategies for B2B lead generation in 2025. From content marketing to account-based marketing, discover what actually drives qualified leads.",
-    excerptEs: "Estrategias probadas para la generación de leads B2B en 2025. Desde marketing de contenidos hasta marketing basado en cuentas.",
+    excerptEs: "Estrategias probadas para la generacion de leads B2B en 2025. Desde marketing de contenidos hasta marketing basado en cuentas.",
     category: "Digital Marketing",
     categoryEs: "Marketing Digital",
     author: "Alexander Ulyanov",
@@ -1770,20 +1800,20 @@ Track metrics that matter:
 
 Successful B2B lead generation requires strategic integration of content marketing, SEO, social media, marketing automation, and sales alignment. It's not about quick wins but building systematic approaches that consistently attract and convert qualified prospects.
 
-At AI STRATEGY, we specialize in B2B lead generation strategies that deliver qualified leads and measurable ROI. From strategy development to implementation and optimization, we help B2B companies build sophisticated lead generation systems.`,
-    contentEs: `La generación de leads B2B ha evolucionado dramáticamente. Las estrategias digitales sofisticadas han reemplazado las llamadas en frío.
+At Vidrai Co., we specialize in B2B lead generation strategies that deliver qualified leads and measurable ROI. From strategy development to implementation and optimization, we help B2B companies build sophisticated lead generation systems.`,
+    contentEs: `La generacion de leads B2B ha evolucionado dramaticamente. Las estrategias digitales sofisticadas han reemplazado las llamadas en frio.
 
-En AI STRATEGY, nos especializamos en estrategias de generación de leads B2B que entregan leads calificados y ROI medible.`
+En Vidrai Co., nos especializamos en estrategias de generacion de leads B2B que entregan leads calificados y ROI medible.`
   },
   {
     id: 6,
     slug: "web-design-trends-2025",
     title: "Web Design Trends 2025: Form Meets Function",
-    titleEs: "Tendencias de Diseño Web 2025: Forma y Función",
+    titleEs: "Tendencias de Diseno Web 2025: Forma y Funcion",
     excerpt: "The latest web design trends balancing aesthetic innovation with user experience excellence. What's shaping digital design in 2025.",
-    excerptEs: "Las últimas tendencias de diseño web equilibrando innovación estética con excelencia en experiencia de usuario.",
+    excerptEs: "Las ultimas tendencias de diseno web equilibrando innovacion estetica con excelencia en experiencia de usuario.",
     category: "Web Design",
-    categoryEs: "Diseño Web",
+    categoryEs: "Diseno Web",
     author: "Alexander Ulyanov",
     date: "2025-01-15",
     readTime: "7 min read",
@@ -2060,10 +2090,10 @@ Emerging technologies shaping future:
 
 Great web design in 2025 balances aesthetic ambition with user-centered fundamentals. Success comes from understanding your audience, respecting their needs, and creating experiences that are both beautiful and functional.
 
-At AI STRATEGY, we create web experiences that push creative boundaries while delivering measurable business results. Our designs combine contemporary aesthetics with solid UX fundamentals, ensuring your website looks exceptional and performs brilliantly.`,
-    contentEs: `El diseño web en 2025 equilibra opciones estéticas audaces con principios fundamentales de UX. A medida que la tecnología avanza y las expectativas de los usuarios evolucionan.
+At Vidrai Co., we create web experiences that push creative boundaries while delivering measurable business results. Our designs combine contemporary aesthetics with solid UX fundamentals, ensuring your website looks exceptional and performs brilliantly.`,
+    contentEs: `El diseno web en 2025 equilibra opciones esteticas audaces con principios fundamentales de UX. A medida que la tecnologia avanza y las expectativas de los usuarios evolucionan.
 
-En AI STRATEGY, creamos experiencias web que combinan estética contemporánea con fundamentos sólidos de UX.`
+En Vidrai Co., creamos experiencias web que combinan estetica contemporanea con fundamentos solidos de UX.`
   },
   {
     id: 7,
@@ -2071,7 +2101,7 @@ En AI STRATEGY, creamos experiencias web que combinan estética contemporánea c
     title: "Content Marketing ROI: Measuring What Matters",
     titleEs: "ROI del Marketing de Contenidos: Mediendo lo Importante",
     excerpt: "How to measure content marketing effectiveness and prove ROI. Metrics, attribution models, and frameworks for demonstrating content value.",
-    excerptEs: "Cómo medir la efectividad del marketing de contenidos y demostrar ROI. Métricas, modelos de atribución y marcos para demostrar valor.",
+    excerptEs: "Como medir la efectividad del marketing de contenidos y demostrar ROI. Metricas, modelos de atribucion y marcos para demostrar valor.",
     category: "Digital Marketing",
     categoryEs: "Marketing Digital",
     author: "Alexander Ulyanov",
@@ -2175,7 +2205,7 @@ Track content's role in customer journey:
 
 ### 4. Calculate Content ROI
 
-Basic ROI formula: ROI = (Revenue - Investment) / Investment × 100%
+Basic ROI formula: ROI = (Revenue - Investment) / Investment ? 100%
 
 **Investment Includes:**
 - Content creation costs (writing, design, production)
@@ -2305,8 +2335,8 @@ Determine how much credit content deserves:
 ### SEO Value Calculation
 
 Quantify organic search benefits:
-- Organic traffic × average session value
-- Keyword rankings × search volume × CTR × conversion rate
+- Organic traffic ? average session value
+- Keyword rankings ? search volume ? CTR ? conversion rate
 - Compared to PPC cost for same traffic
 - Long-term cumulative value
 
@@ -2434,10 +2464,17 @@ Success requires:
 - Regular analysis and optimization
 - Effective communication of results
 
-At AI STRATEGY, we help companies build content strategies that deliver measurable business results. From strategy development to execution and optimization, we ensure your content investment drives real ROI.`,
-    contentEs: `El marketing de contenidos genera resultados, pero medir su impacto desafía a muchos especialistas en marketing. Esta guía proporciona marcos para medir la efectividad del contenido.
+At Vidrai Co., we help companies build content strategies that deliver measurable business results. From strategy development to execution and optimization, we ensure your content investment drives real ROI.`,
+    contentEs: `El marketing de contenidos genera resultados, pero medir su impacto desafia a muchos especialistas en marketing. Esta guia proporciona marcos para medir la efectividad del contenido.
 
-En AI STRATEGY, ayudamos a las empresas a construir estrategias de contenido que entregan resultados comerciales medibles.`
+En Vidrai Co., ayudamos a las empresas a construir estrategias de contenido que entregan resultados comerciales medibles.`
   }
 ];
+
+
+
+
+
+
+
 

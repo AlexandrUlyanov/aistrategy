@@ -1,15 +1,11 @@
-import React from 'react';
+﻿import React from 'react';
 import { Button } from './ui/button';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
-import CinematicBackground from './CinematicBackground';
 
 const Hero = ({ language }) => {
   return (
-    <section className="hero-cinematic relative min-h-screen flex items-center justify-center overflow-hidden">
-      <CinematicBackground />
-
-      <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-white/80 to-transparent z-[1] pointer-events-none" />
+    <section className="hero-cinematic relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
       <div className="hero-vignette" />
       <div className="hero-radial-glow" />
       <div className="cinematic-noise" />
@@ -98,7 +94,7 @@ const Hero = ({ language }) => {
             className="text-xl text-white/80 mb-12 max-w-3xl mx-auto leading-relaxed font-light"
           >
             {language === 'es'
-              ? 'Agencia internacional de marketing digital, estrategia de marca y consultoría de negocios. El síntesis de tecnología, análisis y estética.'
+              ? 'Agencia internacional de marketing digital, estrategia de marca y consultoría de negocios. La síntesis de tecnología, análisis y estética.'
               : 'International digital marketing, brand strategy and business consulting agency. The synthesis of technology, analytics and aesthetics.'}
           </motion.p>
 
@@ -151,10 +147,10 @@ const Hero = ({ language }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        className="w-full mt-8 pb-6 text-center md:mt-0 md:pb-0 md:absolute md:bottom-8 md:left-1/2 md:-translate-x-1/2"
       >
         <div className="text-sm text-white/65 font-light tracking-wide">
-          {language === 'es' ? 'San Sebastián, España • Global' : 'San Sebastián, Spain • Global'}
+          {language === 'es' ? 'San Sebastián, España | Global' : 'San Sebastián, Spain | Global'}
         </div>
       </motion.div>
     </section>
@@ -162,4 +158,7 @@ const Hero = ({ language }) => {
 };
 
 export default Hero;
+
+
+
 

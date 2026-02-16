@@ -20,7 +20,7 @@ from google.oauth2 import service_account
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / ".env")
 
-app = FastAPI(title="AUREUM DIGITAL API")
+app = FastAPI(title="Vidrai Co. API")
 api_router = APIRouter(prefix="/api")
 
 # CORS configuration
@@ -75,7 +75,7 @@ async def get_status():
     firestore_status = "connected" if db else "disconnected"
     return {
         "status": "healthy",
-        "service": "AUREUM DIGITAL API",
+        "service": "Vidrai Co. API",
         "database": firestore_status,
         "timestamp": datetime.now(timezone.utc).isoformat()
     }
@@ -107,7 +107,7 @@ async def submit_contact_form(contact: ContactForm):
             
             if smtp_email and smtp_password and recipient_emails:
                 msg = MIMEMultipart('alternative')
-                msg['Subject'] = f"New Contact from AUREUM DIGITAL - {contact.name}"
+                msg['Subject'] = f"New Contact from Vidrai Co. - {contact.name}"
                 msg['From'] = smtp_email
                 msg['To'] = ", ".join(recipient_emails)
                 msg['Reply-To'] = contact.email
@@ -131,7 +131,7 @@ async def submit_contact_form(contact: ContactForm):
                 html = f"""
                 <html>
                 <body style="font-family: Arial, sans-serif;">
-                    <h2 style="color: #D4AF37;">New Contact from AUREUM DIGITAL</h2>
+                    <h2 style="color: #D4AF37;">New Contact from Vidrai Co.</h2>
                     <p><strong>Name:</strong> {contact.name}</p>
                     <p><strong>Email:</strong> <a href="mailto:{contact.email}">{contact.email}</a></p>
                     <p><strong>Phone:</strong> {contact.phone}</p>
@@ -212,7 +212,7 @@ app.include_router(api_router)
 # Startup event
 @app.on_event("startup")
 async def startup_db_client():
-    logging.info("рџљЂ Starting AUREUM DIGITAL API...")
+    logging.info("рџљЂ Starting Vidrai Co. API...")
     if db:
         logging.info("вњ… Firestore initialized")
     else:
@@ -222,7 +222,8 @@ async def startup_db_client():
 # Shutdown event
 @app.on_event("shutdown")
 async def shutdown_db_client():
-    logging.info("рџ‘‹ Shutting down AUREUM DIGITAL API...")
+    logging.info("рџ‘‹ Shutting down Vidrai Co. API...")
+
 
 
 

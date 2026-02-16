@@ -12,6 +12,7 @@ import Blog from './components/Blog';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import BlogArticle from './components/BlogArticle';
+import PremiumBackground from './components/PremiumBackground';
 
 function HomePage({ language }) {
   return (
@@ -34,6 +35,7 @@ function AppContent() {
 
   return (
     <div className="App">
+      <PremiumBackground />
       <Header language={language} setLanguage={setLanguage} />
       <main>
         <Routes>

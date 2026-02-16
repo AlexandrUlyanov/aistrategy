@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+﻿import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { portfolio } from '../mockData';
 import { ExternalLink, X, CheckCircle } from 'lucide-react';
@@ -14,29 +14,65 @@ import {
 
 const Portfolio = ({ language }) => {
   const [selectedProject, setSelectedProject] = useState(null);
-  const [carouselApi, setCarouselApi] = useState(null);
-  const [currentSlide, setCurrentSlide] = useState(1);
-  const [totalSlides, setTotalSlides] = useState(0);
+  const [projectsCarouselApi, setProjectsCarouselApi] = useState(null);
+  const [currentProjectSlide, setCurrentProjectSlide] = useState(1);
+  const [totalProjectSlides, setTotalProjectSlides] = useState(0);
+  const [screenshotsCarouselApi, setScreenshotsCarouselApi] = useState(null);
+  const [currentScreenshotSlide, setCurrentScreenshotSlide] = useState(1);
+  const [totalScreenshotSlides, setTotalScreenshotSlides] = useState(0);
+  const priorityProjects = ['villalanperna.com', 'entraycompara.com', 'arviatrade.com'];
+  const sortedPortfolio = [...portfolio].sort((a, b) => {
+    const aIndex = priorityProjects.indexOf(a.website);
+    const bIndex = priorityProjects.indexOf(b.website);
+    const aPriority = aIndex === -1 ? Number.MAX_SAFE_INTEGER : aIndex;
+    const bPriority = bIndex === -1 ? Number.MAX_SAFE_INTEGER : bIndex;
+
+    if (aPriority !== bPriority) {
+      return aPriority - bPriority;
+    }
+
+    return a.id - b.id;
+  });
 
   useEffect(() => {
-    if (!carouselApi) {
+    if (!projectsCarouselApi) {
       return;
     }
 
     const updateCarouselState = () => {
-      setCurrentSlide(carouselApi.selectedScrollSnap() + 1);
-      setTotalSlides(carouselApi.scrollSnapList().length);
+      setCurrentProjectSlide(projectsCarouselApi.selectedScrollSnap() + 1);
+      setTotalProjectSlides(projectsCarouselApi.scrollSnapList().length);
     };
 
     updateCarouselState();
-    carouselApi.on('select', updateCarouselState);
-    carouselApi.on('reInit', updateCarouselState);
+    projectsCarouselApi.on('select', updateCarouselState);
+    projectsCarouselApi.on('reInit', updateCarouselState);
 
     return () => {
-      carouselApi.off('select', updateCarouselState);
-      carouselApi.off('reInit', updateCarouselState);
+      projectsCarouselApi.off('select', updateCarouselState);
+      projectsCarouselApi.off('reInit', updateCarouselState);
     };
-  }, [carouselApi, selectedProject]);
+  }, [projectsCarouselApi]);
+
+  useEffect(() => {
+    if (!screenshotsCarouselApi) {
+      return;
+    }
+
+    const updateCarouselState = () => {
+      setCurrentScreenshotSlide(screenshotsCarouselApi.selectedScrollSnap() + 1);
+      setTotalScreenshotSlides(screenshotsCarouselApi.scrollSnapList().length);
+    };
+
+    updateCarouselState();
+    screenshotsCarouselApi.on('select', updateCarouselState);
+    screenshotsCarouselApi.on('reInit', updateCarouselState);
+
+    return () => {
+      screenshotsCarouselApi.off('select', updateCarouselState);
+      screenshotsCarouselApi.off('reInit', updateCarouselState);
+    };
+  }, [screenshotsCarouselApi, selectedProject]);
 
   return (
     <section id="projects" className="section-padding bg-gray-50">
@@ -52,105 +88,129 @@ const Portfolio = ({ language }) => {
             {language === 'es' ? 'Proyectos' : 'Projects'}
           </span>
           <h2 className="text-4xl lg:text-5xl font-light text-graphite mb-6">
-            {language === 'es' ? 'Casos de Éxito' : 'Success Stories'}
+            {language === 'es' ? 'Casos de Exito' : 'Success Stories'}
           </h2>
           <div className="golden-divider"></div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto mt-6 font-light">
             {language === 'es'
-              ? 'Más de 15 años creando marcas que trascienden'
+              ? 'Mas de 15 anos creando marcas que trascienden'
               : 'Over 15 years creating brands that transcend'}
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {portfolio.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              onClick={() => setSelectedProject(project)}
-              className="group cursor-pointer"
-            >
-              <div className="premium-card overflow-hidden hover-lift">
-                {/* Image */}
-                <div className="relative h-64 overflow-hidden">
-                  <img
-                    src={project.previewImage || project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-graphite/80 via-graphite/20 to-transparent"></div>
-                  <Badge className="absolute top-4 left-4 bg-white/95 text-graphite border-0 shadow-sm">
-                    {language === 'es' ? project.categoryEs : project.category}
-                  </Badge>
-                  {project.website && (
-                    <span className="absolute top-4 right-4 bg-graphite/90 text-white text-xs px-2.5 py-1 rounded-full">
-                      {project.website}
-                    </span>
-                  )}
-                </div>
-
-                {/* Content */}
-                <div className="p-6">
-                  <h3 className="text-2xl font-light text-graphite mb-2 group-hover:text-golden transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm mb-4 line-clamp-2 font-light">
-                    {language === 'es' ? project.descriptionEs : project.description}
-                  </p>
-                  <p className="text-xs text-gray-500 mb-4">
-                    {project.location} • {project.year}
-                  </p>
-
-                  {/* Metrics */}
-                  <div className="flex items-center gap-4 text-sm pt-4 border-t border-gray-200">
-                    {Object.entries(project.metrics).slice(0, 3).map(([key, value], i) => (
-                      <div key={i} className="text-center">
-                        <div className="font-light text-golden">{value}</div>
-                        <div className="text-xs text-gray-500 capitalize">{key}</div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <Carousel
+            setApi={setProjectsCarouselApi}
+            opts={{ align: 'start', loop: true }}
+            className="w-full"
+          >
+            <CarouselContent>
+              {sortedPortfolio.map((project) => (
+                <CarouselItem key={project.id} className="md:basis-1/2 xl:basis-1/3">
+                  <motion.div
+                    whileHover={{ y: -6 }}
+                    transition={{ duration: 0.2 }}
+                    onClick={() => setSelectedProject(project)}
+                    className="group cursor-pointer h-full"
+                  >
+                    <div className="premium-card overflow-hidden hover-lift h-full">
+                      <div className="relative h-64 overflow-hidden">
+                        <img
+                          src={project.previewImage || project.image}
+                          alt={project.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-graphite/80 via-graphite/20 to-transparent"></div>
+                        <Badge className="absolute top-4 left-4 bg-white/95 text-graphite border-0 shadow-sm">
+                          {language === 'es' ? project.categoryEs : project.category}
+                        </Badge>
+                        {project.website && (
+                          <span className="absolute top-4 right-4 bg-graphite/90 text-white text-xs px-2.5 py-1 rounded-full">
+                            {project.website}
+                          </span>
+                        )}
                       </div>
-                    ))}
-                  </div>
 
-                  {/* Project details */}
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {(project.techStack || project.services || []).slice(0, 3).map((item, i) => (
-                      <span
-                        key={i}
-                        className="px-2.5 py-1 rounded-full bg-gray-100 border border-gray-200 text-xs text-gray-600"
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
+                      <div className="p-6">
+                        <h3 className="text-2xl font-light text-graphite mb-2 group-hover:text-golden transition-colors">
+                          {project.title}
+                        </h3>
+                        <p className="text-gray-600 text-sm mb-4 line-clamp-2 font-light">
+                          {language === 'es' ? project.descriptionEs : project.description}
+                        </p>
+                        <p className="text-xs text-gray-500 mb-4">
+                          {project.location} | {project.year}
+                        </p>
 
-                  {(project.cardHighlights && project.cardHighlights.length > 0) && (
-                    <p className="mt-3 text-xs text-gray-600 line-clamp-2">
-                      {project.cardHighlights[0]}
-                    </p>
-                  )}
+                        <div className="flex items-center gap-4 text-sm pt-4 border-t border-gray-200">
+                          {Object.entries(project.metrics).slice(0, 3).map(([key, value], i) => (
+                            <div key={i} className="text-center">
+                              <div className="font-light text-golden">{value}</div>
+                              <div className="text-xs text-gray-500 capitalize">{key}</div>
+                            </div>
+                          ))}
+                        </div>
 
-                  {project.caseScreenshots && project.caseScreenshots.length > 0 && (
-                    <p className="mt-2 text-xs text-gray-500">
-                      UI Screenshots: {project.caseScreenshots.length}
-                    </p>
-                  )}
+                        <div className="mt-4 flex flex-wrap gap-2">
+                          {(project.techStack || project.services || []).slice(0, 3).map((item, i) => (
+                            <span
+                              key={i}
+                              className="px-2.5 py-1 rounded-full bg-gray-100 border border-gray-200 text-xs text-gray-600"
+                            >
+                              {item}
+                            </span>
+                          ))}
+                        </div>
 
-                  {/* View Case Study */}
-                  <div className="mt-4 text-sm text-graphite font-light flex items-center justify-between">
-                    <span>{language === 'es' ? 'Ver caso completo' : 'View full case'}</span>
-                    <ExternalLink className="w-4 h-4 text-golden" />
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+                        {project.cardHighlights && project.cardHighlights.length > 0 && (
+                          <p className="mt-3 text-xs text-gray-600 line-clamp-2">
+                            {project.cardHighlights[0]}
+                          </p>
+                        )}
+
+                        {project.caseScreenshots && project.caseScreenshots.length > 0 && (
+                          <p className="mt-2 text-xs text-gray-500">
+                            UI Screenshots: {project.caseScreenshots.length}
+                          </p>
+                        )}
+
+                        <div className="mt-4 text-sm text-graphite font-light flex items-center justify-between">
+                          <span>{language === 'es' ? 'Ver caso completo' : 'View full case'}</span>
+                          <ExternalLink className="w-4 h-4 text-golden" />
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-2 top-1/2 -translate-y-1/2 bg-white/95 border-zinc-200 hover:bg-white" />
+            <CarouselNext className="right-2 top-1/2 -translate-y-1/2 bg-white/95 border-zinc-200 hover:bg-white" />
+          </Carousel>
+
+          <div className="mt-6 flex items-center justify-between">
+            <p className="text-sm text-gray-500">
+              {currentProjectSlide}/{totalProjectSlides || sortedPortfolio.length}
+            </p>
+            <div className="flex items-center gap-1.5">
+              {Array.from({ length: totalProjectSlides || sortedPortfolio.length }).map((_, i) => (
+                <span
+                  key={i}
+                  className={`h-1.5 rounded-full transition-all ${
+                    i + 1 === currentProjectSlide ? 'w-6 bg-golden' : 'w-1.5 bg-gray-300'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+        </motion.div>
       </div>
 
-      {/* Case Study Modal */}
       <AnimatePresence>
         {selectedProject && (
           <motion.div
@@ -167,7 +227,6 @@ const Portfolio = ({ language }) => {
               onClick={(e) => e.stopPropagation()}
               className="max-w-4xl w-full bg-white rounded-lg shadow-2xl my-8 max-h-[90vh] overflow-y-auto"
             >
-              {/* Header Image */}
               <div className="relative h-80">
                 <img
                   src={selectedProject.image}
@@ -186,38 +245,34 @@ const Portfolio = ({ language }) => {
               </div>
 
               <div className="p-8 lg:p-12">
-                {/* Title and Category */}
                 <Badge className="bg-golden/10 text-golden border-0 mb-4">
                   {language === 'es' ? selectedProject.categoryEs : selectedProject.category}
                 </Badge>
                 <h2 className="text-4xl font-light text-graphite mb-2">{selectedProject.title}</h2>
                 <p className="text-gray-600 mb-6 font-light">
-                  {selectedProject.client} • {selectedProject.location} • {selectedProject.year}
+                  {selectedProject.client} | {selectedProject.location} | {selectedProject.year}
                 </p>
 
-                {/* Challenge */}
                 <div className="mb-8">
                   <h3 className="text-xl font-light text-graphite mb-3 flex items-center">
                     <span className="w-1.5 h-1.5 bg-golden rounded-full mr-3"></span>
-                    {language === 'es' ? 'Desafío' : 'Challenge'}
+                    {language === 'es' ? 'Desafio' : 'Challenge'}
                   </h3>
                   <p className="text-gray-600 leading-relaxed font-light pl-6">
                     {language === 'es' ? selectedProject.challengeEs : selectedProject.challenge}
                   </p>
                 </div>
 
-                {/* Solution */}
                 <div className="mb-8">
                   <h3 className="text-xl font-light text-graphite mb-3 flex items-center">
                     <span className="w-1.5 h-1.5 bg-golden rounded-full mr-3"></span>
-                    {language === 'es' ? 'Solución' : 'Solution'}
+                    {language === 'es' ? 'Solucion' : 'Solution'}
                   </h3>
                   <p className="text-gray-600 leading-relaxed font-light pl-6">
                     {language === 'es' ? selectedProject.solutionEs : selectedProject.solution}
                   </p>
                 </div>
 
-                {/* Results */}
                 <div className="mb-8">
                   <h3 className="text-xl font-light text-graphite mb-4 flex items-center">
                     <span className="w-1.5 h-1.5 bg-golden rounded-full mr-3"></span>
@@ -233,7 +288,6 @@ const Portfolio = ({ language }) => {
                   </div>
                 </div>
 
-                {/* Metrics */}
                 <div className="grid grid-cols-3 gap-6 mb-8 p-6 bg-gray-50 rounded-lg">
                   {Object.entries(selectedProject.metrics).map(([key, value], i) => (
                     <div key={i} className="text-center">
@@ -243,7 +297,6 @@ const Portfolio = ({ language }) => {
                   ))}
                 </div>
 
-                {/* Interface Screenshots */}
                 {selectedProject.caseScreenshots && selectedProject.caseScreenshots.length > 0 && (
                   <div className="mb-8">
                     <h3 className="text-xl font-light text-graphite mb-4 flex items-center">
@@ -252,7 +305,7 @@ const Portfolio = ({ language }) => {
                     </h3>
 
                     <Carousel
-                      setApi={setCarouselApi}
+                      setApi={setScreenshotsCarouselApi}
                       opts={{ loop: true }}
                       className="w-full"
                     >
@@ -302,14 +355,14 @@ const Portfolio = ({ language }) => {
 
                     <div className="mt-4 flex items-center justify-between">
                       <p className="text-sm text-gray-500">
-                        {currentSlide}/{totalSlides || selectedProject.caseScreenshots.length}
+                        {currentScreenshotSlide}/{totalScreenshotSlides || selectedProject.caseScreenshots.length}
                       </p>
                       <div className="flex items-center gap-1.5">
                         {selectedProject.caseScreenshots.map((_, i) => (
                           <span
                             key={i}
                             className={`h-1.5 rounded-full transition-all ${
-                              i + 1 === currentSlide ? 'w-6 bg-golden' : 'w-1.5 bg-gray-300'
+                              i + 1 === currentScreenshotSlide ? 'w-6 bg-golden' : 'w-1.5 bg-gray-300'
                             }`}
                           />
                         ))}
@@ -318,7 +371,6 @@ const Portfolio = ({ language }) => {
                   </div>
                 )}
 
-                {/* Services & Tags */}
                 <div className="flex flex-wrap gap-2 mb-6">
                   {selectedProject.tags.map((tag, i) => (
                     <span
@@ -330,7 +382,6 @@ const Portfolio = ({ language }) => {
                   ))}
                 </div>
 
-                {/* Website Link */}
                 {selectedProject.website && (
                   <a
                     href={`https://${selectedProject.website}`}
@@ -352,3 +403,7 @@ const Portfolio = ({ language }) => {
 };
 
 export default Portfolio;
+
+
+
+

@@ -1,8 +1,7 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'framer-motion';
 import { Compass, TrendingUp, Code, Briefcase, Sparkles } from 'lucide-react';
 import { services } from '../mockData';
-import ServicesCinematicBackdrop from './ServicesCinematicBackdrop';
 
 const iconMap = {
   Compass: Compass,
@@ -48,7 +47,6 @@ const Services = ({ language }) => {
 
   return (
     <section id="services" className="services-cinematic-section section-padding relative overflow-hidden">
-      <ServicesCinematicBackdrop />
       <div className="services-cinematic-vignette" />
       <div className="services-cinematic-topglow" />
 
@@ -126,7 +124,7 @@ const Services = ({ language }) => {
                 </p>
 
                 <div className="space-y-2.5">
-                  {service.features.map((feature, i) => (
+                  {(isEs && service.featuresEs ? service.featuresEs : service.features).map((feature, i) => (
                     <div key={i} className="services-feature-row">
                       <span className="services-feature-index">{String(i + 1).padStart(2, '0')}</span>
                       <span className="services-feature-text">{feature}</span>
@@ -143,3 +141,5 @@ const Services = ({ language }) => {
 };
 
 export default Services;
+
+
