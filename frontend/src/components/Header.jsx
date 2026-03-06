@@ -1,127 +1,159 @@
-﻿import React, { useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, Globe } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { Globe, Menu, X } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { trackEvent } from '../lib/analytics';
+
+const NAV_ITEMS = [
+  { label: 'Services', labelEs: 'Servicios', to: '/services' },
+  { label: 'Work', labelEs: 'Proyectos', to: '/work' },
+  { label: 'Process', labelEs: 'Proceso', to: '/process' },
+  { label: 'Insights', labelEs: 'Insights', to: '/insights' },
+  { label: 'About', labelEs: 'Nosotros', to: '/about' },
+  { label: 'Contact', labelEs: 'Contacto', to: '/contact' }
+];
 
 const Header = ({ language, setLanguage }) => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  const menuItems = [
-    { label: 'Services', labelEs: 'Servicios', href: '#services' },
-    { label: 'Projects', labelEs: 'Proyectos', href: '#projects' },
-    { label: 'Process', labelEs: 'Proceso', href: '#process' },
-    { label: 'Blog', labelEs: 'Blog', href: '#blog' },
-    { label: 'Contact', labelEs: 'Contacto', href: '#contact' }
-  ];
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location.pathname]);
 
-  const handleNavClick = (e, href) => {
-    e.preventDefault();
+  useEffect(() => {
+    const onEsc = (event) => event.key === 'Escape' && setMobileOpen(false);
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener('keydown', onEsc);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('keydown', onEsc);
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, []);
 
-    if (location.pathname.startsWith('/blog/')) {
-      navigate('/' + href);
-    } else {
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-    setIsMobileMenuOpen(false);
+  const isActive = (to) => location.pathname === to || location.pathname.startsWith(`${to}/`);
+
+  const onLanguageSwitch = () => {
+    const nextLanguage = language === 'en' ? 'es' : 'en';
+    trackEvent('language_switch', { from: language, to: nextLanguage, source: 'header' });
+    setLanguage(nextLanguage);
+  };
+
+  const onNavClick = (target, source = 'header') => {
+    trackEvent('nav_click', {
+      target,
+      source,
+      language,
+      device: mobileOpen ? 'mobile' : 'desktop'
+    });
+    setMobileOpen(false);
   };
 
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#070b1a]/88 backdrop-blur-md shadow-[0_8px_28px_rgba(0,0,0,0.45)] border-b border-white/10`}
-    >
-      <div className="container mx-auto px-3 sm:px-4 lg:px-8">
-        <div className="relative flex h-16 items-center justify-between sm:h-20 lg:justify-center">
-          <Link
-            to="/"
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="flex min-w-0 items-center gap-1 sm:gap-2 cursor-pointer lg:absolute lg:left-0"
-          >
-            <span className="header-letter-glow truncate text-[1.45rem] font-light tracking-[0.08em] text-golden sm:text-2xl sm:tracking-wider">VIDRAI</span>
-            <span className="header-letter-glow truncate text-[1.45rem] font-light tracking-[0.08em] text-golden sm:text-2xl sm:tracking-wider">CO.</span>
-          </Link>
+    <header className={`hdr ${scrolled ? 'is-scrolled' : ''}`} role="banner">
+      <motion.div
+        initial={{ y: -16, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.36 }}
+        className="hdr-shell"
+      >
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="hdr-row">
+            <Link to="/" className="hdr-brand" onClick={() => onNavClick('/', 'logo')} aria-label="VIDRAI home">
+              <span className="hdr-brand-mark">VIDRAI</span>
+              <span className="hdr-brand-sub">STRATEGY SYSTEMS</span>
+            </Link>
 
-          <nav className="hidden lg:flex items-center gap-8">
-            {menuItems.map((item, index) => (
-              <a
-                key={index}
-                href={item.href}
-                onClick={(e) => handleNavClick(e, item.href)}
-                className="header-letter-glow text-[1rem] font-normal uppercase tracking-[0.14em] text-golden cursor-pointer transition-colors duration-200"
-              >
-                {language === 'es' ? item.labelEs : item.label}
-              </a>
-            ))}
-          </nav>
-
-          <div className="absolute right-0 hidden lg:flex items-center">
-            <button
-              onClick={() => setLanguage(language === 'en' ? 'es' : 'en')}
-              className="header-letter-glow inline-flex items-center gap-2 rounded-md border border-[#d4af37]/45 px-3 py-2 text-xs font-semibold tracking-[0.12em] text-golden transition-all duration-300 hover:border-[#f0cf74] hover:text-[#f0cf74]"
-            >
-              <Globe className="h-4 w-4" />
-              {language === 'en' ? 'ES' : 'EN'}
-            </button>
-          </div>
-
-          <button
-            aria-label="Open menu"
-            className="rounded-md p-2.5 text-golden transition-colors hover:bg-white/10 lg:hidden"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
-        </div>
-      </div>
-
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="border-t border-gray-200 bg-white lg:hidden"
-          >
-            <nav className="container mx-auto flex flex-col space-y-4 px-4 py-6">
-              {menuItems.map((item, index) => (
-                <a
-                  key={index}
-                  href={item.href}
-                  onClick={(e) => handleNavClick(e, item.href)}
-                  className="header-letter-glow py-2 text-sm uppercase tracking-wide text-golden cursor-pointer"
+            <nav className="hdr-nav" aria-label="Primary navigation">
+              {NAV_ITEMS.map((item) => (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  onClick={() => onNavClick(item.to, 'desktop_nav')}
+                  className={`hdr-link ${isActive(item.to) ? 'is-active' : ''}`}
                 >
                   {language === 'es' ? item.labelEs : item.label}
-                </a>
+                </Link>
               ))}
-              <div className="flex items-center border-t border-gray-200 pt-4">
-                <button
-                  onClick={() => setLanguage(language === 'en' ? 'es' : 'en')}
-                  className="header-letter-glow inline-flex items-center gap-2 rounded-md border border-[#d4af37]/45 px-3 py-2 text-xs font-semibold tracking-[0.12em] text-golden"
-                >
-                  <Globe className="h-4 w-4" />
+            </nav>
+
+            <div className="hdr-tools">
+              <button
+                type="button"
+                onClick={onLanguageSwitch}
+                className="hdr-lang"
+                aria-label={language === 'en' ? 'Cambiar a espanol' : 'Switch to English'}
+              >
+                <Globe size={15} />
+                {language === 'en' ? 'ES' : 'EN'}
+              </button>
+              <button
+                type="button"
+                className="hdr-menu-btn"
+                onClick={() => setMobileOpen((v) => !v)}
+                aria-label="Toggle menu"
+                aria-expanded={mobileOpen}
+                aria-controls="hdr-mobile-panel"
+              >
+                {mobileOpen ? <X size={18} /> : <Menu size={18} />}
+              </button>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
+      <AnimatePresence>
+        {mobileOpen && (
+          <>
+            <motion.div
+              className="hdr-mobile-backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.22 }}
+              onClick={() => setMobileOpen(false)}
+              aria-hidden="true"
+            />
+            <motion.aside
+              id="hdr-mobile-panel"
+              className="hdr-mobile"
+              role="dialog"
+              aria-label="Mobile navigation"
+              initial={{ opacity: 0, x: 24 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 22 }}
+              transition={{ duration: 0.24 }}
+            >
+              <nav className="hdr-mobile-nav" aria-label="Mobile navigation links">
+                {NAV_ITEMS.map((item) => (
+                  <Link
+                    key={item.to}
+                    to={item.to}
+                    onClick={() => onNavClick(item.to, 'mobile_nav')}
+                    className={`hdr-mobile-link ${isActive(item.to) ? 'is-active' : ''}`}
+                  >
+                    {language === 'es' ? item.labelEs : item.label}
+                  </Link>
+                ))}
+              </nav>
+              <div className="hdr-mobile-footer">
+                <button type="button" onClick={onLanguageSwitch} className="hdr-lang">
+                  <Globe size={15} />
                   {language === 'en' ? 'ES' : 'EN'}
                 </button>
+                <Link to="/contact" onClick={() => onNavClick('/contact', 'mobile_cta')} className="hdr-mobile-cta">
+                  {language === 'es' ? 'Iniciar proyecto' : 'Start Project'}
+                </Link>
               </div>
-            </nav>
-          </motion.div>
+            </motion.aside>
+          </>
         )}
       </AnimatePresence>
-    </motion.header>
+    </header>
   );
 };
 
 export default Header;
-
-
-
-
-
-
-
